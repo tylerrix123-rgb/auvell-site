@@ -110,6 +110,10 @@ select, .chip {
 }
 .explain-grid h3 { font-size: 1.02rem; margin-bottom: 8px; }
 .explain-grid p { color: #444; line-height: 1.6; font-size: .95rem; }
+.explain-grid .wide { grid-column: span 2; }
+.temps { list-style: none; margin: 12px 0; }
+.temps li { padding: 8px 0; border-top: 1px solid #f0f0f0; color: #444; line-height: 1.5; font-size: .95rem; }
+.temps strong { color: #141414; }
 .card { background: #fff; }
 .shot {
   height: 280px; background: #f7f7f7; display: flex; align-items: center; justify-content: center;
@@ -172,6 +176,7 @@ body.menu-open #mobile-menu { right: 0; }
   .links { display: none; }
   .menu-btn { display: inline-flex; }
   .hero, .grid, .explain-grid { grid-template-columns: 1fr; }
+  .explain-grid .wide { grid-column: auto; }
   .hero-copy { padding: 36px 22px; }
   .hero h1 { font-size: 3.4rem; }
   .hero-art { min-height: 220px; }
