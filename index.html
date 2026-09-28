@@ -4,27 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="age-gate" class="gate">
     <div class="gate-card">
-      <h2>Just a moment</h2>
-      <p>Please confirm you are 21 or over, and that this site is for research enquiries only.</p>
+      <h2>Age check</h2>
+      <p>Confirm you are 21 or over, and that this site is for research enquiries only.</p>
       <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
-      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only — not for human or veterinary use.</label>
-      <button class="btn dark" type="button" id="enter-site">I agree &amp; enter</button>
+      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only. Not for human or veterinary use.</label>
+      <button class="btn" type="button" id="enter-site">I agree & enter</button>
     </div>
   </div>
-
-  <div class="ticker"><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Add several packs to one note</span><span>Research enquiries only</span><span>Talk on WhatsApp</span></div>
-
-  <header class="top-nav" id="top-nav">
+  <div class="ticker"><div class="ticker-track"><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Add several packs to one note</span><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Add several packs to one note</span></div></div>
+  <header class="top-nav">
     <div class="bar">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
       <nav class="links">
-        <a href="index.html" class="on">Home</a>
+        <a class="on" href="index.html">Home</a>
         <a href="compounds.html">Shop</a>
         <a href="learn.html">Guide</a>
         <a href="about.html">About</a>
@@ -32,11 +30,10 @@
       </nav>
       <div class="icons">
         <a class="icon-btn" href="compounds.html" aria-label="Shop">+</a>
-        <button class="menu-btn" type="button">☰</button>
+        <button class="menu-btn" type="button" aria-label="Menu">☰</button>
       </div>
     </div>
   </header>
-
   <div class="float-nav" id="float-nav">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
     <nav class="links">
@@ -44,18 +41,16 @@
       <a href="compounds.html">Shop</a>
       <a href="learn.html">Guide</a>
       <a href="about.html">About</a>
-      <a href="legal.html">Notes</a>
     </nav>
     <a class="icon-btn" href="compounds.html">+</a>
   </div>
-
-  <section class="hero home-hero">
+  <section class="hero">
     <div class="hero-copy">
-      <h1>A QUIETER<br />KIND OF SHOP</h1>
-      <h2>Research compounds, asked nicely.</h2>
-      <div class="goldline"></div>
-      <p>Look through the list, add what you want to talk about, and send one note. A person answers on WhatsApp. Nothing is charged here.</p>
-      <a class="btn dark" href="compounds.html">Open the shop</a>
+      <h1>SHOP</h1>
+      <h2>Research compounds</h2>
+      <div class="rule"></div>
+      <p>A clear list, a vial on every card, and one note sent to a person on WhatsApp. Nothing is charged on this site.</p>
+      <a class="btn" href="compounds.html">Open the shop</a>
     </div>
     <div class="hero-art">
       <img class="float v1" data-hero-vial alt="" />
@@ -63,73 +58,11 @@
       <img class="float v3" data-hero-vial alt="" />
     </div>
   </section>
-
-  <section class="band">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Auvell</p>
-        <h2 class="display">CAREFUL WORK.<br />PLAIN CONVERSATION.</h2>
-        <p>A small front door for people who want a clear list and a real reply — not a noisy warehouse page.</p>
-        <a class="btn dark" href="compounds.html">Browse the list</a>
-      </div>
-      <div class="pills">
-        <span>Research use only</span>
-        <span>WhatsApp replies</span>
-        <span>No checkout here</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap statement">
-    <p class="eyebrow">Our note</p>
-    <h2 class="display">UNHURRIED AND CLEAR</h2>
-    <p>If you have a question, ask it in ordinary words. Add one pack or several. Mix items. We will pick the note up and talk it through.</p>
-  </section>
-
-  <section class="wrap steps">
-    <article>
-      <strong>01</strong>
-      <h3>Look</h3>
-      <p>Each card has a vial photo and the milligram sizes we can talk about.</p>
-    </article>
-    <article>
-      <strong>02</strong>
-      <h3>Add</h3>
-      <p>Tap a size as many times as you like. Your note sits in the bag at the top.</p>
-    </article>
-    <article>
-      <strong>03</strong>
-      <h3>Send</h3>
-      <p>Write anything else, then send the whole list on WhatsApp.</p>
-    </article>
-  </section>
-
-  <section class="wrap featured">
-    <div class="shop-tools">
-      <h2 class="display">ON THE SHELF</h2>
-      <a class="btn dark" href="compounds.html">See all</a>
-    </div>
-    <div class="product-grid" id="product-grid"></div>
-  </section>
-
-  <footer class="site-foot">
-    <div class="wrap foot-grid">
-      <div>
-        <h3>Auvell</h3>
-        <p>A preview shopfront. Conversations only.</p>
-      </div>
-      <div>
-        <h3>Visit</h3>
-        <p><a href="compounds.html">Shop</a><br><a href="learn.html">Guide</a></p>
-      </div>
-      <div>
-        <h3>House</h3>
-        <p><a href="about.html">About</a><br><a href="legal.html">Notes</a></p>
-      </div>
-    </div>
-    <p class="fine">Not medical advice. Not for human or veterinary use.</p>
-  </footer>
-
+  <div class="tools"><p>A few from the list</p><a class="btn" href="compounds.html">See all</a></div>
+  <div class="grid" id="product-grid" data-limit="3"></div>
+  <footer class="foot">Auvell · Research enquiries · Not medical advice · Not for human or veterinary use</footer>
+  <div class="toast" id="toast"></div>
   <script src="vial.js"></script>
   <script src="brand.js"></script>
-</body></html>
+</body>
+</html>
