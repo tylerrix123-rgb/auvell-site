@@ -90,7 +90,9 @@ function renderHeroVials() {
 function renderProducts() {
   var grid = document.getElementById("product-grid");
   if (!grid) return;
-  grid.innerHTML = window.AUVELL.products.map(function (p) {
+  var list = window.AUVELL.products;
+  if (grid.closest(".featured")) list = list.slice(0, 3);
+  grid.innerHTML = list.map(function (p) {
     var sizes = p.sizes.map(function (s) {
       return '<button type="button" onclick="addOne(\'' + p.id + '\',\'' + s + '\')">' + s + '</button>';
     }).join("");
@@ -100,19 +102,30 @@ function renderProducts() {
       '<div class="sizes">' + sizes + '</div></article>';
   }).join("");
 }
+function bindFloatNav() {
+  var bar = document.getElementById("float-nav");
+  if (!bar) return;
+  function tick() {
+    if (window.scrollY > 90) bar.classList.add("show");
+    else bar.classList.remove("show");
+  }
+  tick();
+  window.addEventListener("scroll", tick, { passive: true });
+}
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[data-logo]").forEach(function (img) { img.src = window.AUVELL.logo; });
   renderHeroVials();
   renderProducts(); renderBasket();
+  bindFloatNav();
   var send = document.getElementById("send-enquiry");
   if (send) send.addEventListener("click", sendEnquiry);
-  ["open-cart", "open-cart-2"].forEach(function (id) {
+  ["open-cart", "open-cart-2", "open-cart-3"].forEach(function (id) {
     var el = document.getElementById(id); if (el) el.addEventListener("click", openCart);
   });
   var close = document.getElementById("close-cart"); if (close) close.addEventListener("click", closeCart);
   var scrim = document.getElementById("scrim"); if (scrim) scrim.addEventListener("click", closeCart);
   var menu = document.querySelector(".menu-btn");
-  var links = document.querySelector(".links");
+  var links = document.querySelector(".top-nav .links") || document.querySelector(".links");
   if (menu && links) menu.addEventListener("click", function () { links.classList.toggle("open"); });
   var gate = document.getElementById("age-gate");
   var enter = document.getElementById("enter-site");
