@@ -11,14 +11,16 @@
   <div id="age-gate" class="gate">
     <div class="gate-card">
       <h2>Just a moment</h2>
-      <p>Please confirm you are 21 or over, and that you understand this site is for research enquiries only.</p>
+      <p>Please confirm you are 21 or over, and that this site is for research enquiries only.</p>
       <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
-      <label class="check"><input type="checkbox" id="ruo-ok" /> I understand these materials are discussed for laboratory research, not for human or veterinary use.</label>
+      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only — not for human or veterinary use.</label>
       <button class="btn dark" type="button" id="enter-site">I agree &amp; enter</button>
     </div>
   </div>
-  <div class="ticker"><span>Add several items</span><span>Add more than one of the same pack</span><span>Send as one WhatsApp note</span></div>
-  <header>
+
+  <div class="ticker"><span>Add several items</span><span>Add more than one of the same pack</span><span>Send as one WhatsApp note</span><span>Add several items</span></div>
+
+  <header class="top-nav" id="top-nav">
     <div class="bar">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
       <nav class="links">
@@ -29,31 +31,45 @@
         <a href="legal.html">Notes</a>
       </nav>
       <div class="icons">
-        <button class="icon-btn" type="button" id="open-cart" aria-label="Enquiry">+</button>
+        <button class="icon-btn" type="button" id="open-cart" aria-label="Note">+</button>
         <button class="menu-btn" type="button">☰</button>
       </div>
     </div>
   </header>
+
+  <div class="float-nav" id="float-nav">
+    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="compounds.html">Shop</a>
+      <a href="learn.html">Guide</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button class="icon-btn" type="button" id="open-cart-2">+ <span id="basket-count">0</span></button>
+  </div>
+
   <section class="hero compact">
     <div class="hero-copy">
       <h1>SHOP</h1>
       <h2>The list</h2>
       <div class="goldline"></div>
-      <p>Tap a size to add it. The bag opens your note. Send it on WhatsApp when you are ready.</p>
+      <p>Tap a size to add it. Keep scrolling — the bar at the top stays with you so you can open your note any time.</p>
     </div>
-    <div class="hero-art" aria-hidden="true">
+    <div class="hero-art">
       <img class="float v1" data-hero-vial alt="" />
       <img class="float v2" data-hero-vial alt="" />
       <img class="float v3" data-hero-vial alt="" />
     </div>
   </section>
+
   <section class="shop">
     <div class="shop-tools">
-      <p id="result-count">On the shelf</p>
-      <button class="btn dark" type="button" id="open-cart-2">Your note <span id="basket-count">0</span></button>
+      <p>On the shelf</p>
+      <button class="btn dark" type="button" id="open-cart-3">Your note</button>
     </div>
     <div class="product-grid" id="product-grid"></div>
   </section>
+
   <aside class="drawer" id="enquiry-cart">
     <div class="drawer-head">
       <h2>Your note</h2>
@@ -66,7 +82,10 @@
     <button class="btn wa" type="button" id="send-enquiry">Send on WhatsApp</button>
   </aside>
   <div class="scrim" id="scrim"></div>
-  <footer class="foot">Auvell preview · Research enquiries · Not medical advice · Not for human or veterinary use</footer>
+
+  <footer class="site-foot">
+    <p class="fine">Auvell preview · Research enquiries · Not medical advice · Not for human or veterinary use</p>
+  </footer>
   <script src="vial.js"></script>
   <script src="brand.js"></script>
 </body></html>
