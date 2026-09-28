@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Auvell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="banner">Inquiries for laboratory research context only</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><img src="logo.svg" alt="Auvell" /></a>
+      <nav class="links">
+        <a href="learn.html">Learn</a><a href="compounds.html">Library</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Legal</a>
+      </nav>
+      <a class="btn ghost" href="legal.html">Terms</a>
+    </div>
+  </header>
+  <section class="page-hero"><div class="wrap">
+    <p class="kicker">Contact</p>
+    <h1>Research inquiry</h1>
+    <p class="lead">This form is a static preview. Wire it to your email before launch.</p>
+  </div></section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap" style="max-width:640px;margin-left:auto;margin-right:auto">
+      <form action="#" method="post" onsubmit="event.preventDefault(); alert('Preview only — connect this form before launch.');">
+        <div><label for="name">Name</label><input id="name" name="name" required /></div>
+        <div><label for="org">Institution or laboratory</label><input id="org" name="org" required /></div>
+        <div><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
+        <div><label for="intent">Nature of inquiry</label>
+          <select id="intent" name="intent">
+            <option>Educational question</option>
+            <option>Catalog / future purchasing account</option>
+            <option>Quality documentation</option>
+            <option>Press or partnership</option>
+          </select>
+        </div>
+        <div><label for="msg">Message</label><textarea id="msg" name="msg" placeholder="Describe the laboratory context."></textarea></div>
+        <button class="btn" type="submit">Send inquiry</button>
+      </form>
+      <div class="notice">Submitting this form does not create an account or a sale.</div>
+    </div>
+  </section>
+  <footer><div class="wrap fine">© 2026 Auvell</div></footer>
+</body></html>
