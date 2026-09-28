@@ -58,6 +58,7 @@ function buildMessage() {
 }
 function sendEnquiry() { auvellWhatsApp(buildMessage()); }
 function openCart() {
+  closeMenu();
   var d = document.getElementById("enquiry-cart");
   var s = document.getElementById("scrim");
   if (d) d.classList.add("open");
@@ -68,6 +69,60 @@ function closeCart() {
   var s = document.getElementById("scrim");
   if (d) d.classList.remove("open");
   if (s) s.classList.remove("on");
+}
+function openMenu() { document.body.classList.add("menu-open"); }
+function closeMenu() { document.body.classList.remove("menu-open"); }
+function toggleMenu() {
+  if (document.body.classList.contains("menu-open")) closeMenu();
+  else openMenu();
+}
+function bindMobileMenu() {
+  if (!document.getElementById("mobile-menu")) {
+    var wrap = document.createElement("div");
+    wrap.id = "mobile-menu";
+    wrap.innerHTML =
+      '<button class="menu-close" type="button" aria-label="Close menu">×</button>' +
+      '<a href="index.html">Home</a>' +
+      '<a href="compounds.html">Shop</a>' +
+      '<a href="learn.html">Guide</a>' +
+      '<a href="about.html">About</a>' +
+      '<a href="legal.html">Notes</a>';
+    var veil = document.createElement("div");
+    veil.id = "menu-veil";
+    document.body.appendChild(veil);
+    document.body.appendChild(wrap);
+  }
+  document.querySelectorAll(".menu-btn").forEach(function (btn) {
+    btn.setAttribute("aria-label", "Open menu");
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+  });
+  var closer = document.querySelector("#mobile-menu .menu-close");
+  if (closer) closer.addEventListener("click", closeMenu);
+  var veil = document.getElementById("menu-veil");
+  if (veil) veil.addEventListener("click", closeMenu);
+  document.querySelectorAll("#mobile-menu a").forEach(function (a) {
+    a.addEventListener("click", closeMenu);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
+  });
+  var floatNav = document.getElementById("float-nav");
+  if (floatNav && !floatNav.querySelector(".menu-btn")) {
+    var extra = document.createElement("button");
+    extra.className = "menu-btn";
+    extra.type = "button";
+    extra.setAttribute("aria-label", "Open menu");
+    extra.textContent = "☰";
+    extra.addEventListener("click", function (e) {
+      e.preventDefault();
+      toggleMenu();
+    });
+    floatNav.appendChild(extra);
+  }
 }
 function renderBasket() {
   var box = document.getElementById("cart-lines");
@@ -117,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderHeroVials();
   renderProducts(); renderBasket();
   bindFloatNav();
+  bindMobileMenu();
   var send = document.getElementById("send-enquiry");
   if (send) send.addEventListener("click", sendEnquiry);
   ["open-cart", "open-cart-2", "open-cart-3"].forEach(function (id) {
@@ -124,9 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   var close = document.getElementById("close-cart"); if (close) close.addEventListener("click", closeCart);
   var scrim = document.getElementById("scrim"); if (scrim) scrim.addEventListener("click", closeCart);
-  var menu = document.querySelector(".menu-btn");
-  var links = document.querySelector(".top-nav .links") || document.querySelector(".links");
-  if (menu && links) menu.addEventListener("click", function () { links.classList.toggle("open"); });
   var gate = document.getElementById("age-gate");
   var enter = document.getElementById("enter-site");
   if (gate && sessionStorage.getItem("auvell-in") === "1") gate.classList.add("hide");
