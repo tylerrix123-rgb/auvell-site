@@ -73,10 +73,9 @@ footer h3 { color: #fff; margin-bottom: 8px; }
 .stepper button { width: 36px; height: 36px; border: 0; background: #efe8db; color: var(--navy); font-size: 1.2rem; }
 .stepper strong { min-width: 1.4em; text-align: center; }
 .enquiry {
-  position: sticky; bottom: 0; background: var(--card);
+  background: var(--card);
   border-top: 1px solid var(--line);
-  padding: 14px 0 calc(14px + env(safe-area-inset-bottom));
-  box-shadow: 0 -8px 24px rgba(18, 28, 51, 0.08);
+  padding: 18px 0 22px;
 }
 .enquiry textarea { width: 100%; min-height: 88px; padding: 12px; border: 1px solid var(--line); font: inherit; background: #fff; margin: 10px 0; }
 .enquiry-actions { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -91,5 +90,6 @@ footer h3 { color: #fff; margin-bottom: 8px; }
   .btn { padding: 10px 12px; font-size: 0.72rem; }
   h1 { font-size: 2.1rem; }
   .hero { padding: 28px 0 24px; }
+  .section { padding: 28px 0; }
   .enquiry .btn { width: 100%; }
 }
