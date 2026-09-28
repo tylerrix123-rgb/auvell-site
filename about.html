@@ -4,25 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="banner">House of record</div>
+  <div class="topbar">A specialist house for research compounds · Questions go to WhatsApp</div>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="index.html"><img src="logo.svg" alt="Auvell" /></a>
+      <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+      <button class="menu-btn" type="button" aria-label="Menu">☰</button>
       <nav class="links">
-        <a href="learn.html">Learn</a><a href="compounds.html">Library</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Legal</a>
+        <a href="index.html">Home</a><a href="compounds.html">Compounds</a><a href="learn.html">Guide</a><a href="about.html">About</a><a href="legal.html">Notes</a>
       </nav>
-      <a class="btn" href="contact.html">Research inquiry</a>
+      <button class="btn wa" type="button" data-wa="Hello Auvell, I would like to ask about availability.">WhatsApp</button>
     </div>
   </header>
   <section class="page-hero"><div class="wrap prose">
     <p class="kicker">About</p>
-    <h1>Auvell Research Compounds</h1>
-    <p>Auvell is a new house built around two ideas: the public deserves a clear explanation of this category, and laboratories deserve vendors that do not blur reagents with medicines.</p>
-    <p>Replace this paragraph with your origin story before launch.</p>
+    <h1>Built to feel like a shop you can talk to</h1>
+    <p>Auvell is meant to feel closer to a specialist counter than a laboratory corridor: your mark on the door, a short list, and a person on the other side of WhatsApp.</p>
+    <button class="btn wa" type="button" data-wa="Hello Auvell, I would like to introduce myself.">WhatsApp Auvell</button>
   </div></section>
-  <footer><div class="wrap fine">© 2026 Auvell</div></footer>
+  <footer><div class="wrap fine">Preview site. Not medical advice.</div></footer>
+  <script src="brand.js"></script>
 </body></html>

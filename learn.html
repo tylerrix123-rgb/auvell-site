@@ -3,40 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Learn — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <title>Guide — Auvell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="banner">Educational pages only · No instructions for human use</div>
+  <div class="topbar">A specialist house for research compounds · Questions go to WhatsApp</div>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="index.html"><img src="logo.svg" alt="Auvell" /></a>
+      <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+      <button class="menu-btn" type="button" aria-label="Menu">☰</button>
       <nav class="links">
-        <a href="learn.html">Learn</a><a href="compounds.html">Library</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Legal</a>
+        <a href="index.html">Home</a><a href="compounds.html">Compounds</a><a href="learn.html">Guide</a><a href="about.html">About</a><a href="legal.html">Notes</a>
       </nav>
-      <a class="btn" href="contact.html">Research inquiry</a>
+      <button class="btn wa" type="button" data-wa="Hello Auvell, I would like to ask about availability.">WhatsApp</button>
     </div>
   </header>
   <section class="page-hero"><div class="wrap prose">
-    <p class="kicker">Primers</p>
-    <h1>What research compounds means</h1>
-    <p>The phrase is used loosely online. In a laboratory setting it usually means chemical reagents supplied for in-vitro study, analytical work, or other non-clinical research. They are not the same thing as licensed medicines.</p>
+    <p class="kicker">Guide</p>
+    <h1>A plain-English front door</h1>
+    <p>Most people land here because the internet is loud. We keep this page short on purpose.</p>
+    <p>A chat on WhatsApp is a conversation about what we hold and whether we can help. It is not a prescription and it is not medical advice.</p>
+    <p><a class="btn" href="compounds.html">Open the list</a></p>
   </div></section>
-  <section class="section alt"><div class="wrap grid-2">
-    <article class="card prose"><h3>Approved medicines</h3><div class="rule"></div><p>Evaluated by a regulator for a stated use in people or animals. Manufactured, labeled, and distributed under drug rules.</p></article>
-    <article class="card prose"><h3>Research reagents</h3><div class="rule"></div><p>Sold as chemicals for laboratory investigation. They are not approved to diagnose, treat, cure, or prevent disease.</p></article>
-  </div></section>
-  <section class="section"><div class="wrap prose">
-    <p class="kicker">How to read the field</p>
-    <h2>Questions worth asking</h2>
-    <ul>
-      <li>Is this an approved drug, a research reagent, or something being marketed as both?</li>
-      <li>What analytical documents exist for the specific batch?</li>
-      <li>Who is allowed to purchase and possess this material where you work?</li>
-      <li>Is the vendor describing a laboratory use, or implying a use in people?</li>
-    </ul>
-    <p><a class="btn" href="quality.html">How we talk about testing</a></p>
-  </div></section>
-  <footer><div class="wrap fine">© 2026 Auvell · <a href="index.html">Home</a></div></footer>
+  <footer><div class="wrap fine">Preview site.</div></footer>
+  <script src="brand.js"></script>
 </body></html>
