@@ -4,25 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="topbar">Questions go to WhatsApp</div>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-      <nav class="links">
-        <a href="index.html">Home</a><a href="compounds.html">Compounds</a>
-      </nav>
-      <button class="btn wa" type="button" data-wa="Hello Auvell, I have a question.">WhatsApp</button>
-    </div>
-  </header>
-  <section class="page-hero"><div class="wrap prose">
-    <p class="kicker">Contact</p>
-    <h1>WhatsApp first</h1>
-    <p>Enquiries go to a chat so you can speak with someone who knows the list.</p>
-    <button class="btn wa" type="button" data-wa="Hello Auvell, I have a question.">Open WhatsApp</button>
-  </div></section>
+  <header class="top-nav"><div class="bar">
+    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="compounds.html">Shop</a>
+      <a href="quality.html">Quality</a>
+      <a class="on" href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn" type="button">☰</button>
+  </div></header>
+  <main class="page">
+    <p class="eyebrow">Contact</p>
+    <h1>Talk to a person.</h1>
+    <p>Notes go to WhatsApp. There is no checkout on this site. Add the number in brand.js and this form will open the chat with your words already written.</p>
+    <label for="c-name">Your name</label>
+    <input id="c-name" type="text" />
+    <label for="c-topic">What this is about</label>
+    <select id="c-topic">
+      <option>Availability</option>
+      <option>Paperwork / lot file</option>
+      <option>A compound not on the list</option>
+      <option>Something else</option>
+    </select>
+    <label for="c-body">Message</label>
+    <textarea id="c-body" placeholder="Write freely."></textarea>
+    <button class="btn" type="button" id="send-contact">Send on WhatsApp</button>
+    <p>If you would rather email, put the address in brand.js and we can add it here.</p>
+  </main>
+  <footer class="foot"><a href="legal.html">Notes</a> · Research use only</footer>
+  <script src="vial.js"></script>
   <script src="brand.js"></script>
-</body></html>
+</body>
+</html>

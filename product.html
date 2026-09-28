@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compound — Auvell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top-nav"><div class="bar">
+    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a class="on" href="compounds.html">Shop</a>
+      <a href="quality.html">Quality</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="icons">
+      <button class="icon-btn" type="button" id="open-cart">+</button>
+      <button class="menu-btn" type="button">☰</button>
+    </div>
+  </div></header>
+  <main class="page wide product-layout" id="product-page"></main>
+  <aside class="drawer" id="enquiry-cart">
+    <div class="drawer-head"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div>
+    <p id="cart-empty">Nothing in here yet.</p>
+    <div id="cart-lines"></div>
+    <label for="ask-anything">Anything you want to ask</label>
+    <textarea id="ask-anything" placeholder="Ask us anything."></textarea>
+    <button class="btn wa" type="button" id="send-enquiry">Send on WhatsApp</button>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="toast" id="toast"></div>
+  <footer class="foot">Auvell · Research enquiries · Not medical advice</footer>
+  <script src="vial.js"></script>
+  <script src="brand.js"></script>
+</body>
+</html>
