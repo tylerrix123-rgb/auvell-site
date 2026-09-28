@@ -4,39 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="age-gate" class="gate">
     <div class="gate-card">
-      <h2>Just a moment</h2>
-      <p>Please confirm you are 21 or over, and that this site is for research enquiries only.</p>
+      <h2>Age check</h2>
+      <p>Confirm you are 21 or over, and that this site is for research enquiries only.</p>
       <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
-      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only — not for human or veterinary use.</label>
-      <button class="btn dark" type="button" id="enter-site">I agree &amp; enter</button>
+      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only. Not for human or veterinary use.</label>
+      <button class="btn" type="button" id="enter-site">I agree & enter</button>
     </div>
   </div>
-
-  <div class="ticker"><span>Add several items</span><span>Add more than one of the same pack</span><span>Send as one WhatsApp note</span><span>Add several items</span></div>
-
-  <header class="top-nav" id="top-nav">
+  <div class="ticker"><div class="ticker-track"><span>Add several items</span><span>Add more than one of the same pack</span><span>Send one WhatsApp note</span><span>Add several items</span><span>Add more than one of the same pack</span><span>Send one WhatsApp note</span></div></div>
+  <header class="top-nav">
     <div class="bar">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
       <nav class="links">
         <a href="index.html">Home</a>
-        <a href="compounds.html" class="on">Shop</a>
+        <a class="on" href="compounds.html">Shop</a>
         <a href="learn.html">Guide</a>
         <a href="about.html">About</a>
         <a href="legal.html">Notes</a>
       </nav>
       <div class="icons">
-        <button class="icon-btn" type="button" id="open-cart" aria-label="Note">+</button>
-        <button class="menu-btn" type="button">☰</button>
+        <button class="icon-btn" type="button" id="open-cart" aria-label="Note">+<i id="basket-count">0</i></button>
+        <button class="menu-btn" type="button" aria-label="Menu">☰</button>
       </div>
     </div>
   </header>
-
   <div class="float-nav" id="float-nav">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
     <nav class="links">
@@ -45,15 +42,14 @@
       <a href="learn.html">Guide</a>
       <a href="about.html">About</a>
     </nav>
-    <button class="icon-btn" type="button" id="open-cart-2">+ <span id="basket-count">0</span></button>
+    <button class="icon-btn" type="button" id="open-cart-2">+</button>
   </div>
-
-  <section class="hero compact">
+  <section class="hero">
     <div class="hero-copy">
       <h1>SHOP</h1>
       <h2>The list</h2>
-      <div class="goldline"></div>
-      <p>Tap a size to add it. Keep scrolling — the bar at the top stays with you so you can open your note any time.</p>
+      <div class="rule"></div>
+      <p>Tap a size to add it. The bar stays with you as you scroll, and the note opens on the right.</p>
     </div>
     <div class="hero-art">
       <img class="float v1" data-hero-vial alt="" />
@@ -61,20 +57,21 @@
       <img class="float v3" data-hero-vial alt="" />
     </div>
   </section>
-
-  <section class="shop">
-    <div class="shop-tools">
-      <p>On the shelf</p>
-      <button class="btn dark" type="button" id="open-cart-3">Your note</button>
+  <div class="tools">
+    <div class="chips">
+      <button class="chip on" type="button" data-filter="all">All</button>
+      <button class="chip" type="button" data-filter="5 mg">5 mg</button>
+      <button class="chip" type="button" data-filter="10 mg">10 mg</button>
     </div>
-    <div class="product-grid" id="product-grid"></div>
-  </section>
-
+    <p id="result-count">Showing the list</p>
+    <select id="sort" aria-label="Sort">
+      <option value="name">Name A–Z</option>
+      <option value="za">Name Z–A</option>
+    </select>
+  </div>
+  <div class="grid" id="product-grid"></div>
   <aside class="drawer" id="enquiry-cart">
-    <div class="drawer-head">
-      <h2>Your note</h2>
-      <button type="button" id="close-cart">Close</button>
-    </div>
+    <div class="drawer-head"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div>
     <p id="cart-empty">Nothing in here yet.</p>
     <div id="cart-lines"></div>
     <label for="ask-anything">Anything you want to ask</label>
@@ -82,10 +79,9 @@
     <button class="btn wa" type="button" id="send-enquiry">Send on WhatsApp</button>
   </aside>
   <div class="scrim" id="scrim"></div>
-
-  <footer class="site-foot">
-    <p class="fine">Auvell preview · Research enquiries · Not medical advice · Not for human or veterinary use</p>
-  </footer>
+  <div class="toast" id="toast"></div>
+  <footer class="foot">Auvell · Research enquiries · Not medical advice · Not for human or veterinary use</footer>
   <script src="vial.js"></script>
   <script src="brand.js"></script>
-</body></html>
+</body>
+</html>
