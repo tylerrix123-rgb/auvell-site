@@ -2,21 +2,21 @@ window.AUVELL = {
   whatsapp: "",
   logo: "logo.svg",
   products: [
-    { id: "p1", name: "Peptide 01", sizeLabel: "5 mg / 10 mg", photo: "", sizes: ["5 mg", "10 mg"] },
-    { id: "p2", name: "Peptide 02", sizeLabel: "2 mg / 5 mg", photo: "", sizes: ["2 mg", "5 mg"] },
-    { id: "p3", name: "Peptide 03", sizeLabel: "5 mg / 10 mg", photo: "", sizes: ["5 mg", "10 mg"] },
-    { id: "p4", name: "Peptide 04", sizeLabel: "10 mg", photo: "", sizes: ["10 mg"] },
-    { id: "p5", name: "Peptide 05", sizeLabel: "5 mg / 10 mg", photo: "", sizes: ["5 mg", "10 mg"] },
-    { id: "p6", name: "Something else", sizeLabel: "Tell us the name", photo: "", sizes: ["Other"] }
+    { id: "p1", name: "Compound 01", sizeLabel: "5 mg", sizes: ["5 mg", "10 mg"] },
+    { id: "p2", name: "Compound 02", sizeLabel: "2 mg", sizes: ["2 mg", "5 mg"] },
+    { id: "p3", name: "Compound 03", sizeLabel: "5 mg", sizes: ["5 mg", "10 mg"] },
+    { id: "p4", name: "Compound 04", sizeLabel: "10 mg", sizes: ["10 mg"] },
+    { id: "p5", name: "Compound 05", sizeLabel: "5 mg", sizes: ["5 mg", "10 mg"] },
+    { id: "p6", name: "Something else", sizeLabel: "Ask us", sizes: ["Other"] }
   ]
 };
 window.AUVELL.basket = {};
-function vialSrc(p) { return (p && p.photo) || window.AUVELL_VIAL || "vial.jpg"; }
+window.AUVELL.filter = "all";
+window.AUVELL.sort = "name";
+function vialSrc() { return window.AUVELL_VIAL || "vial.jpg"; }
 function keyFor(id, size) { return id + "::" + size; }
-function parseKey(k) { var p = k.split("::"); return { id: p[0], size: p.slice(1).join("::") }; }
 function findProduct(id) {
-  for (var i = 0; i < window.AUVELL.products.length; i++) if (window.AUVELL.products[i].id === id) return window.AUVELL.products[i];
-  return null;
+  return window.AUVELL.products.filter(function (p) { return p.id === id; })[0] || null;
 }
 function auvellWhatsApp(text) {
   var n = (window.AUVELL.whatsapp || "").replace(/\D/g, "");
@@ -29,34 +29,46 @@ function setQty(id, size, qty) {
   var k = keyFor(id, size);
   if (qty === 0) delete window.AUVELL.basket[k]; else window.AUVELL.basket[k] = qty;
   renderBasket();
+  renderProducts();
 }
 function changeQty(id, size, delta) { setQty(id, size, qtyOf(id, size) + delta); }
-function addOne(id, size) { changeQty(id, size, 1); openCart(); }
+function toast(msg) {
+  var el = document.getElementById("toast");
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(window.AUVELL._toast);
+  window.AUVELL._toast = setTimeout(function () { el.classList.remove("show"); }, 1600);
+}
+function addOne(id, size) {
+  changeQty(id, size, 1);
+  var p = findProduct(id);
+  toast((p ? p.name : "Item") + " · " + size + " added to your note");
+}
 function selectedItems() {
-  var items = [];
-  Object.keys(window.AUVELL.basket).forEach(function (k) {
-    var q = window.AUVELL.basket[k]; if (!q) return;
-    var parsed = parseKey(k); var p = findProduct(parsed.id);
-    items.push({ id: parsed.id, size: parsed.size, qty: q, name: p ? p.name : parsed.id });
-  });
-  return items;
+  return Object.keys(window.AUVELL.basket).map(function (k) {
+    var parts = k.split("::");
+    var id = parts[0];
+    var size = parts.slice(1).join("::");
+    var p = findProduct(id);
+    return { id: id, size: size, qty: window.AUVELL.basket[k], name: p ? p.name : id };
+  }).filter(function (i) { return i.qty; });
 }
 function basketCount() {
-  var t = 0; selectedItems().forEach(function (i) { t += i.qty; }); return t;
+  return selectedItems().reduce(function (t, i) { return t + i.qty; }, 0);
 }
 function buildMessage() {
   var items = selectedItems();
   var question = ((document.getElementById("ask-anything") || {}).value || "").trim();
   var parts = ["Hello Auvell,"];
   if (items.length) {
-    parts.push(""); parts.push("I would love to ask about:");
+    parts.push("", "I would love to ask about:");
     items.forEach(function (i) { parts.push("- " + i.qty + " x " + i.name + " (" + i.size + ")"); });
   }
-  if (question) { parts.push(""); parts.push(question); }
-  if (!items.length && !question) { parts.push(""); parts.push("I have a question."); }
+  if (question) parts.push("", question);
+  if (!items.length && !question) parts.push("", "I have a question.");
   return parts.join("\n");
 }
-function sendEnquiry() { auvellWhatsApp(buildMessage()); }
 function openCart() {
   closeMenu();
   var d = document.getElementById("enquiry-cart");
@@ -72,58 +84,7 @@ function closeCart() {
 }
 function openMenu() { document.body.classList.add("menu-open"); }
 function closeMenu() { document.body.classList.remove("menu-open"); }
-function toggleMenu() {
-  if (document.body.classList.contains("menu-open")) closeMenu();
-  else openMenu();
-}
-function bindMobileMenu() {
-  if (!document.getElementById("mobile-menu")) {
-    var wrap = document.createElement("div");
-    wrap.id = "mobile-menu";
-    wrap.innerHTML =
-      '<button class="menu-close" type="button" aria-label="Close menu">×</button>' +
-      '<a href="index.html">Home</a>' +
-      '<a href="compounds.html">Shop</a>' +
-      '<a href="learn.html">Guide</a>' +
-      '<a href="about.html">About</a>' +
-      '<a href="legal.html">Notes</a>';
-    var veil = document.createElement("div");
-    veil.id = "menu-veil";
-    document.body.appendChild(veil);
-    document.body.appendChild(wrap);
-  }
-  document.querySelectorAll(".menu-btn").forEach(function (btn) {
-    btn.setAttribute("aria-label", "Open menu");
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleMenu();
-    });
-  });
-  var closer = document.querySelector("#mobile-menu .menu-close");
-  if (closer) closer.addEventListener("click", closeMenu);
-  var veil = document.getElementById("menu-veil");
-  if (veil) veil.addEventListener("click", closeMenu);
-  document.querySelectorAll("#mobile-menu a").forEach(function (a) {
-    a.addEventListener("click", closeMenu);
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeMenu();
-  });
-  var floatNav = document.getElementById("float-nav");
-  if (floatNav && !floatNav.querySelector(".menu-btn")) {
-    var extra = document.createElement("button");
-    extra.className = "menu-btn";
-    extra.type = "button";
-    extra.setAttribute("aria-label", "Open menu");
-    extra.textContent = "☰";
-    extra.addEventListener("click", function (e) {
-      e.preventDefault();
-      toggleMenu();
-    });
-    floatNav.appendChild(extra);
-  }
-}
+function toggleMenu() { document.body.classList.toggle("menu-open"); }
 function renderBasket() {
   var box = document.getElementById("cart-lines");
   var empty = document.getElementById("cart-empty");
@@ -134,60 +95,97 @@ function renderBasket() {
   if (!items.length) { box.innerHTML = ""; if (empty) empty.style.display = "block"; return; }
   if (empty) empty.style.display = "none";
   box.innerHTML = items.map(function (i) {
-    return '<div class="cart-line"><div><strong>' + i.name + '</strong><div>' + i.size + '</div></div>' +
-      '<div class="stepper"><button type="button" onclick="changeQty(\'' + i.id + '\',\'' + i.size + '\',-1)">−</button><strong>' + i.qty + '</strong><button type="button" onclick="changeQty(\'' + i.id + '\',\'' + i.size + '\',1)">+</button></div>' +
+    return '<div class="line"><div><strong>' + i.name + '</strong><div>' + i.size + '</div></div>' +
+      '<div class="step"><button type="button" onclick="changeQty(\'' + i.id + '\',\'' + i.size + '\',-1)">−</button><strong>' + i.qty + '</strong><button type="button" onclick="changeQty(\'' + i.id + '\',\'' + i.size + '\',1)">+</button></div>' +
       '<button class="linkish" type="button" onclick="setQty(\'' + i.id + '\',\'' + i.size + '\',0)">Remove</button></div>';
   }).join("");
 }
-function renderHeroVials() {
-  document.querySelectorAll("[data-hero-vial]").forEach(function (img) { img.src = vialSrc(); });
+function visibleProducts() {
+  var list = window.AUVELL.products.slice();
+  if (window.AUVELL.filter !== "all") {
+    list = list.filter(function (p) { return p.sizes.indexOf(window.AUVELL.filter) !== -1; });
+  }
+  list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+  if (window.AUVELL.sort === "za") list.reverse();
+  return list;
 }
 function renderProducts() {
   var grid = document.getElementById("product-grid");
   if (!grid) return;
-  var list = window.AUVELL.products;
-  if (grid.closest(".featured")) list = list.slice(0, 3);
+  var list = visibleProducts();
+  if (grid.dataset.limit) list = list.slice(0, parseInt(grid.dataset.limit, 10));
+  var count = document.getElementById("result-count");
+  if (count && !grid.dataset.limit) count.textContent = "Showing " + list.length + " compounds";
   grid.innerHTML = list.map(function (p) {
     var sizes = p.sizes.map(function (s) {
-      return '<button type="button" onclick="addOne(\'' + p.id + '\',\'' + s + '\')">' + s + '</button>';
+      var on = qtyOf(p.id, s) ? " on" : "";
+      return '<button class="' + on + '" type="button" onclick="addOne(\'' + p.id + '\',\'' + s + '\')">' + s + "</button>";
     }).join("");
-    return '<article class="pcard"><div class="shot"><img src="' + vialSrc(p) + '" alt="' + p.name + '" /></div>' +
-      '<div class="meta"><div><strong>' + p.name + '</strong><em>' + p.sizeLabel + '</em></div>' +
-      '<button class="add-circle" type="button" onclick="addOne(\'' + p.id + '\',\'' + p.sizes[0] + '\')" aria-label="Add">+</button></div>' +
-      '<div class="sizes">' + sizes + '</div></article>';
+    return '<article class="card"><div class="shot"><img src="' + vialSrc() + '" alt="' + p.name + '" /></div>' +
+      '<div class="meta"><div><strong>' + p.name + "</strong><em>" + p.sizeLabel + "</em></div>" +
+      '<button class="plus" type="button" onclick="addOne(\'' + p.id + '\',\'' + p.sizes[0] + '\')" aria-label="Add">+</button></div>' +
+      '<div class="sizes">' + sizes + "</div></article>";
   }).join("");
 }
-function bindFloatNav() {
-  var bar = document.getElementById("float-nav");
-  if (!bar) return;
-  function tick() {
-    if (window.scrollY > 90) bar.classList.add("show");
-    else bar.classList.remove("show");
-  }
-  tick();
-  window.addEventListener("scroll", tick, { passive: true });
-}
-document.addEventListener("DOMContentLoaded", function () {
+function bindChrome() {
   document.querySelectorAll("[data-logo]").forEach(function (img) { img.src = window.AUVELL.logo; });
-  renderHeroVials();
-  renderProducts(); renderBasket();
-  bindFloatNav();
-  bindMobileMenu();
-  var send = document.getElementById("send-enquiry");
-  if (send) send.addEventListener("click", sendEnquiry);
-  ["open-cart", "open-cart-2", "open-cart-3"].forEach(function (id) {
-    var el = document.getElementById(id); if (el) el.addEventListener("click", openCart);
+  document.querySelectorAll("[data-hero-vial]").forEach(function (img) { img.src = vialSrc(); });
+  var bar = document.getElementById("float-nav");
+  if (bar) {
+    var tick = function () { bar.classList.toggle("show", window.scrollY > 80); };
+    tick();
+    window.addEventListener("scroll", tick, { passive: true });
+    if (!bar.querySelector(".menu-btn")) {
+      var b = document.createElement("button");
+      b.className = "menu-btn"; b.type = "button"; b.textContent = "☰";
+      b.addEventListener("click", function (e) { e.preventDefault(); toggleMenu(); });
+      bar.appendChild(b);
+    }
+  }
+  if (!document.getElementById("mobile-menu")) {
+    var veil = document.createElement("div"); veil.id = "menu-veil";
+    var menu = document.createElement("div"); menu.id = "mobile-menu";
+    menu.innerHTML = '<button class="menu-close" type="button">×</button><a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="learn.html">Guide</a><a href="about.html">About</a><a href="legal.html">Notes</a>';
+    document.body.appendChild(veil); document.body.appendChild(menu);
+    veil.addEventListener("click", closeMenu);
+    menu.querySelector(".menu-close").addEventListener("click", closeMenu);
+    menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", closeMenu); });
+  }
+  document.querySelectorAll(".menu-btn").forEach(function (btn) {
+    btn.addEventListener("click", function (e) { e.preventDefault(); toggleMenu(); });
   });
-  var close = document.getElementById("close-cart"); if (close) close.addEventListener("click", closeCart);
-  var scrim = document.getElementById("scrim"); if (scrim) scrim.addEventListener("click", closeCart);
+  ["open-cart", "open-cart-2"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("click", openCart);
+  });
+  var close = document.getElementById("close-cart");
+  if (close) close.addEventListener("click", closeCart);
+  var scrim = document.getElementById("scrim");
+  if (scrim) scrim.addEventListener("click", closeCart);
+  var send = document.getElementById("send-enquiry");
+  if (send) send.addEventListener("click", function () { auvellWhatsApp(buildMessage()); });
+  document.querySelectorAll("[data-filter]").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      window.AUVELL.filter = chip.getAttribute("data-filter");
+      document.querySelectorAll("[data-filter]").forEach(function (c) { c.classList.toggle("on", c === chip); });
+      renderProducts();
+    });
+  });
+  var sort = document.getElementById("sort");
+  if (sort) sort.addEventListener("change", function () { window.AUVELL.sort = sort.value; renderProducts(); });
   var gate = document.getElementById("age-gate");
   var enter = document.getElementById("enter-site");
   if (gate && sessionStorage.getItem("auvell-in") === "1") gate.classList.add("hide");
   if (enter) enter.addEventListener("click", function () {
     var a = document.getElementById("age-ok");
     var r = document.getElementById("ruo-ok");
-    if (!a || !r || !a.checked || !r.checked) { alert("Please tick both boxes to come in."); return; }
+    if (!a.checked || !r.checked) { alert("Please tick both boxes."); return; }
     sessionStorage.setItem("auvell-in", "1");
     gate.classList.add("hide");
   });
+}
+document.addEventListener("DOMContentLoaded", function () {
+  bindChrome();
+  renderProducts();
+  renderBasket();
 });
