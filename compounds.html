@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="topbar">Questions go to WhatsApp</div>
+  <div class="topbar">Enquiry checkout · No payment · Sent on WhatsApp</div>
   <header>
     <div class="wrap nav">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
@@ -20,30 +20,34 @@
         <a href="about.html">About</a>
         <a href="legal.html">Notes</a>
       </nav>
-      <button class="btn wa" type="button" data-wa="Hello Auvell, I have a question.">Chat</button>
+      <a class="btn" href="#enquiry-cart">Enquiry (<span id="basket-count">0</span>)</a>
     </div>
   </header>
   <section class="page-hero">
     <div class="wrap">
       <p class="kicker">The list</p>
-      <h1>Compounds &amp; milligram packs</h1>
-      <p class="lead">Add as many packs as you like. Write any question. One tap sends the whole note to WhatsApp.</p>
+      <h1>Build an enquiry</h1>
+      <p class="lead">Click a pack to add it. Add the same product more than once. Mix as many items as you want. Review the list, type any question, then send it on WhatsApp. There is no payment on this site.</p>
     </div>
   </section>
   <section class="section" style="padding-top:8px">
-    <div class="wrap"><div class="grid grid-3" id="product-grid"></div></div>
-  </section>
-  <div class="enquiry">
-    <div class="wrap">
-      <p class="kicker">Your enquiry <span class="pill" id="basket-count">0</span></p>
-      <div id="basket-summary" class="notice" style="margin-top:10px"></div>
-      <label for="ask-anything">Ask anything</label>
-      <textarea id="ask-anything" placeholder="Type any question — names not listed, timing, paperwork, or anything else."></textarea>
-      <div class="enquiry-actions">
-        <button class="btn wa" type="button" id="send-enquiry">Send on WhatsApp</button>
+    <div class="wrap checkout">
+      <div>
+        <h2>Choose packs</h2>
+        <div class="grid grid-2" id="product-grid"></div>
       </div>
+      <aside class="cart-panel" id="enquiry-cart">
+        <p class="kicker">Your enquiry</p>
+        <h2>Review</h2>
+        <p id="cart-empty">Your enquiry is empty. Add packs from the left.</p>
+        <div id="cart-lines"></div>
+        <label for="ask-anything">Anything else to ask</label>
+        <textarea id="ask-anything" placeholder="Ask anything — names not on the list, timing, paperwork, or another question."></textarea>
+        <button class="btn wa" type="button" id="send-enquiry">Send enquiry on WhatsApp</button>
+        <p class="tiny">This sends a message. It does not take a card or complete an order.</p>
+      </aside>
     </div>
-  </div>
+  </section>
   <footer><div class="wrap fine">Preview site. Not medical advice. Not for human or veterinary use.</div></footer>
   <script src="brand.js"></script>
 </body></html>
