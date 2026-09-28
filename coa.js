@@ -1,3 +1,9 @@
+if (!document.querySelector('link[href="glamour.css"]')) {
+  var theme = document.createElement("link");
+  theme.rel = "stylesheet";
+  theme.href = "glamour.css";
+  document.head.appendChild(theme);
+}
 window.AUVELL.email = window.AUVELL.email || "";
 window.AUVELL.products.forEach(function (p, i) {
   if (!p.lot) p.lot = p.id === "p6" ? "ASK" : "AUV-P0" + (i + 1);
