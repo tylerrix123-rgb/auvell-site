@@ -29,19 +29,65 @@ body {
   background: linear-gradient(45deg, #f72585, #c77dff);
   box-shadow: 0 0 22px rgba(247, 37, 133, .35);
 }
+.btn.ghost {
+  background: rgba(88, 28, 135, .7);
+  box-shadow: none;
+  margin-left: 8px;
+}
 .hero {
   background:
-    linear-gradient(180deg, rgba(20,16,26,.2), rgba(20,16,26,.92)),
+    linear-gradient(180deg, rgba(20,16,26,.15), rgba(20,16,26,.92)),
     linear-gradient(115deg, #1c1722, #3a1b3a 55%, #2a2317);
   box-shadow: 0 24px 50px rgba(0,0,0,.35);
 }
+.hero.tall { min-height: 640px; align-items: center; }
 .hero h1, .guide-intro h2, .page h1, .scale-copy h3 {
   font-family: "Playfair Display", Georgia, serif;
   color: #fff;
 }
-.hero h2 { color: #d4af37; letter-spacing: .18em; }
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, #f72585, #c77dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero h2, .eyebrow.gold { color: #d4af37; letter-spacing: .18em; }
 .hero p, .facts p, .scale-note, .page p { color: #cfcfd4; }
 .rule { background: linear-gradient(90deg, #d4af37, #f72585); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.hero-stats { display: flex; gap: 28px; margin-top: 28px; }
+.hero-stats b { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; color: #d4af37; }
+.hero-stats span { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: #9a9aa2; }
+.hero-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 28px 22px 28px 0;
+  align-content: center;
+}
+.hcard {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  background: linear-gradient(180deg, #221c2a, #160f1e);
+  border: 1px solid #2a2233;
+  border-radius: 16px;
+  padding: 12px;
+  animation: rise .8s ease both;
+}
+.hcard:nth-child(2) { animation-delay: .12s; }
+.hcard:nth-child(3) { animation-delay: .24s; }
+.hcard img { grid-row: 1 / 3; height: 72px; width: auto; object-fit: contain; }
+.hcard strong { color: #fff; font-size: .95rem; }
+.hcard span { color: #b4b4b8; font-size: .82rem; }
+.hcard:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(247,37,133,.18); }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
 .card, .facts article, .deg, .coa-row, .gate-card, .drawer {
   background: linear-gradient(180deg, #221c2a, #160f1e);
   color: #f8f9fa;
@@ -62,3 +108,7 @@ body {
 .foot { background: #0d0a12; color: #d4af37; }
 .gate { background: #14101a; }
 #mobile-menu { background: #1c1722; color: #fff; }
+@media (max-width: 860px) {
+  .hero.tall { grid-template-columns: 1fr; }
+  .hero-cards { padding: 0 22px 28px; }
+}

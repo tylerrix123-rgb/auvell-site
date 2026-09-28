@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="extra.css" />
+  <link rel="stylesheet" href="glamour.css" />
 </head>
 <body>
   <div id="age-gate" class="gate">
@@ -15,7 +16,7 @@
       <p>Confirm you are 21 or over, and that this site is for research enquiries only.</p>
       <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
       <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only. Not for human or veterinary use.</label>
-      <button class="btn" type="button" id="enter-site">I agree & enter</button>
+      <button class="btn" type="button" id="enter-site">I agree &amp; enter</button>
     </div>
   </div>
   <div class="ticker"><div class="ticker-track"><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Ask for the lot file</span><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Ask for the lot file</span></div></div>
@@ -46,18 +47,38 @@
     </nav>
     <a class="icon-btn" href="compounds.html">+</a>
   </div>
-  <section class="hero">
+  <section class="hero tall">
     <div class="hero-copy">
-      <h1>SHOP</h1>
-      <h2>Research compounds</h2>
+      <p class="eyebrow gold">Research enquiries</p>
+      <h1>Auvell <em>shopfront</em></h1>
       <div class="rule"></div>
-      <p>A clear list, a vial on every card, and one note sent to a person on WhatsApp. Paperwork lives on Quality — only when a real file exists.</p>
-      <a class="btn" href="compounds.html">Open the shop</a>
+      <p>A list of compounds, a vial on every card, and one note to a person. Nothing is charged here. Paperwork only goes up when a real file exists.</p>
+      <div class="hero-actions">
+        <a class="btn" href="compounds.html">Open the shop</a>
+        <a class="btn ghost" href="quality.html">Look up a lot</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>21+</b><span>Age check</span></div>
+        <div><b>RUO</b><span>Research only</span></div>
+        <div><b>1 note</b><span>WhatsApp</span></div>
+      </div>
     </div>
-    <div class="hero-art">
-      <img class="float v1" data-hero-vial alt="" />
-      <img class="float v2" data-hero-vial alt="" />
-      <img class="float v3" data-hero-vial alt="" />
+    <div class="hero-cards">
+      <a class="hcard" href="compounds.html">
+        <img data-hero-vial alt="" />
+        <strong>The list</strong>
+        <span>Add packs to one note.</span>
+      </a>
+      <a class="hcard" href="quality.html">
+        <img data-hero-vial alt="" />
+        <strong>Quality</strong>
+        <span>Search a lot. Ask for the file.</span>
+      </a>
+      <a class="hcard" href="contact.html">
+        <img data-hero-vial alt="" />
+        <strong>A person</strong>
+        <span>Write anything. Send it.</span>
+      </a>
     </div>
   </section>
   <div class="tools"><p>A few from the list</p><a class="btn" href="compounds.html">See all</a></div>
