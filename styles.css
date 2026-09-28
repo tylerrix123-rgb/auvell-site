@@ -90,9 +90,26 @@ select, .chip {
 .chip { cursor: pointer; }
 .chip.on { background: #111; color: #fff; border-color: #111; }
 .grid {
-  width: min(1180px, calc(100% - 32px)); margin: 10px auto 80px;
+  width: min(1180px, calc(100% - 32px)); margin: 10px auto 48px;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 42px 22px;
 }
+.explain {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 72px;
+  padding-top: 12px;
+}
+.explain-head { margin-bottom: 22px; }
+.explain-head p { letter-spacing: .16em; text-transform: uppercase; font-size: .72rem; color: #888; }
+.explain-head h2 { font-family: Oswald, sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; margin-top: 6px; }
+.explain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.explain-grid article {
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  padding: 22px;
+  background: #fff;
+}
+.explain-grid h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.explain-grid p { color: #444; line-height: 1.6; font-size: .95rem; }
 .card { background: #fff; }
 .shot {
   height: 280px; background: #f7f7f7; display: flex; align-items: center; justify-content: center;
@@ -154,7 +171,7 @@ body.menu-open #mobile-menu { right: 0; }
 @media (max-width: 860px) {
   .links { display: none; }
   .menu-btn { display: inline-flex; }
-  .hero, .grid { grid-template-columns: 1fr; }
+  .hero, .grid, .explain-grid { grid-template-columns: 1fr; }
   .hero-copy { padding: 36px 22px; }
   .hero h1 { font-size: 3.4rem; }
   .hero-art { min-height: 220px; }
