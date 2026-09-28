@@ -6,6 +6,7 @@
   <title>Auvell</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="extra.css" />
 </head>
 <body>
   <div id="age-gate" class="gate">
@@ -17,16 +18,17 @@
       <button class="btn" type="button" id="enter-site">I agree & enter</button>
     </div>
   </div>
-  <div class="ticker"><div class="ticker-track"><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Add several packs to one note</span><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Add several packs to one note</span></div></div>
+  <div class="ticker"><div class="ticker-track"><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Ask for the lot file</span><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Ask for the lot file</span></div></div>
   <header class="top-nav">
     <div class="bar">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
       <nav class="links">
         <a class="on" href="index.html">Home</a>
         <a href="compounds.html">Shop</a>
+        <a href="quality.html">Quality</a>
         <a href="learn.html">Guide</a>
         <a href="about.html">About</a>
-        <a href="legal.html">Notes</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="icons">
         <a class="icon-btn" href="compounds.html" aria-label="Shop">+</a>
@@ -39,8 +41,8 @@
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="compounds.html">Shop</a>
-      <a href="learn.html">Guide</a>
-      <a href="about.html">About</a>
+      <a href="quality.html">Quality</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <a class="icon-btn" href="compounds.html">+</a>
   </div>
@@ -49,7 +51,7 @@
       <h1>SHOP</h1>
       <h2>Research compounds</h2>
       <div class="rule"></div>
-      <p>A clear list, a vial on every card, and one note sent to a person on WhatsApp. Nothing is charged on this site.</p>
+      <p>A clear list, a vial on every card, and one note sent to a person on WhatsApp. Paperwork lives on Quality — only when a real file exists.</p>
       <a class="btn" href="compounds.html">Open the shop</a>
     </div>
     <div class="hero-art">
@@ -67,32 +69,16 @@
       <span class="rule"></span>
     </div>
     <div class="facts">
-      <article>
-        <span>01</span>
-        <h3>A short chain</h3>
-        <p>A peptide is a short chain of amino acids. A protein is the same idea, only much longer. These vials are laboratory copies of one sequence.</p>
-      </article>
-      <article>
-        <span>02</span>
-        <h3>Studied, not prescribed</h3>
-        <p>Labs use them to watch how cells pass signals. This page does not say what a person should take. Not medical advice. Not for human or veterinary use.</p>
-      </article>
-      <article>
-        <span>03</span>
-        <h3>Made, then dried</h3>
-        <p>The powder is chemically synthesised, then dried into a small cake. It is not taken from a person or an animal.</p>
-      </article>
-      <article>
-        <span>04</span>
-        <h3>Keep it sealed</h3>
-        <p>Cap on. Vial upright. Dry, dark, and out of a bathroom or a sunny window. Do not open one just to look.</p>
-      </article>
+      <article><span>01</span><h3>A short chain</h3><p>A peptide is a short chain of amino acids. A protein is the same idea, only much longer. These vials are laboratory copies of one sequence.</p></article>
+      <article><span>02</span><h3>Studied, not prescribed</h3><p>Labs use them to watch how cells pass signals. This page does not say what a person should take. Not medical advice. Not for human or veterinary use.</p></article>
+      <article><span>03</span><h3>Made, then dried</h3><p>The powder is chemically synthesised, then dried into a small cake. It is not taken from a person or an animal.</p></article>
+      <article><span>04</span><h3>Keep it sealed</h3><p>Cap on. Vial upright. Dry, dark, and out of a bathroom or a sunny window. Do not open one just to look.</p></article>
     </div>
     <div class="scale">
       <div class="scale-copy">
         <p>Storage</p>
         <h3>Where a sealed dry vial sits</h3>
-        <small>General lab habit, not a promise for every compound. Ask us about the one on your note.</small>
+        <small>General lab habit, not a promise for every compound.</small>
       </div>
       <div class="degrees">
         <div class="deg cold"><b>−80°</b><em>Years</em><span>Deep freezer. Long holding.</span></div>
@@ -101,12 +87,28 @@
         <div class="deg warm"><b>15–25°</b><em>Hours</em><span>In transit. Not overnight.</span></div>
         <div class="deg hot"><b>30°+</b><em>Avoid</em><span>Heat and sun spoil it fastest.</span></div>
       </div>
-      <p class="scale-note">Store in the body of the freezer, not the door. Let a cold vial stop fogging before the cap comes off. Once liquid has been added, keep it at 2–8°C for a few days, or freeze portions at −20°C and thaw once. We do not describe how to mix a vial here.</p>
+      <p class="scale-note">Store in the body of the freezer, not the door. Let a cold vial stop fogging before the cap comes off.</p>
+    </div>
+    <div class="scale" style="margin-top:16px">
+      <div class="scale-copy">
+        <p>Paperwork</p>
+        <h3>Look up a lot</h3>
+        <small>Search Quality by compound or lot. If the PDF is not there yet, send the code.</small>
+      </div>
+      <p><a class="btn" href="quality.html">Open Quality</a></p>
     </div>
   </section>
-  <footer class="foot">Auvell · Research enquiries · Not medical advice · Not for human or veterinary use</footer>
+  <footer class="foot">
+    <div class="foot-grid">
+      <div><strong>Auvell</strong><p>A quieter shopfront. Conversations only.</p></div>
+      <div><a href="compounds.html">Shop</a><br><a href="quality.html">Quality</a><br><a href="learn.html">Guide</a></div>
+      <div><a href="about.html">About</a><br><a href="contact.html">Contact</a><br><a href="legal.html">Notes</a></div>
+    </div>
+    <p>Not medical advice. Not for human or veterinary use.</p>
+  </footer>
   <div class="toast" id="toast"></div>
   <script src="vial.js"></script>
   <script src="brand.js"></script>
+  <script src="coa.js"></script>
 </body>
 </html>
