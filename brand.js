@@ -11,6 +11,7 @@ window.AUVELL = {
   ]
 };
 window.AUVELL.basket = {};
+function vialSrc(p) { return (p && p.photo) || window.AUVELL_VIAL || "vial.jpg"; }
 function keyFor(id, size) { return id + "::" + size; }
 function parseKey(k) { var p = k.split("::"); return { id: p[0], size: p.slice(1).join("::") }; }
 function findProduct(id) {
@@ -83,17 +84,17 @@ function renderBasket() {
       '<button class="linkish" type="button" onclick="setQty(\'' + i.id + '\',\'' + i.size + '\',0)">Remove</button></div>';
   }).join("");
 }
+function renderHeroVials() {
+  document.querySelectorAll("[data-hero-vial]").forEach(function (img) { img.src = vialSrc(); });
+}
 function renderProducts() {
   var grid = document.getElementById("product-grid");
   if (!grid) return;
   grid.innerHTML = window.AUVELL.products.map(function (p) {
-    var shot = p.photo
-      ? '<div class="shot"><img src="' + p.photo + '" alt="' + p.name + '" /></div>'
-      : '<div class="shot"><div class="vial-draw"><b>' + p.name + '</b></div></div>';
     var sizes = p.sizes.map(function (s) {
       return '<button type="button" onclick="addOne(\'' + p.id + '\',\'' + s + '\')">' + s + '</button>';
     }).join("");
-    return '<article class="pcard">' + shot +
+    return '<article class="pcard"><div class="shot"><img src="' + vialSrc(p) + '" alt="' + p.name + '" /></div>' +
       '<div class="meta"><div><strong>' + p.name + '</strong><em>' + p.sizeLabel + '</em></div>' +
       '<button class="add-circle" type="button" onclick="addOne(\'' + p.id + '\',\'' + p.sizes[0] + '\')" aria-label="Add">+</button></div>' +
       '<div class="sizes">' + sizes + '</div></article>';
@@ -101,6 +102,7 @@ function renderProducts() {
 }
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[data-logo]").forEach(function (img) { img.src = window.AUVELL.logo; });
+  renderHeroVials();
   renderProducts(); renderBasket();
   var send = document.getElementById("send-enquiry");
   if (send) send.addEventListener("click", sendEnquiry);
