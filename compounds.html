@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="topbar">A specialist house for research compounds · Questions go to WhatsApp</div>
+  <div class="topbar">Questions go to WhatsApp</div>
   <header>
     <div class="wrap nav">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
@@ -20,29 +20,30 @@
         <a href="about.html">About</a>
         <a href="legal.html">Notes</a>
       </nav>
-      <button class="btn wa" type="button" data-wa="Hello Auvell, I would like to ask about availability.">WhatsApp</button>
+      <button class="btn wa" type="button" data-wa="Hello Auvell, I have a question.">Chat</button>
     </div>
   </header>
   <section class="page-hero">
     <div class="wrap">
       <p class="kicker">The list</p>
       <h1>Compounds &amp; milligram packs</h1>
-      <p class="lead">Tap a milligram size or Enquire. WhatsApp opens with that line ready to send.</p>
+      <p class="lead">Add as many packs as you like. Write any question. One tap sends the whole note to WhatsApp.</p>
     </div>
   </section>
   <section class="section" style="padding-top:8px">
-    <div class="wrap">
-      <div class="grid grid-3" id="product-grid"></div>
-      <div class="notice">This page starts a conversation. It is not a checkout. Not for human or veterinary use.</div>
-    </div>
+    <div class="wrap"><div class="grid grid-3" id="product-grid"></div></div>
   </section>
-  <footer>
-    <div class="wrap foot-grid">
-      <div><h3>Auvell</h3><p>A quieter front door. Real conversation on WhatsApp.</p></div>
-      <div><h3>Visit</h3><p><a href="compounds.html">Compounds</a><br><a href="learn.html">Guide</a></p></div>
-      <div><h3>House</h3><p><a href="about.html">About</a><br><a href="legal.html">Notes</a></p></div>
+  <div class="enquiry">
+    <div class="wrap">
+      <p class="kicker">Your enquiry <span class="pill" id="basket-count">0</span></p>
+      <div id="basket-summary" class="notice" style="margin-top:10px"></div>
+      <label for="ask-anything">Ask anything</label>
+      <textarea id="ask-anything" placeholder="Type any question — names not listed, timing, paperwork, or anything else."></textarea>
+      <div class="enquiry-actions">
+        <button class="btn wa" type="button" id="send-enquiry">Send on WhatsApp</button>
+      </div>
     </div>
-    <div class="wrap fine">Preview site. Not medical advice.</div>
-  </footer>
+  </div>
+  <footer><div class="wrap fine">Preview site. Not medical advice. Not for human or veterinary use.</div></footer>
   <script src="brand.js"></script>
 </body></html>
