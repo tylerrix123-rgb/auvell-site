@@ -4,33 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="topbar">A quieter kind of shopfront</div>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-      <button class="menu-btn" type="button" aria-label="Menu">☰</button>
-      <nav class="links">
-        <a href="index.html">Home</a>
-        <a href="compounds.html">The list</a>
-        <a href="learn.html">A little guide</a>
-        <a href="about.html">About</a>
-        <a href="legal.html">Notes</a>
-      </nav>
-      <button class="btn wa" type="button" data-wa="Hello Auvell, I wanted to say hello.">Say hello</button>
-    </div>
-  </header>
-  <section class="page-hero">
-    <div class="wrap prose">
-      <p class="kicker">About</p>
-      <h1>Less noise. More care.</h1>
-      <p>Auvell is meant to feel like walking into a small specialist shop: a mark on the door, a short list, and someone happy to talk things through.</p>
-      <p>When you send vial photos, they will live on each card so the list feels as considered as the conversation.</p>
-    </div>
-  </section>
-  <footer><div class="wrap fine">A preview. Not medical advice.</div></footer>
+  <header class="top-nav"><div class="bar">
+    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+    <nav class="links"><a href="index.html">Home</a><a href="compounds.html">Shop</a><a class="on" href="about.html">About</a><a href="legal.html">Notes</a></nav>
+    <button class="menu-btn" type="button">☰</button>
+  </div></header>
+  <main class="page">
+    <p>About</p>
+    <h1>A small shopfront.</h1>
+    <p>Auvell is a place to look through research compounds and ask a person, not a checkout. Photos, names, and the WhatsApp number will be filled in as you send them.</p>
+  </main>
+  <footer class="foot">Research enquiries only. Not medical advice.</footer>
+  <script src="vial.js"></script>
   <script src="brand.js"></script>
 </body></html>
