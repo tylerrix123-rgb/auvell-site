@@ -6,6 +6,7 @@
   <title>Shop — Auvell</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="extra.css" />
 </head>
 <body>
   <div id="age-gate" class="gate">
@@ -17,16 +18,17 @@
       <button class="btn" type="button" id="enter-site">I agree & enter</button>
     </div>
   </div>
-  <div class="ticker"><div class="ticker-track"><span>Add several items</span><span>Add more than one of the same pack</span><span>Send one WhatsApp note</span><span>Add several items</span><span>Add more than one of the same pack</span><span>Send one WhatsApp note</span></div></div>
+  <div class="ticker"><div class="ticker-track"><span>Add several items</span><span>Open a card for the lot</span><span>Send one WhatsApp note</span><span>Add several items</span><span>Open a card for the lot</span><span>Send one WhatsApp note</span></div></div>
   <header class="top-nav">
     <div class="bar">
       <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
       <nav class="links">
         <a href="index.html">Home</a>
         <a class="on" href="compounds.html">Shop</a>
+        <a href="quality.html">Quality</a>
         <a href="learn.html">Guide</a>
         <a href="about.html">About</a>
-        <a href="legal.html">Notes</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="icons">
         <button class="icon-btn" type="button" id="open-cart" aria-label="Note">+<i id="basket-count">0</i></button>
@@ -39,8 +41,8 @@
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="compounds.html">Shop</a>
-      <a href="learn.html">Guide</a>
-      <a href="about.html">About</a>
+      <a href="quality.html">Quality</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <button class="icon-btn" type="button" id="open-cart-2">+</button>
   </div>
@@ -49,7 +51,7 @@
       <h1>SHOP</h1>
       <h2>The list</h2>
       <div class="rule"></div>
-      <p>Tap a size to add it. The bar stays with you as you scroll, and the note opens on the right.</p>
+      <p>Tap a size to add it. Open a card to see the lot. Paperwork is on Quality.</p>
     </div>
     <div class="hero-art">
       <img class="float v1" data-hero-vial alt="" />
@@ -80,8 +82,15 @@
   </aside>
   <div class="scrim" id="scrim"></div>
   <div class="toast" id="toast"></div>
-  <footer class="foot">Auvell · Research enquiries · Not medical advice · Not for human or veterinary use</footer>
+  <footer class="foot">
+    <div class="foot-grid">
+      <div><strong>Auvell</strong><p>Research enquiries.</p></div>
+      <div><a href="quality.html">Quality</a><br><a href="contact.html">Contact</a></div>
+      <div><a href="legal.html">Notes</a></div>
+    </div>
+  </footer>
   <script src="vial.js"></script>
   <script src="brand.js"></script>
+  <script src="coa.js"></script>
 </body>
 </html>
