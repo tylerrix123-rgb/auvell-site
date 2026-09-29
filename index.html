@@ -16,10 +16,7 @@
         return false;
       }
       try { sessionStorage.setItem("auvell-in", "1"); } catch (e) {}
-      if (gate) {
-        gate.className = "gate hide";
-        gate.style.display = "none";
-      }
+      if (gate) { gate.className = "gate hide"; gate.style.display = "none"; }
       return false;
     }
   </script>
@@ -58,7 +55,7 @@
       <img class="mark" data-logo alt="" />
       <p class="kicker">Research compounds</p>
       <h1>Auvell <em>lists the work.</em></h1>
-      <p class="lead">Each card shows the name, the size, and a typical listed range. That figure is context, not a charge. Add packs to a note and ask anything.</p>
+      <p class="lead">Four packs on the list. Each card shows the name, the size, and a typical listed range. That figure is context, not a charge.</p>
       <div class="actions">
         <a class="btn solid" href="compounds.html">Open the list</a>
         <a class="btn" href="quality.html">Look up a lot</a>
@@ -70,10 +67,9 @@
       <article><span>03</span><h3>The note</h3><p>Add packs. Write anything. Send the note. Nothing is billed here.</p></article>
     </section>
     <section class="section wrap">
-      <p class="kicker">From the list</p>
-      <h2>Three compounds</h2>
-      <div class="grid" id="grid" data-limit="3"></div>
-      <p style="margin-top:22px"><a class="btn" href="compounds.html">See the full list</a></p>
+      <p class="kicker">The list</p>
+      <h2>Four compounds</h2>
+      <div class="grid" id="grid"></div>
     </section>
   </main>
   <footer class="foot"><div class="wrap"><div>Auvell · research enquiries</div><div><a href="compounds.html">Shop</a><a href="legal.html">Notes</a></div></div></footer>
