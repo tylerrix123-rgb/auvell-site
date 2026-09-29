@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=7" />
+  <link rel="stylesheet" href="site.css?v=8" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
@@ -12,6 +12,7 @@
       var gate = document.getElementById("gate");
       var err = document.getElementById("gate-err");
       var ref = document.getElementById("refcode");
+      var vid = document.getElementById("unlock-vid");
       if (!age || !ruo || !age.checked || !ruo.checked) {
         if (err) err.style.display = "block";
         return false;
@@ -20,9 +21,23 @@
         sessionStorage.setItem("auvell-in", "1");
         if (ref && ref.value) sessionStorage.setItem("auvell-ref", ref.value.trim());
       } catch (e) {}
+      if (vid) {
+        try {
+          vid.loop = false;
+          vid.currentTime = 0;
+          vid.play();
+        } catch (e) {}
+      }
       if (gate) {
-        gate.classList.add("leaving");
-        setTimeout(function () { gate.className = "gate hide"; gate.style.display = "none"; }, 900);
+        gate.classList.add("ceremony");
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { gate.classList.add("opening"); });
+        });
+        document.body.classList.add("entered");
+        setTimeout(function () {
+          gate.className = "gate hide";
+          gate.style.display = "none";
+        }, 2200);
       }
       return false;
     }
@@ -31,6 +46,7 @@
 <body>
   <div id="gate" class="gate">
     <video id="unlock-vid" class="gate-film" autoplay muted loop playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_3HhZ8pEs5bpQEgLj35o5ylQwxi5/hf_20260929_165942_81167164-174a-4683-9da1-20585f2e4716.mp4"></video>
+    <div class="doors" aria-hidden="true"><span class="door l"></span><span class="door r"></span></div>
     <div class="gate-card">
       <p class="kicker">Auvell</p>
       <h2>Before you enter</h2>
