@@ -4,10 +4,12 @@ window.AUVELL = {
   products: [
     { id: "mt2", name: "Melanotan 2", sizeLabel: "10 mg", lot: "AUV-MT2",
       sizes: [{ label: "10 mg", typical: 49 }] },
-    { id: "ghkcu", name: "GHK-Cu", sizeLabel: "100 mg with 10 mL bacteriostatic water", lot: "AUV-GHK",
-      sizes: [{ label: "100 mg + 10 mL water", typical: 55 }] },
-    { id: "blend", name: "KPV / BPC-157 / TB-500", sizeLabel: "Mixed vial", lot: "AUV-BLD",
-      sizes: [{ label: "Mixed vial", typical: 65 }] },
+    { id: "ghkcu", name: "GHK-Cu", sizeLabel: "100 mg", lot: "AUV-GHK",
+      sizes: [{ label: "100 mg", typical: 55 }] },
+    { id: "water", name: "Bacteriostatic water", sizeLabel: "10 mL", lot: "AUV-BW",
+      sizes: [{ label: "10 mL", typical: 12 }] },
+    { id: "blend", name: "KPV / BPC-157 / TB-500", sizeLabel: "30 mg total · 10 mg of each", lot: "AUV-BLD",
+      sizes: [{ label: "30 mg mixed vial", typical: 65 }] },
     { id: "reta", name: "Retatrutide", sizeLabel: "30 mg", lot: "AUV-R30",
       sizes: [{ label: "30 mg", typical: 165 }] }
   ]
