@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=1" />
+  <link rel="stylesheet" href="site.css?v=2" />
 </head>
 <body>
   <div id="gate" class="gate">
@@ -26,30 +26,29 @@
       <a href="about.html">About</a>
       <a href="legal.html">Notes</a>
     </nav>
-    <button class="menu" type="button">Menu</button>
+    <div class="top-actions">
+      <button class="bag" type="button" id="open-cart">Note <span id="basket-count">0</span></button>
+      <button class="menu" type="button">Menu</button>
+    </div>
   </header>
   <aside class="panel">
-    <a href="index.html">Home</a>
-    <a href="compounds.html">Shop</a>
-    <a href="quality.html">Quality</a>
-    <a href="about.html">About</a>
-    <a href="legal.html">Notes</a>
+    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Notes</a>
   </aside>
   <main>
     <section class="hero wrap">
       <img class="mark" data-logo alt="" />
       <p class="kicker">Research compounds</p>
       <h1>Auvell <em>lists the work.</em></h1>
-      <p class="lead">Each card shows the name, the size, and the lot. Open one compound when you need the detail. Nothing is charged on this page.</p>
+      <p class="lead">Each card shows the name, the size, and a typical listed range. That figure is context, not a charge. Add packs to a note and ask anything.</p>
       <div class="actions">
         <a class="btn solid" href="compounds.html">Open the list</a>
         <a class="btn" href="quality.html">Look up a lot</a>
       </div>
     </section>
     <section class="wrap steps">
-      <article><span>01</span><h3>The list</h3><p>Names and pack sizes, with the same vial on every card until new photographs arrive.</p></article>
-      <article><span>02</span><h3>One compound</h3><p>Open a card for the lot code and a place to keep a short note on this device.</p></article>
-      <article><span>03</span><h3>The lot</h3><p>Search Quality by name or code. Files appear only when they have been uploaded.</p></article>
+      <article><span>01</span><h3>The list</h3><p>Name, pack size, and a typical listed range for that kind of vial.</p></article>
+      <article><span>02</span><h3>One compound</h3><p>Open a card for the lot mark and three questions worth asking.</p></article>
+      <article><span>03</span><h3>The note</h3><p>Add packs. Write anything. Send the note. Nothing is billed here.</p></article>
     </section>
     <section class="section wrap">
       <p class="kicker">From the list</p>
@@ -58,10 +57,7 @@
       <p style="margin-top:22px"><a class="btn" href="compounds.html">See the full list</a></p>
     </section>
   </main>
-  <footer class="foot"><div class="wrap">
-    <div>Auvell · research enquiries</div>
-    <div><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="legal.html">Notes</a></div>
-  </div></footer>
+  <footer class="foot"><div class="wrap"><div>Auvell · research enquiries</div><div><a href="compounds.html">Shop</a><a href="legal.html">Notes</a></div></div></footer>
   <script src="vial.js"></script>
   <script src="app.js"></script>
 </body>
