@@ -39,13 +39,7 @@ function buildMessage() {
   var q = ((document.getElementById("ask") || {}).value || "").trim();
   var ref = "";
   try { ref = sessionStorage.getItem("auvell-ref") || ""; } catch (e) {}
-  var lines = [
-    "Hello Auvell,",
-    "",
-    "This is a research enquiry only. These materials are for laboratory research purposes. This is not an order for human or veterinary use.",
-    "",
-    "I am interested in the following. Typical listed ranges are context only — not a quote."
-  ];
+  var lines = ["Hello Auvell,", "", "This is a research enquiry only. These materials are for laboratory research purposes. This is not an order for human or veterinary use.", "", "I am interested in the following. Typical listed ranges are context only — not a quote."];
   if (list.length) {
     list.forEach(function (i) { lines.push("- " + i.qty + " × " + i.name + " (" + i.size + "), typical listed about " + money(i.typical)); });
     if (refTotal()) lines.push("Combined typical listed figure: " + money(refTotal()) + " (reference only).");
@@ -120,7 +114,15 @@ function bindChrome() {
   if (send) send.addEventListener("click", sendNote);
   var gate = document.getElementById("gate");
   if (gate) {
-    try { if (sessionStorage.getItem("auvell-in") === "1") { gate.className = "gate hide"; gate.style.display = "none"; } } catch (e) {}
+    try {
+      if (sessionStorage.getItem("auvell-in") === "1") {
+        gate.className = "gate hide";
+        gate.style.display = "none";
+        document.body.classList.add("entered");
+      }
+    } catch (e) {}
+  } else {
+    document.body.classList.add("entered");
   }
 }
 document.addEventListener("DOMContentLoaded", function () {
