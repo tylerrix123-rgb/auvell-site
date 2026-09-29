@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=13" />
+  <link rel="stylesheet" href="site.css?v=14" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
@@ -19,6 +19,7 @@
       try {
         sessionStorage.setItem("auvell-in", "1");
         if (ref && ref.value) sessionStorage.setItem("auvell-ref", ref.value.trim());
+        else sessionStorage.setItem("auvell-ref", "");
       } catch (e) {}
       document.body.classList.add("entered");
       if (gate) {
@@ -39,12 +40,13 @@
   <div id="gate" class="gate">
     <div class="doors" aria-hidden="true"><span class="door l"></span><span class="door r"></span></div>
     <div class="gate-card">
+      <img class="gate-logo" data-logo alt="Auvell" />
       <p class="kicker">Auvell</p>
       <h2>Before you enter</h2>
-      <p>You must be 21 or over. This list is for laboratory research enquiries only.</p>
+      <p>Two ticks. Then the list. You must be 21 or over, and this is a research enquiry only.</p>
       <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
       <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
-      <label class="check" style="display:block">Referral code (optional)<input id="refcode" type="text" placeholder="If you have one" style="margin-top:8px;width:100%" /></label>
+      <label class="check" style="display:block;text-align:left">Referral code (optional)<input id="refcode" type="text" placeholder="If you have one" style="margin-top:8px;width:100%" /></label>
       <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes, then press Enter site.</p>
       <p><button class="btn solid" type="button" onclick="enterSite()">Enter site</button></p>
     </div>
