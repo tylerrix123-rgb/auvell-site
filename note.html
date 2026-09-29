@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your note · Auvell</title>
-  <link rel="stylesheet" href="site.css?v=13" />
+  <link rel="stylesheet" href="site.css?v=14" />
 </head>
 <body class="entered">
   <header class="top">
@@ -37,8 +37,10 @@
       <div id="cart-lines"></div>
       <p id="cart-empty">Nothing in the note yet.</p>
       <p id="cart-ref" class="ref"></p>
+      <p id="ref-line" class="ref">No referral code used.</p>
+      <label>Referral code<input id="note-ref" type="text" placeholder="If you have one" /></label>
       <label>Research question<textarea id="ask" placeholder="Ask about the pack, the lot file, or timing. Research use only."></textarea></label>
-      <p class="hint">The sent message states these are laboratory research materials, not for human or veterinary use.</p>
+      <p class="hint">The sent message always includes whether a referral code was used, and states these are laboratory research materials, not for human or veterinary use.</p>
       <p><button class="btn solid" type="button" id="send-note">Send this research enquiry</button></p>
     </div>
   </main>
