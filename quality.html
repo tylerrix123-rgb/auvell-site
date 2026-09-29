@@ -4,32 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quality · Auvell</title>
-  <link rel="stylesheet" href="site.css?v=1" />
+  <link rel="stylesheet" href="site.css?v=11" />
 </head>
-<body>
+<body class="entered">
   <header class="top">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
     <nav class="nav">
       <a href="index.html">Home</a>
-      <a href="compounds.html">Shop</a>
+      <a href="index.html#list">The list</a>
       <a class="on" href="quality.html">Quality</a>
-      <a href="about.html">About</a>
-      <a href="legal.html">Notes</a>
+      <a href="note.html">Note</a>
     </nav>
-    <button class="menu" type="button">Menu</button>
+    <div class="top-actions"><button class="menu" type="button">Menu</button></div>
   </header>
   <aside class="panel">
-    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Notes</a>
+    <a href="index.html">Home</a><a href="index.html#list">The list</a><a href="quality.html">Quality</a><a href="note.html">Your note</a>
   </aside>
   <main class="page wrap">
     <p class="kicker">Paperwork</p>
     <h1>Quality</h1>
-    <p>Search by compound or lot. A file is shown only when it has been uploaded.</p>
-    <div class="row"><input id="q" type="search" placeholder="Compound or lot" /></div>
-    <div class="list" id="lots"></div>
+    <p>Each pack on the list carries a lot mark. A file is shown only when it is attached to that mark.</p>
+    <ul class="lots">
+      <li><strong>Melanotan 2 · 10 mg</strong><span class="sub">Lot AUV-MT2 · file not attached</span></li>
+      <li><strong>GHK-Cu · 100 mg</strong><span class="sub">Lot AUV-GHK · file not attached</span></li>
+      <li><strong>Bacteriostatic water · 10 mL</strong><span class="sub">Lot AUV-BW · file not attached</span></li>
+      <li><strong>KPV / BPC-157 / TB-500 · 30 mg</strong><span class="sub">Lot AUV-BLD · file not attached</span></li>
+      <li><strong>Retatrutide · 30 mg</strong><span class="sub">Lot AUV-R30 · file not attached</span></li>
+    </ul>
   </main>
-  <footer class="foot"><div class="wrap"><div>Auvell</div></div></footer>
-  <script src="vial.js"></script>
+  <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div></div></footer>
   <script src="app.js"></script>
 </body>
 </html>
