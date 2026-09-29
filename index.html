@@ -4,7 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=2" />
+  <link rel="stylesheet" href="site.css?v=3" />
+  <script>
+    function enterSite() {
+      var age = document.getElementById("age");
+      var ruo = document.getElementById("ruo");
+      var gate = document.getElementById("gate");
+      var err = document.getElementById("gate-err");
+      if (!age || !ruo || !age.checked || !ruo.checked) {
+        if (err) err.style.display = "block";
+        return false;
+      }
+      try { sessionStorage.setItem("auvell-in", "1"); } catch (e) {}
+      if (gate) {
+        gate.className = "gate hide";
+        gate.style.display = "none";
+      }
+      return false;
+    }
+  </script>
 </head>
 <body>
   <div id="gate" class="gate">
@@ -14,7 +32,8 @@
       <p>Confirm you are 21 or over. This list is for research enquiries only.</p>
       <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
       <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
-      <p><button class="btn solid" id="enter" type="button">Enter</button></p>
+      <p id="gate-err" style="display:none;color:#c4a574">Tick both boxes, then press Enter.</p>
+      <p><button class="btn solid" id="enter" type="button" onclick="enterSite()">Enter</button></p>
     </div>
   </div>
   <header class="top">
