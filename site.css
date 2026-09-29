@@ -44,10 +44,10 @@ body.scrolled .brand img { height:48px; }
 .card-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
 .btn.slim { padding:9px 12px; font-size:.7rem; }
 .note { background:var(--card); border:1px solid var(--line); padding:22px; margin-top:18px; }
-.gate-card { background:var(--card); border:1px solid var(--line); }
 .foot { border-top:1px solid var(--line); padding:28px 0 40px; color:var(--mute); }
-.gate { position:fixed; inset:0; z-index:40; background:#10182c; display:grid; place-items:center; overflow:hidden; }
+.gate { position:fixed; inset:0; z-index:40; display:grid; place-items:center; overflow:hidden; background: radial-gradient(520px 240px at 50% 12%, rgba(212,175,90,.4), transparent 62%), radial-gradient(900px 500px at 50% 110%, rgba(176,141,74,.18), transparent 55%), #1a2744; }
 .gate.hide { display:none !important; }
+.gate-logo { height:92px; width:auto; margin:0 auto 12px; }
 .doors { display:none; position:absolute; inset:0; z-index:3; pointer-events:none; }
 .gate.ceremony .doors { display:block; }
 .door { position:absolute; top:0; bottom:0; width:50%; background:linear-gradient(180deg,#1a2744,#121a2e); transition:transform 1.35s cubic-bezier(.22,.8,.28,1); }
@@ -56,8 +56,10 @@ body.scrolled .brand img { height:48px; }
 .gate.opening .door.l { transform:translateX(-105%); }
 .gate.opening .door.r { transform:translateX(105%); }
 .gate.ceremony .gate-card { opacity:0; pointer-events:none; transition:opacity .35s ease; }
-.gate-card { width:min(440px, calc(100% - 32px)); padding:28px; animation:unlock .7s ease both; position:relative; z-index:4; }
-.check { display:block; margin:10px 0; color:var(--mute); }
+.gate-card { width:min(440px, calc(100% - 32px)); padding:32px 28px; animation:unlock .7s ease both; position:relative; z-index:4; text-align:center; background:#fffcf7; border:1px solid #b08d4a; box-shadow:0 24px 70px rgba(10,16,32,.35); }
+.gate-card h2 { margin:0 0 10px; }
+.gate-card p { margin:0 auto 16px; }
+.check { display:block; margin:10px 0; color:var(--mute); text-align:left; }
 .panel { position:fixed; inset:0 0 0 auto; width:min(320px,86vw); background:#fffcf7; border-left:1px solid var(--line); padding:24px; transform:translateX(100%); transition:transform .35s ease; z-index:30; }
 body.menu-open .panel { transform:none; }
 .panel a { display:block; padding:12px 0; letter-spacing:.14em; text-transform:uppercase; font-size:.85rem; border-bottom:1px solid var(--line); }
