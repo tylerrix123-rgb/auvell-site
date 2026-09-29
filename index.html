@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=3" />
+  <link rel="stylesheet" href="site.css?v=5" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
@@ -29,7 +29,7 @@
       <p>Confirm you are 21 or over. This list is for research enquiries only.</p>
       <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
       <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
-      <p id="gate-err" style="display:none;color:#c4a574">Tick both boxes, then press Enter.</p>
+      <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes, then press Enter.</p>
       <p><button class="btn solid" id="enter" type="button" onclick="enterSite()">Enter</button></p>
     </div>
   </div>
@@ -55,7 +55,7 @@
       <img class="mark" data-logo alt="" />
       <p class="kicker">Research compounds</p>
       <h1>Auvell <em>lists the work.</em></h1>
-      <p class="lead">Four packs on the list. Each card shows the name, the size, and a typical listed range. That figure is context, not a charge.</p>
+      <p class="lead">Each card shows the name, the size, and a typical listed range. That figure is context, not a charge.</p>
       <div class="actions">
         <a class="btn solid" href="compounds.html">Open the list</a>
         <a class="btn" href="quality.html">Look up a lot</a>
@@ -68,7 +68,7 @@
     </section>
     <section class="section wrap">
       <p class="kicker">The list</p>
-      <h2>Four compounds</h2>
+      <h2>On the shelf</h2>
       <div class="grid" id="grid"></div>
     </section>
   </main>
