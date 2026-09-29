@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
   <link rel="stylesheet" href="site.css?v=9" />
+  <style>
+    .storefront { opacity: 0; }
+    body.entered .storefront { animation: storefront 1.15s ease .2s both; }
+  </style>
   <script>
     function enterSite() {
       var age = document.getElementById("age");
