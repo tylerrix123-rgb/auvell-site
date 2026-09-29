@@ -4,122 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <meta http-equiv="Cache-Control" content="no-cache" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <link rel="stylesheet" href="extra.css?v=3" />
-  <link rel="stylesheet" href="glamour.css?v=3" />
+  <link rel="stylesheet" href="site.css?v=1" />
 </head>
 <body>
-  <div id="age-gate" class="gate">
+  <div id="gate" class="gate">
     <div class="gate-card">
-      <h2>Auvell</h2>
-      <p>Confirm you are 21 or over. Research enquiries only.</p>
-      <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
-      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only. Not for human or veterinary use.</label>
-      <button class="btn" type="button" id="enter-site">I agree & enter</button>
+      <p class="kicker">Auvell</p>
+      <h2>Before you enter</h2>
+      <p>Confirm you are 21 or over. This list is for research enquiries only.</p>
+      <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
+      <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
+      <p><button class="btn solid" id="enter" type="button">Enter</button></p>
     </div>
   </div>
-  <div class="ticker"><div class="ticker-track"><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Ask for the lot file</span><span>Research enquiries only</span><span>Talk on WhatsApp</span><span>Ask for the lot file</span></div></div>
-  <header class="top-nav">
-    <div class="bar">
-      <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-      <nav class="links">
-        <a class="on" href="index.html">Home</a>
-        <a href="compounds.html">Shop</a>
-        <a href="quality.html">Quality</a>
-        <a href="learn.html">Guide</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="icons">
-        <a class="icon-btn" href="compounds.html" aria-label="Shop">+</a>
-        <button class="menu-btn" type="button" aria-label="Menu">☰</button>
-      </div>
-    </div>
-  </header>
-  <div class="float-nav" id="float-nav">
+  <header class="top">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-    <nav class="links">
-      <a href="index.html">Home</a>
+    <nav class="nav">
+      <a class="on" href="index.html">Home</a>
       <a href="compounds.html">Shop</a>
       <a href="quality.html">Quality</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="legal.html">Notes</a>
     </nav>
-    <a class="icon-btn" href="compounds.html">+</a>
-  </div>
-  <section class="hero tall">
-    <div class="hero-copy">
-      <p class="eyebrow gold">Research enquiries</p>
-      <h1>Auvell <em>shopfront</em></h1>
-      <div class="rule"></div>
-      <p>A list of compounds, a vial on every card, and one note to a person. Nothing is charged here. Paperwork only goes up when a real file exists.</p>
-      <div class="hero-actions">
-        <a class="btn" href="compounds.html">Open the shop</a>
-        <a class="btn ghost" href="quality.html">Look up a lot</a>
+    <button class="menu" type="button">Menu</button>
+  </header>
+  <aside class="panel">
+    <a href="index.html">Home</a>
+    <a href="compounds.html">Shop</a>
+    <a href="quality.html">Quality</a>
+    <a href="about.html">About</a>
+    <a href="legal.html">Notes</a>
+  </aside>
+  <main>
+    <section class="hero wrap">
+      <img class="mark" data-logo alt="" />
+      <p class="kicker">Research compounds</p>
+      <h1>Auvell <em>lists the work.</em></h1>
+      <p class="lead">Each card shows the name, the size, and the lot. Open one compound when you need the detail. Nothing is charged on this page.</p>
+      <div class="actions">
+        <a class="btn solid" href="compounds.html">Open the list</a>
+        <a class="btn" href="quality.html">Look up a lot</a>
       </div>
-      <div class="hero-stats">
-        <div><b>21+</b><span>Age check</span></div>
-        <div><b>RUO</b><span>Research only</span></div>
-        <div><b>1 note</b><span>WhatsApp</span></div>
-      </div>
-    </div>
-    <div class="hero-cards">
-      <a class="hcard" href="compounds.html">
-        <img data-hero-vial alt="" />
-        <strong>The list</strong>
-        <span>Add packs to one note.</span>
-      </a>
-      <a class="hcard" href="quality.html">
-        <img data-hero-vial alt="" />
-        <strong>Quality</strong>
-        <span>Search a lot. Ask for the file.</span>
-      </a>
-      <a class="hcard" href="contact.html">
-        <img data-hero-vial alt="" />
-        <strong>A person</strong>
-        <span>Write anything. Send it.</span>
-      </a>
-    </div>
-  </section>
-  <div class="tools"><p>A few from the list</p><a class="btn" href="compounds.html">See all</a></div>
-  <div class="grid" id="product-grid" data-limit="3"></div>
-  <section class="guide">
-    <div class="guide-intro">
-      <p>A short guide</p>
-      <h2>What you are looking at</h2>
-      <span class="rule"></span>
-    </div>
-    <div class="facts">
-      <article><span>01</span><h3>A short chain</h3><p>A peptide is a short chain of amino acids. These vials are laboratory copies of one sequence.</p></article>
-      <article><span>02</span><h3>Studied, not prescribed</h3><p>Not medical advice. Not for human or veterinary use.</p></article>
-      <article><span>03</span><h3>Made, then dried</h3><p>Chemically synthesised, then dried into a small cake.</p></article>
-      <article><span>04</span><h3>Keep it sealed</h3><p>Cap on. Cold, dry, dark. Do not open one just to look.</p></article>
-    </div>
-    <div class="scale">
-      <div class="scale-copy"><p>Storage</p><h3>Where a sealed dry vial sits</h3></div>
-      <div class="degrees">
-        <div class="deg cold"><b>−80°</b><em>Years</em><span>Deep freezer.</span></div>
-        <div class="deg cold"><b>−20°</b><em>Months</em><span>Normal freezer.</span></div>
-        <div class="deg cool"><b>2–8°</b><em>Weeks</em><span>Fridge, cap on.</span></div>
-        <div class="deg warm"><b>15–25°</b><em>Hours</em><span>In transit only.</span></div>
-        <div class="deg hot"><b>30°+</b><em>Avoid</em><span>Heat and sun.</span></div>
-      </div>
-    </div>
-    <div class="scale" style="margin-top:16px">
-      <div class="scale-copy"><p>Paperwork</p><h3>Look up a lot</h3></div>
-      <p><a class="btn" href="quality.html">Open Quality</a></p>
-    </div>
-  </section>
-  <footer class="foot">
-    <div class="foot-grid">
-      <div><strong>Auvell</strong><p>Conversations only.</p></div>
-      <div><a href="compounds.html">Shop</a><br><a href="quality.html">Quality</a></div>
-      <div><a href="contact.html">Contact</a><br><a href="legal.html">Notes</a></div>
-    </div>
-  </footer>
+    </section>
+    <section class="wrap steps">
+      <article><span>01</span><h3>The list</h3><p>Names and pack sizes, with the same vial on every card until new photographs arrive.</p></article>
+      <article><span>02</span><h3>One compound</h3><p>Open a card for the lot code and a place to keep a short note on this device.</p></article>
+      <article><span>03</span><h3>The lot</h3><p>Search Quality by name or code. Files appear only when they have been uploaded.</p></article>
+    </section>
+    <section class="section wrap">
+      <p class="kicker">From the list</p>
+      <h2>Three compounds</h2>
+      <div class="grid" id="grid" data-limit="3"></div>
+      <p style="margin-top:22px"><a class="btn" href="compounds.html">See the full list</a></p>
+    </section>
+  </main>
+  <footer class="foot"><div class="wrap">
+    <div>Auvell · research enquiries</div>
+    <div><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="legal.html">Notes</a></div>
+  </div></footer>
   <script src="vial.js"></script>
-  <script src="brand.js"></script>
-  <script src="coa.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

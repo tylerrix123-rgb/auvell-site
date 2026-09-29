@@ -3,94 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shop — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="extra.css" />
+  <title>Shop · Auvell</title>
+  <link rel="stylesheet" href="site.css?v=1" />
 </head>
 <body>
-  <div id="age-gate" class="gate">
-    <div class="gate-card">
-      <h2>Age check</h2>
-      <p>Confirm you are 21 or over, and that this site is for research enquiries only.</p>
-      <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
-      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only. Not for human or veterinary use.</label>
-      <button class="btn" type="button" id="enter-site">I agree & enter</button>
-    </div>
-  </div>
-  <div class="ticker"><div class="ticker-track"><span>Add several items</span><span>Open a card for the lot</span><span>Send one WhatsApp note</span><span>Add several items</span><span>Open a card for the lot</span><span>Send one WhatsApp note</span></div></div>
-  <header class="top-nav">
-    <div class="bar">
-      <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-      <nav class="links">
-        <a href="index.html">Home</a>
-        <a class="on" href="compounds.html">Shop</a>
-        <a href="quality.html">Quality</a>
-        <a href="learn.html">Guide</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="icons">
-        <button class="icon-btn" type="button" id="open-cart" aria-label="Note">+<i id="basket-count">0</i></button>
-        <button class="menu-btn" type="button" aria-label="Menu">☰</button>
-      </div>
-    </div>
-  </header>
-  <div class="float-nav" id="float-nav">
+  <header class="top">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-    <nav class="links">
+    <nav class="nav">
       <a href="index.html">Home</a>
-      <a href="compounds.html">Shop</a>
+      <a class="on" href="compounds.html">Shop</a>
       <a href="quality.html">Quality</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="legal.html">Notes</a>
     </nav>
-    <button class="icon-btn" type="button" id="open-cart-2">+</button>
-  </div>
-  <section class="hero">
-    <div class="hero-copy">
-      <h1>SHOP</h1>
-      <h2>The list</h2>
-      <div class="rule"></div>
-      <p>Tap a size to add it. Open a card to see the lot. Paperwork is on Quality.</p>
-    </div>
-    <div class="hero-art">
-      <img class="float v1" data-hero-vial alt="" />
-      <img class="float v2" data-hero-vial alt="" />
-      <img class="float v3" data-hero-vial alt="" />
-    </div>
-  </section>
-  <div class="tools">
-    <div class="chips">
-      <button class="chip on" type="button" data-filter="all">All</button>
-      <button class="chip" type="button" data-filter="5 mg">5 mg</button>
-      <button class="chip" type="button" data-filter="10 mg">10 mg</button>
-    </div>
-    <p id="result-count">Showing the list</p>
-    <select id="sort" aria-label="Sort">
-      <option value="name">Name A–Z</option>
-      <option value="za">Name Z–A</option>
-    </select>
-  </div>
-  <div class="grid" id="product-grid"></div>
-  <aside class="drawer" id="enquiry-cart">
-    <div class="drawer-head"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div>
-    <p id="cart-empty">Nothing in here yet.</p>
-    <div id="cart-lines"></div>
-    <label for="ask-anything">Anything you want to ask</label>
-    <textarea id="ask-anything" placeholder="Ask us anything."></textarea>
-    <button class="btn wa" type="button" id="send-enquiry">Send on WhatsApp</button>
+    <button class="menu" type="button">Menu</button>
+  </header>
+  <aside class="panel">
+    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Notes</a>
   </aside>
-  <div class="scrim" id="scrim"></div>
-  <div class="toast" id="toast"></div>
-  <footer class="foot">
-    <div class="foot-grid">
-      <div><strong>Auvell</strong><p>Research enquiries.</p></div>
-      <div><a href="quality.html">Quality</a><br><a href="contact.html">Contact</a></div>
-      <div><a href="legal.html">Notes</a></div>
-    </div>
-  </footer>
+  <main class="page wrap">
+    <p class="kicker">The list</p>
+    <h1>Shop</h1>
+    <p>Open a card for sizes and the lot. Names here are placeholders until the final catalogue is set.</p>
+    <div class="grid" id="grid" style="margin-top:28px"></div>
+  </main>
+  <footer class="foot"><div class="wrap"><div>Auvell</div></div></footer>
   <script src="vial.js"></script>
-  <script src="brand.js"></script>
-  <script src="coa.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

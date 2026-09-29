@@ -3,75 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quality — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="extra.css" />
+  <title>Quality · Auvell</title>
+  <link rel="stylesheet" href="site.css?v=1" />
 </head>
 <body>
-  <div id="age-gate" class="gate">
-    <div class="gate-card">
-      <h2>Age check</h2>
-      <p>Confirm you are 21 or over, and that this site is for research enquiries only.</p>
-      <label class="check"><input type="checkbox" id="age-ok" /> I am 21 or over.</label>
-      <label class="check"><input type="checkbox" id="ruo-ok" /> Research use only. Not for human or veterinary use.</label>
-      <button class="btn" type="button" id="enter-site">I agree & enter</button>
-    </div>
-  </div>
-  <div class="ticker"><div class="ticker-track"><span>Ask for the lot file</span><span>No invented lab reports</span><span>Research use only</span><span>Ask for the lot file</span><span>No invented lab reports</span><span>Research use only</span></div></div>
-  <header class="top-nav"><div class="bar">
+  <header class="top">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-    <nav class="links">
+    <nav class="nav">
       <a href="index.html">Home</a>
       <a href="compounds.html">Shop</a>
       <a class="on" href="quality.html">Quality</a>
-      <a href="learn.html">Guide</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="legal.html">Notes</a>
     </nav>
-    <button class="menu-btn" type="button">☰</button>
-  </div></header>
-  <div class="float-nav" id="float-nav">
-    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-    <nav class="links"><a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="contact.html">Contact</a></nav>
-  </div>
-  <section class="page wide">
-    <p class="eyebrow">Quality</p>
-    <h1>Paperwork for each lot</h1>
-    <p>A certificate of analysis is the file that sits with a batch: what was tested, when, and by whom. This page is the library. Files go here only when a real report exists. We will not invent a lab or a purity number to fill the table.</p>
-    <div class="search-row">
-      <input id="coa-search" type="search" placeholder="Search by compound or lot code" />
-    </div>
-    <div id="coa-list"></div>
-    <div class="facts" style="margin-top:36px">
-      <article><span>01</span><h3>Name</h3><p>The compound on the file should match the vial label.</p></article>
-      <article><span>02</span><h3>Lot</h3><p>The lot code on the bottle and the file should be the same.</p></article>
-      <article><span>03</span><h3>Date</h3><p>When the test was finished, not when the page was designed.</p></article>
-      <article><span>04</span><h3>Purity</h3><p>A percentage only means something if the method is named on the file.</p></article>
-    </div>
-    <div class="scale" style="margin-top:22px">
-      <div class="scale-copy">
-        <p>Missing a file</p>
-        <h3>Send us the lot</h3>
-        <small>If the code is not in the list yet, or the PDF is still being added, send it here.</small>
-      </div>
-      <label for="lot-code">Lot code on the vial</label>
-      <input id="lot-code" type="text" placeholder="e.g. AUV-P01" />
-      <label for="lot-note">Anything else</label>
-      <textarea id="lot-note" placeholder="What you need from the file."></textarea>
-      <button class="btn" type="button" id="send-lot">Send on WhatsApp</button>
-    </div>
-  </section>
-  <footer class="foot">
-    <div class="foot-grid">
-      <div><strong>Auvell</strong><p>Research enquiries only.</p></div>
-      <div><a href="compounds.html">Shop</a><br><a href="quality.html">Quality</a><br><a href="learn.html">Guide</a></div>
-      <div><a href="about.html">About</a><br><a href="contact.html">Contact</a><br><a href="legal.html">Notes</a></div>
-    </div>
-    <p>Not medical advice. Not for human or veterinary use. Certificates appear only when a real test file is on hand.</p>
-  </footer>
+    <button class="menu" type="button">Menu</button>
+  </header>
+  <aside class="panel">
+    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Notes</a>
+  </aside>
+  <main class="page wrap">
+    <p class="kicker">Paperwork</p>
+    <h1>Quality</h1>
+    <p>Search by compound or lot. A file is shown only when it has been uploaded.</p>
+    <div class="row"><input id="q" type="search" placeholder="Compound or lot" /></div>
+    <div class="list" id="lots"></div>
+  </main>
+  <footer class="foot"><div class="wrap"><div>Auvell</div></div></footer>
   <script src="vial.js"></script>
-  <script src="brand.js"></script>
-  <script src="coa.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

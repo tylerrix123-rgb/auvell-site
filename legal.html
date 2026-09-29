@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Notes — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Notes · Auvell</title>
+  <link rel="stylesheet" href="site.css?v=1" />
 </head>
 <body>
-  <header class="top-nav"><div class="bar">
+  <header class="top">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-    <nav class="links">
+    <nav class="nav">
       <a href="index.html">Home</a>
       <a href="compounds.html">Shop</a>
       <a href="quality.html">Quality</a>
+      <a href="about.html">About</a>
       <a class="on" href="legal.html">Notes</a>
     </nav>
-    <button class="menu-btn" type="button">☰</button>
-  </div></header>
-  <main class="page">
-    <p class="eyebrow">Notes</p>
-    <h1>Research use only.</h1>
-    <p>Materials discussed here are for lawful laboratory research. They are not medicines. They are not medical advice. They are not for human or veterinary use.</p>
-    <p>This preview does not take payment. A conversation on WhatsApp is not a sale until you agree terms off this page.</p>
-    <p>Certificates of analysis published on Quality will be files from a test that actually happened. Empty rows mean the file is not here yet. That is deliberate.</p>
-    <p>You must be 21 or over to use the site.</p>
+    <button class="menu" type="button">Menu</button>
+  </header>
+  <aside class="panel">
+    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Notes</a>
+  </aside>
+  <main class="page wrap">
+    <p class="kicker">Read first</p>
+    <h1>Notes</h1>
+    <p>You must be 21 or over to use this site.</p>
+    <p>Materials listed here are for laboratory research only. They are not medicines. They are not for human or veterinary use. Nothing on these pages is medical advice, a dose, or a protocol.</p>
+    <p>Lot files are shown only when a real document has been uploaded. Placeholder codes are not certificates.</p>
   </main>
+  <footer class="foot"><div class="wrap"><div>Auvell</div></div></footer>
   <script src="vial.js"></script>
-  <script src="brand.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
