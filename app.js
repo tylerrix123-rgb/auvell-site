@@ -87,7 +87,7 @@ function renderBasket() {
   if (!list.length) { box.innerHTML = ""; if (empty) empty.style.display = "block"; return; }
   if (empty) empty.style.display = "none";
   box.innerHTML = list.map(function (i) {
-    return "<div class='line'><div><strong>" + i.name + "</strong><span>" + i.size + " · typical " + money(i.typical) + "</span></div><div class='step'><button type='button' onclick=\"setQty('" + i.id + "','" + i.size + "'," + (i.qty-1) + ")\">−</button><b>" + i.qty + "</b><button type='button' onclick=\"setQty('" + i.id + "','" + i.size + "'," + (i.qty+1) + ")\">+</button></div></div>";
+    return "<div class='line'><div><strong>" + i.name + "</strong><span class='sub'>" + i.size + "</span><span class='sub'>typical " + money(i.typical) + "</span></div><div class='step'><button type='button' onclick=\"setQty('" + i.id + "','" + i.size + "'," + (i.qty-1) + ")\">−</button><b>" + i.qty + "</b><button type='button' onclick=\"setQty('" + i.id + "','" + i.size + "'," + (i.qty+1) + ")\">+</button></div></div>";
   }).join("");
 }
 function openCart() { document.body.classList.add("cart-open"); }
@@ -112,6 +112,9 @@ function bindChrome() {
   });
   var send = document.getElementById("send-note");
   if (send) send.addEventListener("click", sendNote);
+  window.addEventListener("scroll", function () {
+    document.body.classList.toggle("scrolled", window.scrollY > 24);
+  }, { passive: true });
   var gate = document.getElementById("gate");
   if (gate) {
     try {
