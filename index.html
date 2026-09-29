@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=6" />
+  <link rel="stylesheet" href="site.css?v=7" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
@@ -22,7 +22,7 @@
       } catch (e) {}
       if (gate) {
         gate.classList.add("leaving");
-        setTimeout(function () { gate.className = "gate hide"; gate.style.display = "none"; }, 650);
+        setTimeout(function () { gate.className = "gate hide"; gate.style.display = "none"; }, 900);
       }
       return false;
     }
@@ -30,10 +30,11 @@
 </head>
 <body>
   <div id="gate" class="gate">
+    <video id="unlock-vid" class="gate-film" autoplay muted loop playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_3HhZ8pEs5bpQEgLj35o5ylQwxi5/hf_20260929_165942_81167164-174a-4683-9da1-20585f2e4716.mp4"></video>
     <div class="gate-card">
       <p class="kicker">Auvell</p>
       <h2>Before you enter</h2>
-      <p>You must be 21 or over. This list is for laboratory research enquiries only — not for human or veterinary use.</p>
+      <p>You must be 21 or over. This list is for laboratory research enquiries only.</p>
       <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
       <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
       <label class="check" style="display:block">Referral code (optional)<input id="refcode" type="text" placeholder="If you have one" style="margin-top:8px;width:100%" /></label>
@@ -47,7 +48,7 @@
       <a class="on" href="index.html">Home</a>
       <a href="compounds.html">Shop</a>
       <a href="quality.html">Quality</a>
-      <a href="about.html">About</a>
+      <a href="note.html">Note</a>
       <a href="legal.html">Notes</a>
     </nav>
     <div class="top-actions">
@@ -60,10 +61,13 @@
   </aside>
   <main>
     <section class="hero wrap">
+      <div class="hero-film">
+        <video autoplay muted loop playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_3HhZ8pEs5bpQEgLj35o5ylQwxi5/hf_20260929_165942_55f964f0-4b09-4356-be96-b2e3678e6f98.mp4"></video>
+      </div>
       <img class="mark" data-logo alt="" />
       <p class="kicker">Research compounds</p>
       <h1>Auvell <em>lists the work.</em></h1>
-      <p class="lead">A short list. Open a card, add a pack to a note, and ask a research question. Nothing is charged here.</p>
+      <p class="lead">A short list. Open a card, add a pack to a note, and ask a research question.</p>
       <div class="actions">
         <a class="btn solid" href="compounds.html">Open the list</a>
         <a class="btn" href="note.html">Your note</a>
