@@ -1,0 +1,13 @@
+.glitch{display:none;position:absolute;inset:0;z-index:6;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(243,238,228,.07) 0 1px,transparent 1px 5px),radial-gradient(circle at 50% 40%,rgba(176,141,74,.2),transparent 55%);}
+.gate.glitching .glitch{display:grid;place-items:center;animation:glitchfade .85s ease both;}
+.gate.glitching .gate-card{animation:glitchcard .4s steps(3) both;}
+.glitch-word{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(3rem,12vw,7rem);color:#f3eee4;letter-spacing:.22em;text-transform:uppercase;position:relative;animation:glitchtext .85s steps(2) both;text-shadow:4px 0 #b08d4a,-4px 0 #6ea0ff;}
+.glitch-word:before,.glitch-word:after{content:"AUVELL";position:absolute;left:0;top:0;width:100%;}
+.glitch-word:before{color:#b08d4a;animation:glitchshift .85s steps(2) both;clip-path:inset(0 0 55% 0);}
+.glitch-word:after{color:#8fb4ff;animation:glitchshift2 .85s steps(2) both;clip-path:inset(50% 0 0 0);}
+@keyframes glitchfade{0%{opacity:0}8%{opacity:1}80%{opacity:1}100%{opacity:0}}
+@keyframes glitchcard{0%{opacity:1;transform:none;filter:none}20%{opacity:.4;transform:translate(-8px,3px) skewX(-4deg);filter:hue-rotate(20deg)}40%{opacity:1;transform:translate(10px,-4px)}60%{opacity:.2;transform:translate(-14px,6px) skewX(6deg)}100%{opacity:0;transform:scale(1.04)}}
+@keyframes glitchtext{0%{transform:none}15%{transform:translate(6px,-3px)}30%{transform:translate(-8px,4px)}45%{transform:translate(3px,0)}60%{transform:translate(-10px,-2px)}100%{transform:none}}
+@keyframes glitchshift{0%{transform:translate(0)}20%{transform:translate(-10px,3px)}40%{transform:translate(8px,-4px)}70%{transform:translate(-6px,2px)}100%{transform:translate(0)}}
+@keyframes glitchshift2{0%{transform:translate(0)}20%{transform:translate(9px,-2px)}40%{transform:translate(-7px,5px)}70%{transform:translate(5px,-3px)}100%{transform:translate(0)}}
+@media (prefers-reduced-motion:reduce){.gate.glitching .glitch,.gate.glitching .gate-card,.glitch-word,.glitch-word:before,.glitch-word:after{animation:none}.gate.glitching .glitch{display:none}}

@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=14" />
+  <link rel="stylesheet" href="site.css?v=15" />
+  <link rel="stylesheet" href="glitch.css?v=15" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
@@ -21,16 +22,21 @@
         if (ref && ref.value) sessionStorage.setItem("auvell-ref", ref.value.trim());
         else sessionStorage.setItem("auvell-ref", "");
       } catch (e) {}
-      document.body.classList.add("entered");
       if (gate) {
-        gate.classList.add("ceremony");
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () { gate.classList.add("opening"); });
-        });
+        gate.classList.add("glitching");
+        setTimeout(function () {
+          document.body.classList.add("entered");
+          gate.classList.add("ceremony");
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { gate.classList.add("opening"); });
+          });
+        }, 700);
         setTimeout(function () {
           gate.className = "gate hide";
           gate.style.display = "none";
-        }, 1600);
+        }, 2100);
+      } else {
+        document.body.classList.add("entered");
       }
       return false;
     }
@@ -38,6 +44,7 @@
 </head>
 <body>
   <div id="gate" class="gate">
+    <div class="glitch" aria-hidden="true"><span class="glitch-word">AUVELL</span></div>
     <div class="doors" aria-hidden="true"><span class="door l"></span><span class="door r"></span></div>
     <div class="gate-card">
       <img class="gate-logo" data-logo alt="Auvell" />
