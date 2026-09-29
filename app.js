@@ -34,17 +34,37 @@ function items() {
 function count() { return items().reduce(function (t, i) { return t + i.qty; }, 0); }
 function refTotal() { return items().reduce(function (t, i) { return t + i.typical * i.qty; }, 0); }
 function addOne(id, size) { setQty(id, size, qtyOf(id, size) + 1); openCart(); }
+function currentRef() {
+  try { return (sessionStorage.getItem("auvell-ref") || "").trim(); }
+  catch (e) { return ""; }
+}
+function refLine() {
+  var ref = currentRef();
+  return ref ? ("Referral code " + ref + " used.") : "No referral code used.";
+}
+function paintRef() {
+  var el = document.getElementById("ref-line");
+  if (el) el.textContent = refLine();
+  var inp = document.getElementById("note-ref");
+  if (inp && !inp.dataset.bound) {
+    inp.value = currentRef();
+    inp.addEventListener("input", function () {
+      try { sessionStorage.setItem("auvell-ref", inp.value.trim()); } catch (e) {}
+      var line = document.getElementById("ref-line");
+      if (line) line.textContent = refLine();
+    });
+    inp.dataset.bound = "1";
+  }
+}
 function buildMessage() {
   var list = items();
   var q = ((document.getElementById("ask") || {}).value || "").trim();
-  var ref = "";
-  try { ref = sessionStorage.getItem("auvell-ref") || ""; } catch (e) {}
   var lines = ["Hello Auvell,", "", "This is a research enquiry only. These materials are for laboratory research purposes. This is not an order for human or veterinary use.", "", "I am interested in the following. Typical listed ranges are context only — not a quote."];
   if (list.length) {
     list.forEach(function (i) { lines.push("- " + i.qty + " × " + i.name + " (" + i.size + "), typical listed about " + money(i.typical)); });
     if (refTotal()) lines.push("Combined typical listed figure: " + money(refTotal()) + " (reference only).");
   } else lines.push("- I have not added a pack yet.");
-  if (ref) lines.push("Referral code: " + ref);
+  lines.push("", refLine());
   lines.push("", "I have questions about availability and paperwork for research use. How can you help with that?");
   if (q) lines.push("", q);
   return lines.join("\n");
@@ -83,6 +103,7 @@ function renderBasket() {
   var list = items();
   if (badge) badge.textContent = String(count());
   if (ref) ref.textContent = refTotal() ? "Typical listed total " + money(refTotal()) + " — reference only, not a bill." : "";
+  paintRef();
   if (!box) return;
   if (!list.length) { box.innerHTML = ""; if (empty) empty.style.display = "block"; return; }
   if (empty) empty.style.display = "none";
@@ -115,6 +136,7 @@ function bindChrome() {
   window.addEventListener("scroll", function () {
     document.body.classList.toggle("scrolled", window.scrollY > 24);
   }, { passive: true });
+  paintRef();
   var gate = document.getElementById("gate");
   if (gate) {
     try {
