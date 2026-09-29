@@ -4,19 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=5" />
+  <link rel="stylesheet" href="site.css?v=6" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
       var ruo = document.getElementById("ruo");
       var gate = document.getElementById("gate");
       var err = document.getElementById("gate-err");
+      var ref = document.getElementById("refcode");
       if (!age || !ruo || !age.checked || !ruo.checked) {
         if (err) err.style.display = "block";
         return false;
       }
-      try { sessionStorage.setItem("auvell-in", "1"); } catch (e) {}
-      if (gate) { gate.className = "gate hide"; gate.style.display = "none"; }
+      try {
+        sessionStorage.setItem("auvell-in", "1");
+        if (ref && ref.value) sessionStorage.setItem("auvell-ref", ref.value.trim());
+      } catch (e) {}
+      if (gate) {
+        gate.classList.add("leaving");
+        setTimeout(function () { gate.className = "gate hide"; gate.style.display = "none"; }, 650);
+      }
       return false;
     }
   </script>
@@ -26,11 +33,12 @@
     <div class="gate-card">
       <p class="kicker">Auvell</p>
       <h2>Before you enter</h2>
-      <p>Confirm you are 21 or over. This list is for research enquiries only.</p>
+      <p>You must be 21 or over. This list is for laboratory research enquiries only — not for human or veterinary use.</p>
       <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
       <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
-      <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes, then press Enter.</p>
-      <p><button class="btn solid" id="enter" type="button" onclick="enterSite()">Enter</button></p>
+      <label class="check" style="display:block">Referral code (optional)<input id="refcode" type="text" placeholder="If you have one" style="margin-top:8px;width:100%" /></label>
+      <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes, then press Enter site.</p>
+      <p><button class="btn solid" id="enter" type="button" onclick="enterSite()">Enter site</button></p>
     </div>
   </div>
   <header class="top">
@@ -43,37 +51,26 @@
       <a href="legal.html">Notes</a>
     </nav>
     <div class="top-actions">
-      <button class="bag" type="button" id="open-cart">Note <span id="basket-count">0</span></button>
+      <a class="bag" href="note.html">Note <span id="basket-count">0</span></a>
       <button class="menu" type="button">Menu</button>
     </div>
   </header>
   <aside class="panel">
-    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="about.html">About</a><a href="legal.html">Notes</a>
+    <a href="index.html">Home</a><a href="compounds.html">Shop</a><a href="quality.html">Quality</a><a href="note.html">Your note</a><a href="legal.html">Notes</a>
   </aside>
   <main>
     <section class="hero wrap">
       <img class="mark" data-logo alt="" />
       <p class="kicker">Research compounds</p>
       <h1>Auvell <em>lists the work.</em></h1>
-      <p class="lead">Each card shows the name, the size, and a typical listed range. That figure is context, not a charge.</p>
+      <p class="lead">A short list. Open a card, add a pack to a note, and ask a research question. Nothing is charged here.</p>
       <div class="actions">
         <a class="btn solid" href="compounds.html">Open the list</a>
-        <a class="btn" href="quality.html">Look up a lot</a>
+        <a class="btn" href="note.html">Your note</a>
       </div>
     </section>
-    <section class="wrap steps">
-      <article><span>01</span><h3>The list</h3><p>Name, pack size, and a typical listed range for that kind of vial.</p></article>
-      <article><span>02</span><h3>One compound</h3><p>Open a card for the lot mark and three questions worth asking.</p></article>
-      <article><span>03</span><h3>The note</h3><p>Add packs. Write anything. Send the note. Nothing is billed here.</p></article>
-    </section>
-    <section class="section wrap">
-      <p class="kicker">The list</p>
-      <h2>On the shelf</h2>
-      <div class="grid" id="grid"></div>
-    </section>
   </main>
-  <footer class="foot"><div class="wrap"><div>Auvell · research enquiries</div><div><a href="compounds.html">Shop</a><a href="legal.html">Notes</a></div></div></footer>
-  <script src="vial.js"></script>
+  <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div></div></footer>
   <script src="app.js"></script>
 </body>
 </html>
