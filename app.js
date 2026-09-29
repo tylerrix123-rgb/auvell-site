@@ -2,7 +2,7 @@ window.AUVELL = {
   logo: "logo.svg",
   whatsapp: "",
   products: [
-    { id: "milano", name: "Milano Tan", sizeLabel: "10 mg", lot: "AUV-MT",
+    { id: "mt2", name: "Melanotan 2", sizeLabel: "10 mg", lot: "AUV-MT2",
       sizes: [{ label: "10 mg", typical: 49 }] },
     { id: "ghkcu", name: "GHK-Cu", sizeLabel: "100 mg with 10 mL bacteriostatic water", lot: "AUV-GHK",
       sizes: [{ label: "100 mg + 10 mL water", typical: 55 }] },
