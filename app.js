@@ -2,11 +2,46 @@ window.AUVELL = {
   logo: "logo.svg",
   whatsapp: "",
   products: [
-    { id: "mt2", name: "Melanotan 2", sizeLabel: "10 mg", lot: "AUV-MT2", sizes: [{ label: "10 mg", typical: 49 }] },
-    { id: "ghkcu", name: "GHK-Cu", sizeLabel: "100 mg", lot: "AUV-GHK", sizes: [{ label: "100 mg", typical: 55 }] },
-    { id: "water", name: "Bacteriostatic water", sizeLabel: "10 mL", lot: "AUV-BW", sizes: [{ label: "10 mL", typical: 12 }] },
-    { id: "blend", name: "KPV / BPC-157 / TB-500", sizeLabel: "30 mg total · 10 mg of each", lot: "AUV-BLD", sizes: [{ label: "30 mg mixed vial", typical: 65 }] },
-    { id: "reta", name: "Retatrutide", sizeLabel: "30 mg", lot: "AUV-R30", sizes: [{ label: "30 mg", typical: 165 }] }
+    {
+      id: "mt2",
+      name: "Melanotan 2",
+      sizeLabel: "10 mg",
+      lot: "AUV-MT2",
+      sizes: [{ label: "10 mg", typical: 49 }],
+      study: "<p>In trials and scientific studies, Melanotan 2 has been examined as a melanocortin receptor agonist. Published work has reported rises in melanin activity and skin pigmentation, and further study of melanocortin pathways linked to appetite and sexual function.</p><p>Human data is limited. This is literature context, not a result promised by this listing.</p>"
+    },
+    {
+      id: "ghkcu",
+      name: "GHK-Cu",
+      sizeLabel: "100 mg",
+      lot: "AUV-GHK",
+      sizes: [{ label: "100 mg", typical: 55 }],
+      study: "<p>In laboratory and clinical skin research, GHK-Cu — a copper-binding tripeptide found in human plasma — has been studied for changes in collagen and extracellular-matrix markers, wound-repair signalling, and anti-inflammatory gene expression.</p><p>Most of that work is in cells, tissue models, and topical skin studies. This is literature context, not a result promised by this listing.</p>"
+    },
+    {
+      id: "water",
+      name: "Bacteriostatic water",
+      sizeLabel: "10 mL",
+      lot: "AUV-BW",
+      sizes: [{ label: "10 mL", typical: 12 }],
+      study: "<p>This is not a peptide. Bacteriostatic water is sterile water with a small amount of benzyl alcohol. In laboratory practice it is used so a multi-draw stock is less likely to spoil on first opening.</p><p>There are no ‘trial results’ for it as a research chemical in the same sense as the peptides on this list. It is listed on its own because it is a separate material.</p>"
+    },
+    {
+      id: "blend",
+      name: "KPV / BPC-157 / TB-500",
+      sizeLabel: "30 mg total · 10 mg of each",
+      lot: "AUV-BLD",
+      sizes: [{ label: "30 mg mixed vial", typical: 65 }],
+      study: "<p>This listing holds three research chemicals. In published studies:</p><p><strong>KPV</strong> is a short fragment of alpha-MSH. Laboratory work has reported anti-inflammatory signalling in gut and skin models.</p><p><strong>BPC-157</strong> is a gastric pentadecapeptide. Most published work is preclinical — animal and cell studies on tissue integrity and blood-vessel markers.</p><p><strong>TB-500</strong> (a thymosin beta-4 fragment) has been studied for actin regulation and cell migration in tissue-repair models, again largely preclinical.</p><p>None of that is a protocol, a stack, or a promised result from this listing.</p>"
+    },
+    {
+      id: "reta",
+      name: "Retatrutide",
+      sizeLabel: "30 mg",
+      lot: "AUV-R30",
+      sizes: [{ label: "30 mg", typical: 165 }],
+      study: "<p>In published clinical research, retatrutide has been studied as a triple agonist at GLP-1, GIP and glucagon receptors. Phase 2 trials have reported substantial reductions in body weight and changes in metabolic markers in adults with obesity.</p><p>That is licensed-drug research literature. This listing is a research material only. Auvell does not supply a medicine, and this page does not teach use.</p>"
+    }
   ]
 };
 try { window.AUVELL.basket = JSON.parse(localStorage.getItem("auvell-basket") || "{}"); }
@@ -63,7 +98,7 @@ function buildMessage() {
   if (list.length) {
     list.forEach(function (i) { lines.push("- " + i.qty + " × " + i.name + " (" + i.size + "), typical listed about " + money(i.typical)); });
     if (refTotal()) lines.push("Combined typical listed figure: " + money(refTotal()) + " (reference only).");
-  } else lines.push("- I have not added a pack yet.");
+  } else lines.push("- I have not added a research chemical yet.");
   lines.push("", refLine());
   lines.push("", "I have questions about availability and paperwork for research use. How can you help with that?");
   if (q) lines.push("", q);
@@ -91,7 +126,16 @@ function openDetail(id) {
   if (!box) { box = document.createElement("aside"); box.id = "detail"; box.className = "detail"; document.body.appendChild(box); }
   var first = p.sizes[0];
   var q = qtyOf(p.id, first.label) || 1;
-  box.innerHTML = "<p class='kicker'>Research material</p><h2>" + p.name + "</h2><p>" + p.sizeLabel + ". Lot mark " + p.lot + ".</p><p class='ref'>Typical listed " + money(first.typical) + " — not an Auvell price.</p><div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div><p><a class='text-link' href='quality.html?lot=" + encodeURIComponent(p.lot) + "'>Check the lot file</a></p><p>Questions here are for research-material context only. Not advice for human use.</p><p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>";
+  box.innerHTML =
+    "<p class='kicker'>Research material</p>" +
+    "<h2>" + p.name + "</h2>" +
+    "<p>" + p.sizeLabel + ". Lot mark " + p.lot + ".</p>" +
+    "<p class='ref'>Typical listed " + money(first.typical) + " — not an Auvell price.</p>" +
+    "<div class='study'><p class='kicker'>In published research</p>" + (p.study || "") +
+    "<p class='hint'>Educational context from trials and laboratory studies. Not advice for human use. Auvell will not teach reconstitution, stacks or dosages.</p></div>" +
+    "<div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div>" +
+    "<p><a class='text-link' href='quality.html?lot=" + encodeURIComponent(p.lot) + "'>Check the lot file</a></p>" +
+    "<p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>";
   document.body.classList.add("detail-open");
 }
 function closeDetail() { document.body.classList.remove("detail-open"); }
