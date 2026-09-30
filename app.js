@@ -8,7 +8,8 @@ window.AUVELL = {
       sizeLabel: "10 mg",
       lot: "AUV-MT2",
       sizes: [{ label: "10 mg", typical: 49 }],
-      study: "<p>In trials and scientific studies, Melanotan 2 has been examined as a melanocortin receptor agonist. Published work has reported rises in melanin activity and skin pigmentation, and further study of melanocortin pathways linked to appetite and sexual function.</p><p>Human data is limited. This is literature context, not a result promised by this listing.</p>"
+      stage: "Early human studies. No approved medicine.",
+      study: "<p>Melanotan 2 is a synthetic cyclic heptapeptide that acts on melanocortin receptors (mainly MC1R, also MC3R and MC4R).</p><p><strong>Stage of research.</strong> Human work began in the 1990s and 2000s. Small clinical studies looked at pigmentation and, separately, sexual function. It did not complete a full Phase 3 programme as a tanning medicine. A later related compound, bremelanotide (PT-141), did go on to approval for a different indication. Melanotan 2 itself is not an approved medicine.</p><p><strong>What published studies reported.</strong> Increased melanin activity and darker skin pigmentation in study settings. Nausea and flushing were commonly noted. Some papers also explored melanocortin effects on appetite and sexual function. Sample sizes were small by modern trial standards.</p><p>That is literature. It is not a result this listing will produce.</p>"
     },
     {
       id: "ghkcu",
@@ -16,7 +17,8 @@ window.AUVELL = {
       sizeLabel: "100 mg",
       lot: "AUV-GHK",
       sizes: [{ label: "100 mg", typical: 55 }],
-      study: "<p>In laboratory and clinical skin research, GHK-Cu — a copper-binding tripeptide found in human plasma — has been studied for changes in collagen and extracellular-matrix markers, wound-repair signalling, and anti-inflammatory gene expression.</p><p>Most of that work is in cells, tissue models, and topical skin studies. This is literature context, not a result promised by this listing.</p>"
+      stage: "Mostly laboratory and topical skin studies.",
+      study: "<p>GHK-Cu is a copper-binding tripeptide that occurs in human plasma. Levels fall with age, which is why it is so often studied in skin and repair models.</p><p><strong>Stage of research.</strong> A large body of in-vitro and tissue work, plus smaller topical skin studies. There is no large Phase 3 drug programme for this research listing. Most human data is cosmetic or dermatology-scale, not a licensed injectable medicine trial.</p><p><strong>What published studies reported.</strong> Changes in collagen and extracellular-matrix markers. Shifts in wound-repair and anti-inflammatory gene expression in cell models. Some topical studies reported improvements in skin appearance scores. That work does not establish a clinical protocol for this listing.</p>"
     },
     {
       id: "water",
@@ -24,7 +26,8 @@ window.AUVELL = {
       sizeLabel: "10 mL",
       lot: "AUV-BW",
       sizes: [{ label: "10 mL", typical: 12 }],
-      study: "<p>This is not a peptide. Bacteriostatic water is sterile water with a small amount of benzyl alcohol. In laboratory practice it is used so a multi-draw stock is less likely to spoil on first opening.</p><p>There are no ‘trial results’ for it as a research chemical in the same sense as the peptides on this list. It is listed on its own because it is a separate material.</p>"
+      stage: "Laboratory solvent. Not a trial compound.",
+      study: "<p>This is not a peptide and it has no clinical-trial programme of its own in the sense the others do.</p><p><strong>What it is.</strong> Sterile water with a small amount of benzyl alcohol. In laboratory practice that helps a multi-draw stock stay usable after first opening.</p><p>It is listed separately because it is a separate material. Auvell will not teach how it is combined with anything else.</p>"
     },
     {
       id: "blend",
@@ -32,7 +35,8 @@ window.AUVELL = {
       sizeLabel: "30 mg total · 10 mg of each",
       lot: "AUV-BLD",
       sizes: [{ label: "30 mg mixed vial", typical: 65 }],
-      study: "<p>This listing holds three research chemicals. In published studies:</p><p><strong>KPV</strong> is a short fragment of alpha-MSH. Laboratory work has reported anti-inflammatory signalling in gut and skin models.</p><p><strong>BPC-157</strong> is a gastric pentadecapeptide. Most published work is preclinical — animal and cell studies on tissue integrity and blood-vessel markers.</p><p><strong>TB-500</strong> (a thymosin beta-4 fragment) has been studied for actin regulation and cell migration in tissue-repair models, again largely preclinical.</p><p>None of that is a protocol, a stack, or a promised result from this listing.</p>"
+      stage: "Mostly preclinical. Limited formal human trials.",
+      study: "<p>Three research chemicals in one listing. Their literatures are not the same.</p><p><strong>KPV.</strong> A short C-terminal fragment of alpha-MSH. Stage: laboratory and animal models, with some early translational interest in gut and skin inflammation. Published work has reported anti-inflammatory signalling. Formal late-stage human trials are thin.</p><p><strong>BPC-157.</strong> A gastric pentadecapeptide. Stage: almost entirely preclinical — rodent and cell studies on tissue integrity and blood-vessel markers. Reliable randomised human trials are scarce. It is not an approved medicine.</p><p><strong>TB-500.</strong> A fragment related to thymosin beta-4. Full-length thymosin beta-4 has seen some clinical exploration in wound and eye research. The fragment used in research listings is less well covered by formal Phase 2/3 programmes. Published models focus on actin, cell migration and repair markers.</p><p>This page does not treat the three as a stack or a protocol.</p>"
     },
     {
       id: "reta",
@@ -40,7 +44,8 @@ window.AUVELL = {
       sizeLabel: "30 mg",
       lot: "AUV-R30",
       sizes: [{ label: "30 mg", typical: 165 }],
-      study: "<p>In published clinical research, retatrutide has been studied as a triple agonist at GLP-1, GIP and glucagon receptors. Phase 2 trials have reported substantial reductions in body weight and changes in metabolic markers in adults with obesity.</p><p>That is licensed-drug research literature. This listing is a research material only. Auvell does not supply a medicine, and this page does not teach use.</p>"
+      stage: "Published Phase 2. Phase 3 programmes running.",
+      study: "<p>Retatrutide (LY3437943) is a triple agonist at GLP-1, GIP and glucagon receptors. It has a proper modern trial trail, which is why its literature is easier to describe.</p><p><strong>Stage of research.</strong> Phase 2 obesity trials have been published. A Phase 3 programme (often referred to as TRIUMPH) is underway for licensed-drug development. That programme is not this listing.</p><p><strong>What published Phase 2 work reported.</strong> In adults with obesity, higher-dose arms were associated with large mean reductions in body weight over 24 and 48 weeks, alongside changes in metabolic markers. Gastrointestinal effects typical of this receptor class were also reported. Exact figures belong to the papers, not to a shop card.</p><p>Auvell lists a research material. It does not supply a licensed medicine and will not teach use, reconstitution or dosing.</p>"
     }
   ]
 };
@@ -119,26 +124,44 @@ function observeReveal() {
   }, { threshold: 0.2 });
   cards.forEach(function (c) { io.observe(c); });
 }
+function ensureDetail() {
+  var box = document.getElementById("detail");
+  if (box) return box;
+  box = document.createElement("div");
+  box.id = "detail";
+  box.className = "modal";
+  box.addEventListener("click", function (e) { if (e.target === box) closeDetail(); });
+  document.body.appendChild(box);
+  return box;
+}
 function openDetail(id) {
   var p = findProduct(id);
   if (!p) return;
-  var box = document.getElementById("detail");
-  if (!box) { box = document.createElement("aside"); box.id = "detail"; box.className = "detail"; document.body.appendChild(box); }
+  var box = ensureDetail();
   var first = p.sizes[0];
   var q = qtyOf(p.id, first.label) || 1;
   box.innerHTML =
-    "<p class='kicker'>Research material</p>" +
-    "<h2>" + p.name + "</h2>" +
-    "<p>" + p.sizeLabel + ". Lot mark " + p.lot + ".</p>" +
-    "<p class='ref'>Typical listed " + money(first.typical) + " — not an Auvell price.</p>" +
-    "<div class='study'><p class='kicker'>In published research</p>" + (p.study || "") +
-    "<p class='hint'>Educational context from trials and laboratory studies. Not advice for human use. Auvell will not teach reconstitution, stacks or dosages.</p></div>" +
-    "<div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div>" +
-    "<p><a class='text-link' href='quality.html?lot=" + encodeURIComponent(p.lot) + "'>Check the lot file</a></p>" +
-    "<p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>";
+    "<div class='modal-card' role='dialog' aria-modal='true'>" +
+      "<button class='modal-x' type='button' onclick='closeDetail()'>Close</button>" +
+      "<div class='modal-scroll'>" +
+        "<p class='kicker'>Research material</p>" +
+        "<h2>" + p.name + "</h2>" +
+        "<p>" + p.sizeLabel + ". Lot mark " + p.lot + ".</p>" +
+        "<p class='stage'>" + (p.stage || "") + "</p>" +
+        "<p class='ref'>Typical listed " + money(first.typical) + " — not an Auvell price.</p>" +
+        "<div class='study'><p class='kicker'>In published research</p>" + (p.study || "") +
+        "<p class='hint'>Educational context only. Not a result promised by this listing. Auvell will not teach reconstitution, stacks or dosages.</p></div>" +
+        "<div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div>" +
+        "<p><a class='text-link' href='quality.html?lot=" + encodeURIComponent(p.lot) + "'>Check the lot file</a></p>" +
+        "<p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>" +
+      "</div>" +
+    "</div>";
   document.body.classList.add("detail-open");
 }
 function closeDetail() { document.body.classList.remove("detail-open"); }
+window.openDetail = openDetail;
+window.closeDetail = closeDetail;
+window.addOne = addOne;
 function renderBasket() {
   var box = document.getElementById("cart-lines");
   var empty = document.getElementById("cart-empty");
