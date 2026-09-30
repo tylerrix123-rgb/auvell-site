@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=23" />
-  <link rel="stylesheet" href="glitch.css?v=15" />
+  <link rel="stylesheet" href="site.css?v=24" />
+  <link rel="stylesheet" href="glitch.css?v=16" />
   <script>
     function enterSite() {
       var age = document.getElementById("age");
@@ -26,15 +26,12 @@
         gate.classList.add("glitching");
         setTimeout(function () {
           document.body.classList.add("entered");
-          gate.classList.add("ceremony");
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () { gate.classList.add("opening"); });
-          });
-        }, 700);
+          gate.classList.add("ceremony", "wash");
+        }, 620);
         setTimeout(function () {
           gate.className = "gate hide";
           gate.style.display = "none";
-        }, 2100);
+        }, 2000);
       } else {
         document.body.classList.add("entered");
       }
@@ -45,7 +42,6 @@
 <body>
   <div id="gate" class="gate">
     <div class="glitch" aria-hidden="true"><span class="glitch-word">AUVELL</span></div>
-    <div class="doors" aria-hidden="true"><span class="door l"></span><span class="door r"></span></div>
     <div class="gate-card">
       <img class="gate-logo" data-logo alt="Auvell" />
       <p class="kicker">Auvell</p>
