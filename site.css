@@ -9,7 +9,8 @@ h1,h2,h3 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:600; }
 .wrap { width:min(1140px, calc(100% - 40px)); margin:0 auto; }
 .top { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 28px; background:rgba(243,238,228,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); transition: all .45s cubic-bezier(.22,.8,.28,1); }
 body.scrolled .top { top:10px; margin:0 14px; padding:10px 22px; border:1px solid rgba(176,141,74,.45); border-radius:999px; background:rgba(255,252,247,.92); box-shadow:0 10px 40px rgba(26,39,68,.12); }
-.brand img { height:78px; width:auto; object-fit:contain; transition:height .35s ease; }
+.brand img, .hero .mark, .gate-logo { background:transparent; mix-blend-mode:multiply; }
+.brand img { height:78px; width:auto; object-fit:contain; transition:height .35s ease; background:transparent; }
 body.scrolled .brand img { height:48px; }
 .nav { display:flex; gap:22px; font-size:.95rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); font-weight:500; }
 .nav a.on,.nav a:hover { color:var(--gold); }
@@ -78,14 +79,14 @@ textarea { width:100%; min-height:120px; display:block; margin-top:8px; }
 .counter .vial-ph.water::after { color:#1a2744; }
 .counter .vial-ph.labeled::after { content:none; }
 .counter .vial-label { position:absolute; left:50%; top:54px; transform:translateX(-50%); width:50px; text-align:center; color:#f3eee4; font-size:.52rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600; line-height:1.25; }
-.modal { position:fixed; inset:0; z-index:50; display:none; align-items:center; justify-content:center; padding:48px 20px; background:rgba(26,39,68,.38); backdrop-filter:blur(8px); }
+.modal { position:fixed; inset:0; z-index:50; display:none; align-items:center; justify-content:center; padding:48px 20px; background:rgba(243,238,228,.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
 body.detail-open { overflow:hidden; }
 body.detail-open .modal { display:flex !important; }
-.modal-card { position:relative; width:min(680px,100%); max-height:78vh; background:linear-gradient(#fffcf7,#f7f0e4); border:1px solid #d4c4a4; box-shadow:0 24px 70px rgba(26,39,68,.28); display:flex; flex-direction:column; }
-.modal-x { position:absolute; top:14px; right:14px; z-index:2; border:1px solid var(--line); background:#fffcf7; color:var(--navy); padding:6px 10px; letter-spacing:.12em; text-transform:uppercase; font-size:.7rem; cursor:pointer; }
+.modal-card { position:relative; width:min(680px,100%); max-height:78vh; background:linear-gradient(#fffcf7,#f7f0e4); border:1px solid #d4c4a4; border-radius:28px; overflow:hidden; box-shadow:0 24px 70px rgba(26,39,68,.22); display:flex; flex-direction:column; }
+.modal-x { position:absolute; top:16px; right:16px; z-index:2; border:1px solid var(--line); border-radius:999px; background:#fffcf7; color:var(--navy); padding:6px 12px; letter-spacing:.12em; text-transform:uppercase; font-size:.7rem; cursor:pointer; }
 .modal-scroll { overflow:auto; padding:32px 28px 40px; max-height:78vh; -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 32px), transparent 100%); mask-image:linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 32px), transparent 100%); }
 .modal-visual { margin:0 0 16px; text-align:center; }
-.modal-visual img { width:min(240px, 70%); margin:0 auto 8px; border:1px solid var(--line); background:#fffcf7; }
+.modal-visual img { width:min(240px, 70%); margin:0 auto 8px; border:none; border-radius:22px; background:transparent; }
 .modal-scroll h2 { font-size:2.2rem; margin:0 0 10px; }
 .stage { display:inline-block; margin:8px 0 12px; padding:6px 10px; border:1px solid var(--gold); color:var(--navy); letter-spacing:.06em; text-transform:uppercase; font-size:.72rem; font-weight:600; }
 .study { margin:18px 0; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
