@@ -1,5 +1,5 @@
 window.AUVELL = {
-  logo: "logo.svg",
+  logo: "logo.png",
   whatsapp: "",
   products: [
     {
@@ -144,6 +144,7 @@ function openDetail(id) {
     "<div class='modal-card' role='dialog' aria-modal='true'>" +
       "<button class='modal-x' type='button' onclick='closeDetail()'>Close</button>" +
       "<div class='modal-scroll'>" +
+        "<div class='modal-visual'><img src='" + (p.image || "vials/mt2.png") + "' alt='Example presentation of " + p.name + "' /><p class='hint'>Example of how this research material is typically presented. Not a photograph of this lot.</p></div>" +
         "<p class='kicker'>Research material</p>" +
         "<h2>" + p.name + "</h2>" +
         "<p>" + p.sizeLabel + ". Lot mark " + p.lot + ".</p>" +
