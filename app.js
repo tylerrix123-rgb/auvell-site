@@ -5,6 +5,7 @@ window.AUVELL = {
     {
       id: "mt2",
       name: "Melanotan 2",
+      image: "vials/mt2.png",
       sizeLabel: "10 mg",
       lot: "AUV-MT2",
       sizes: [{ label: "10 mg", typical: 49 }],
@@ -14,6 +15,7 @@ window.AUVELL = {
     {
       id: "ghkcu",
       name: "GHK-Cu",
+      image: "vials/ghkcu.png",
       sizeLabel: "100 mg",
       lot: "AUV-GHK",
       sizes: [{ label: "100 mg", typical: 55 }],
@@ -23,6 +25,7 @@ window.AUVELL = {
     {
       id: "water",
       name: "Bacteriostatic water",
+      image: "vials/water.png",
       sizeLabel: "10 mL",
       lot: "AUV-BW",
       sizes: [{ label: "10 mL", typical: 12 }],
@@ -32,6 +35,7 @@ window.AUVELL = {
     {
       id: "blend",
       name: "KPV / BPC-157 / TB-500",
+      image: "vials/blend.png",
       sizeLabel: "30 mg total · 10 mg of each",
       lot: "AUV-BLD",
       sizes: [{ label: "30 mg mixed vial", typical: 65 }],
@@ -41,6 +45,7 @@ window.AUVELL = {
     {
       id: "reta",
       name: "Retatrutide",
+      image: "vials/reta.png",
       sizeLabel: "30 mg",
       lot: "AUV-R30",
       sizes: [{ label: "30 mg", typical: 165 }],
