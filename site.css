@@ -85,8 +85,8 @@ body.detail-open .modal { display:flex !important; }
 .modal-card { position:relative; width:min(680px,100%); max-height:78vh; background:linear-gradient(#fffcf7,#f7f0e4); border:1px solid #d4c4a4; border-radius:28px; overflow:hidden; box-shadow:0 24px 70px rgba(26,39,68,.22); display:flex; flex-direction:column; }
 .modal-x { position:absolute; top:16px; right:16px; z-index:2; border:1px solid var(--line); border-radius:999px; background:#fffcf7; color:var(--navy); padding:6px 12px; letter-spacing:.12em; text-transform:uppercase; font-size:.7rem; cursor:pointer; }
 .modal-scroll { overflow:auto; padding:32px 28px 40px; max-height:78vh; -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 32px), transparent 100%); mask-image:linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 32px), transparent 100%); }
-.modal-visual { margin:0 0 16px; text-align:center; }
-.modal-visual img { width:min(240px, 70%); margin:0 auto 8px; border:none; border-radius:22px; background:transparent; }
+.modal-visual { margin:0 auto 16px; text-align:center; width:min(280px, 78%); background:#fffcf7; border:1px solid #e4d8c4; border-radius:28px; overflow:hidden; padding:18px 12px 8px; box-shadow:0 8px 24px rgba(26,39,68,.06); }
+.modal-visual img { width:min(180px, 80%); margin:0 auto 8px; border:none; border-radius:18px; background:transparent; display:block; }
 .modal-scroll h2 { font-size:2.2rem; margin:0 0 10px; }
 .stage { display:inline-block; margin:8px 0 12px; padding:6px 10px; border:1px solid var(--gold); color:var(--navy); letter-spacing:.06em; text-transform:uppercase; font-size:.72rem; font-weight:600; }
 .study { margin:18px 0; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
