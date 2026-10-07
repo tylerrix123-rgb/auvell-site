@@ -1,5 +1,5 @@
 window.AUVELL = {
-  logo: "logo.png",
+  logo: "logo.png?v=2",
   whatsapp: "",
   products: [
     {
