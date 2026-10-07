@@ -5,7 +5,7 @@ window.AUVELL = {
     {
       id: "mt2",
       name: "Melanotan 2",
-      image: "vials/mt2.png",
+      image: "vials/mt2.png?v=2",
       sizeLabel: "10 mg",
       lot: "AUV-MT2",
       sizes: [{ label: "10 mg", typical: 49 }],
@@ -15,7 +15,7 @@ window.AUVELL = {
     {
       id: "ghkcu",
       name: "GHK-Cu",
-      image: "vials/ghkcu.png",
+      image: "vials/ghkcu.png?v=2",
       sizeLabel: "100 mg",
       lot: "AUV-GHK",
       sizes: [{ label: "100 mg", typical: 55 }],
@@ -25,7 +25,7 @@ window.AUVELL = {
     {
       id: "water",
       name: "Bacteriostatic water",
-      image: "vials/water.png",
+      image: "vials/water.png?v=2",
       sizeLabel: "10 mL",
       lot: "AUV-BW",
       sizes: [{ label: "10 mL", typical: 12 }],
@@ -35,7 +35,7 @@ window.AUVELL = {
     {
       id: "blend",
       name: "KPV / BPC-157 / TB-500",
-      image: "vials/blend.png",
+      image: "vials/blend.png?v=2",
       sizeLabel: "30 mg total · 10 mg of each",
       lot: "AUV-BLD",
       sizes: [{ label: "30 mg mixed vial", typical: 65 }],
@@ -45,7 +45,7 @@ window.AUVELL = {
     {
       id: "reta",
       name: "Retatrutide",
-      image: "vials/reta.png",
+      image: "vials/reta.png?v=2",
       sizeLabel: "30 mg",
       lot: "AUV-R30",
       sizes: [{ label: "30 mg", typical: 165 }],
@@ -149,7 +149,7 @@ function openDetail(id) {
     "<div class='modal-card' role='dialog' aria-modal='true'>" +
       "<button class='modal-x' type='button' onclick='closeDetail()'>Close</button>" +
       "<div class='modal-scroll'>" +
-        "<div class='modal-visual'><img src='" + (p.image || "vials/mt2.png") + "' alt='Example presentation of " + p.name + "' /><p class='hint'>Example of how this research material is typically presented. Not a photograph of this lot.</p></div>" +
+        "<div class='modal-visual'><img src='" + (p.image || "vials/mt2.png?v=2") + "' alt='Example presentation of " + p.name + "' /><p class='hint'>Example of how this research material is typically presented. Not a photograph of this lot.</p></div>" +
         "<p class='kicker'>Research material</p>" +
         "<h2>" + p.name + "</h2>" +
         "<p>" + p.sizeLabel + ". Lot mark " + p.lot + ".</p>" +
