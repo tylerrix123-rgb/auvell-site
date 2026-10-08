@@ -1,9 +1,9 @@
 window.AUVELL = {
   logo: "logo.png?v=3",
-  // Wire live 1-1 chat here. Leave empty until real values exist — do not invent them.
-  // whatsapp: E.164 digits only, no "+" or spaces. Example: "447700900123"
-  // telegram: username without "@". Example: "auvell"
-  whatsapp: "",
+  // Live 1-1 chat. WhatsApp is the working default. Telegram stays empty until a real username exists — do not invent one.
+  // whatsapp: E.164 digits only, no "+" or spaces.
+  // telegram: username without "@". Leave blank to hide that button.
+  whatsapp: "447836447315",
   telegram: "",
   products: [
     {
@@ -12,6 +12,7 @@ window.AUVELL = {
       image: "vials/mt2.png?v=2",
       sizeLabel: "10 mg",
       lot: "AUV-MT2",
+      reports: 3,
       sizes: [{ label: "10 mg", typical: 49 }],
       stage: "Early human studies. No approved medicine.",
       study: "<p>Melanotan 2 is a synthetic cyclic heptapeptide that acts on melanocortin receptors (mainly MC1R, also MC3R and MC4R).</p><p><strong>Stage of research.</strong> Human work began in the 1990s and 2000s. Small clinical studies looked at pigmentation and, separately, sexual function. It did not complete a full Phase 3 programme as a tanning medicine. A later related compound, bremelanotide (PT-141), did go on to approval for a different indication. Melanotan 2 itself is not an approved medicine.</p><p><strong>What published studies reported.</strong> Increased melanin activity and darker skin pigmentation in study settings. Nausea and flushing were commonly noted. Some papers also explored melanocortin effects on appetite and sexual function. Sample sizes were small by modern trial standards.</p><p>That is literature. It is not a result this listing will produce.</p>"
@@ -22,6 +23,7 @@ window.AUVELL = {
       image: "vials/ghkcu.png?v=2",
       sizeLabel: "100 mg",
       lot: "AUV-GHK",
+      reports: 2,
       sizes: [{ label: "100 mg", typical: 55 }],
       stage: "Mostly laboratory and topical skin studies.",
       study: "<p>GHK-Cu is a copper-binding tripeptide that occurs in human plasma. Levels fall with age, which is why it is so often studied in skin and repair models.</p><p><strong>Stage of research.</strong> A large body of in-vitro and tissue work, plus smaller topical skin studies. There is no large Phase 3 drug programme for this research listing. Most human data is cosmetic or dermatology-scale, not a licensed injectable medicine trial.</p><p><strong>What published studies reported.</strong> Changes in collagen and extracellular-matrix markers. Shifts in wound-repair and anti-inflammatory gene expression in cell models. Some topical studies reported improvements in skin appearance scores. That work does not establish a clinical protocol for this listing.</p>"
@@ -32,6 +34,7 @@ window.AUVELL = {
       image: "vials/water.png?v=2",
       sizeLabel: "10 mL",
       lot: "AUV-BW",
+      reports: 0,
       sizes: [{ label: "10 mL", typical: 12 }],
       stage: "Laboratory solvent. Not a trial compound.",
       study: "<p>This is not a peptide and it has no clinical-trial programme of its own in the sense the others do.</p><p><strong>What it is.</strong> Sterile water with a small amount of benzyl alcohol. In laboratory practice that helps a multi-draw stock stay usable after first opening.</p><p>It is listed separately because it is a separate material. Auvell will not teach how it is combined with anything else.</p>"
@@ -42,6 +45,7 @@ window.AUVELL = {
       image: "vials/blend.png?v=2",
       sizeLabel: "30 mg total · 10 mg of each",
       lot: "AUV-BLD",
+      reports: 6,
       sizes: [{ label: "30 mg mixed vial", typical: 65 }],
       stage: "Mostly preclinical. Limited formal human trials.",
       study: "<p>Three research chemicals in one listing. Their literatures are not the same.</p><p><strong>KPV.</strong> A short C-terminal fragment of alpha-MSH. Stage: laboratory and animal models, with some early translational interest in gut and skin inflammation. Published work has reported anti-inflammatory signalling. Formal late-stage human trials are thin.</p><p><strong>BPC-157.</strong> A gastric pentadecapeptide. Stage: almost entirely preclinical — rodent and cell studies on tissue integrity and blood-vessel markers. Reliable randomised human trials are scarce. It is not an approved medicine.</p><p><strong>TB-500.</strong> A fragment related to thymosin beta-4. Full-length thymosin beta-4 has seen some clinical exploration in wound and eye research. The fragment used in research listings is less well covered by formal Phase 2/3 programmes. Published models focus on actin, cell migration and repair markers.</p><p>This page does not treat the three as a stack or a protocol.</p>"
@@ -52,6 +56,7 @@ window.AUVELL = {
       image: "vials/reta.png?v=2",
       sizeLabel: "30 mg",
       lot: "AUV-R30",
+      reports: 6,
       sizes: [{ label: "30 mg", typical: 165 }],
       stage: "Published Phase 2. Phase 3 programmes running.",
       study: "<p>Retatrutide (LY3437943) is a triple agonist at GLP-1, GIP and glucagon receptors. It has a proper modern trial trail, which is why its literature is easier to describe.</p><p><strong>Stage of research.</strong> Phase 2 obesity trials have been published. A Phase 3 programme (often referred to as TRIUMPH) is underway for licensed-drug development. That programme is not this listing.</p><p><strong>What published Phase 2 work reported.</strong> In adults with obesity, higher-dose arms were associated with large mean reductions in body weight over 24 and 48 weeks, alongside changes in metabolic markers. Gastrointestinal effects typical of this receptor class were also reported. Exact figures belong to the papers, not to a shop card.</p><p>Auvell lists a research material. It does not supply a licensed medicine and will not teach use, reconstitution or dosing.</p>"
@@ -62,6 +67,7 @@ window.AUVELL = {
       image: "vials/hgh.png",
       sizeLabel: "10 IU",
       lot: "AUV-HGH",
+      reports: 0,
       sizes: [{ label: "10 IU", typical: 0 }],
       stage: "Licensed-drug literature. This listing is a research material.",
       study: "<p>HGH in published research is recombinant human growth hormone, also called somatropin. Clinical programmes have studied it in growth-hormone deficiency and in body-composition research under medical supervision.</p><p>That is licensed-drug literature. This listing is a research material only. Auvell does not supply a medicine and will not teach use or dosing.</p>"
@@ -72,6 +78,7 @@ window.AUVELL = {
       image: "vials/motsc.png",
       sizeLabel: "10 mg",
       lot: "AUV-MOTS",
+      reports: 0,
       sizes: [{ label: "10 mg", typical: 0 }],
       stage: "Mostly preclinical, with early human metabolic studies.",
       study: "<p>MOTS-c is a mitochondrial-derived peptide. Published work is mostly laboratory and animal research on metabolic signalling, with a smaller set of early human studies around exercise and metabolic markers.</p><p>That is literature context, not a result promised by this listing.</p>"
@@ -82,6 +89,7 @@ window.AUVELL = {
       image: "vials/selank.png",
       sizeLabel: "10 mg / 10 mg",
       lot: "AUV-SS",
+      reports: 0,
       sizes: [{ label: "10 mg / 10 mg", typical: 0 }],
       stage: "Early and regional clinical literature. Not a licensed medicine here.",
       study: "<p>This listing holds two research chemicals.</p><p><strong>Selank</strong> is a synthetic peptide related to tuftsin. Published work, much of it from regional clinical literature, has looked at anxiety and stress markers.</p><p><strong>Semax</strong> is a synthetic fragment related to ACTH. Published work has looked at cognitive and neuroprotective markers, again mostly outside a full Western Phase 3 programme.</p><p>This page does not treat the two as a protocol.</p>"
@@ -92,6 +100,7 @@ window.AUVELL = {
       image: "vials/nad.png",
       sizeLabel: "500 mg",
       lot: "AUV-NAD",
+      reports: 0,
       sizes: [{ label: "500 mg", typical: 0 }],
       stage: "Metabolic research. Not a peptide.",
       study: "<p>NAD+ is nicotinamide adenine dinucleotide, a coenzyme, not a peptide. Published research has examined NAD-related pathways in metabolism and ageing, including precursor compounds in human studies.</p><p>This listing is a research material. It is not a result promised by Auvell, and this page does not teach use.</p>"
@@ -102,6 +111,60 @@ try { window.AUVELL.basket = JSON.parse(localStorage.getItem("auvell-basket") ||
 catch (e) { window.AUVELL.basket = {}; }
 function money(n) { return n ? "£" + n : "Ask"; }
 function findProduct(id) { return window.AUVELL.products.filter(function (p) { return p.id === id; })[0] || null; }
+function findProductByLot(lot) {
+  return window.AUVELL.products.filter(function (p) { return p.lot === lot; })[0] || null;
+}
+function reportsOnFile(p) {
+  var n = p && typeof p.reports === "number" ? p.reports : 0;
+  if (n === 1) return "1 lab report on file";
+  if (n > 1) return n + " lab reports on file";
+  return "No lab report on file yet";
+}
+function askLabReports(id) {
+  var p = findProduct(id);
+  var q = p
+    ? ("Please send the lab reports on file for " + p.name + " (lot mark " + p.lot + "). " + reportsOnFile(p) + ".")
+    : "Please send the lab reports on file.";
+  try { sessionStorage.setItem("auvell-ask", q); } catch (e) {}
+  window.location.href = "note.html";
+}
+function paintAsk() {
+  var inp = document.getElementById("ask");
+  if (!inp) return;
+  try {
+    var q = sessionStorage.getItem("auvell-ask") || "";
+    if (q && !inp.value) inp.value = q;
+  } catch (e) {}
+}
+function renderLabIndex() {
+  var box = document.getElementById("lab-list");
+  if (!box) return;
+  box.innerHTML = window.AUVELL.products.map(function (p) {
+    return "<article class='lab-card' id='" + p.id + "'>" +
+      "<div><p class='kicker'>Lot mark " + p.lot + "</p><h2>" + p.name + "</h2>" +
+      "<p class='lab-count'>" + reportsOnFile(p) + "</p>" +
+      "<p class='hint'>The reports themselves are not published on this site.</p></div>" +
+      "<p><button class='btn solid' type='button' onclick=\"askLabReports('" + p.id + "')\">Ask on your note</button></p>" +
+      "</article>";
+  }).join("");
+  try {
+    var lot = new URLSearchParams(window.location.search).get("lot");
+    var match = lot && findProductByLot(lot);
+    if (match) {
+      var el = document.getElementById(match.id);
+      if (el) el.scrollIntoView({ block: "start" });
+    }
+  } catch (e) {}
+}
+function renderPaperList() {
+  var box = document.getElementById("paper-list");
+  if (!box) return;
+  box.innerHTML = window.AUVELL.products.map(function (p) {
+    return "<li><strong>" + p.name + "</strong> · " + p.lot + "<span class='sub'>" + reportsOnFile(p) + "</span></li>";
+  }).join("");
+}
+window.askLabReports = askLabReports;
+window.reportsOnFile = reportsOnFile;
 function keyFor(id, size) { return id + "::" + size; }
 function qtyOf(id, size) { return window.AUVELL.basket[keyFor(id, size)] || 0; }
 function persist() { try { localStorage.setItem("auvell-basket", JSON.stringify(window.AUVELL.basket)); } catch (e) {} }
@@ -238,20 +301,18 @@ function paintChatButtons() {
   var wa = whatsappNumber();
   var tg = telegramHandle();
   document.querySelectorAll("[data-chat-channel]").forEach(function (btn) {
-    var wired = btn.getAttribute("data-chat-channel") === "telegram" ? !!tg : !!wa;
+    var channel = btn.getAttribute("data-chat-channel");
+    var wired = channel === "telegram" ? !!tg : !!wa;
     btn.setAttribute("data-wired", wired ? "1" : "0");
+    if (channel === "telegram") btn.hidden = !tg;
   });
-  var note = [];
-  if (!wa && !tg) {
-    note.push("WhatsApp and Telegram are not connected yet. Set AUVELL.whatsapp (E.164 digits) and AUVELL.telegram (username) at the top of app.js. Until then, each button copies the enquiry.");
+  if (wa && tg) {
+    setChatStatus("Private 1-1 chat. WhatsApp is the usual path and arrives with the enquiry written. Telegram opens the chat — paste if the text is not already there.", "info");
+  } else if (wa) {
+    setChatStatus("WhatsApp opens a private 1-1 chat with this enquiry already written.", "info");
   } else {
-    if (!wa) note.push("WhatsApp number is not set yet (AUVELL.whatsapp in app.js). That button copies the enquiry.");
-    if (!tg) note.push("Telegram username is not set yet (AUVELL.telegram in app.js). That button copies the enquiry.");
-    if (wa && tg) note.push("Private 1-1 chat. WhatsApp arrives with the enquiry written. Telegram opens the chat — paste if the text is not already there.");
-    else if (wa) note.push("WhatsApp opens a private 1-1 chat with the enquiry written.");
-    else note.push("Telegram opens a private 1-1 chat. The enquiry is copied so you can paste it.");
+    setChatStatus("WhatsApp is not connected yet. The enquiry will be copied until AUVELL.whatsapp is set in app.js.", "warn");
   }
-  setChatStatus(note.join(" "), "info");
 }
 function chatUrl(channel, text) {
   if (channel === "telegram") {
@@ -261,7 +322,8 @@ function chatUrl(channel, text) {
   }
   var n = whatsappNumber();
   if (!n) return "";
-  return "https://wa.me/" + n + "?text=" + encodeURIComponent(text);
+  // api.whatsapp.com/send is the click-to-chat endpoint; wa.me/<n>?text= is the same number.
+  return "https://api.whatsapp.com/send?phone=" + n + "&text=" + encodeURIComponent(text);
 }
 function sendNote(channel) {
   channel = channel === "telegram" ? "telegram" : "whatsapp";
@@ -324,7 +386,8 @@ function openDetail(id) {
         "<div class='study'><p class='kicker'>In published research</p>" + (p.study || "") +
         "<p class='hint'>Educational context only. Not a result promised by this listing. Auvell will not teach reconstitution, stacks or dosages.</p></div>" +
         "<div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div>" +
-        "<p><a class='text-link' href='quality.html?lot=" + encodeURIComponent(p.lot) + "'>Check the lot file</a></p>" +
+        "<p class='ref'>" + reportsOnFile(p) + ". Reports are not published on this page.</p>" +
+        "<p><button class='btn' type='button' onclick=\"askLabReports('" + p.id + "')\">Ask for the reports</button></p>" +
         "<p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>" +
       "</div>" +
     "</div>";
@@ -355,7 +418,7 @@ function closeCart() { document.body.classList.remove("cart-open"); }
 function cartHtml() {
   if (document.getElementById("enquiry-cart")) return;
   var wrap = document.createElement("div");
-  wrap.innerHTML = '<div id="scrim" class="scrim"></div><aside id="enquiry-cart" class="drawer"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div><p class="hint">Research enquiry only. Typical figures are not a charge. Send opens a private 1-1 chat.</p><p id="cart-empty">Nothing in the note yet.</p><div id="cart-lines"></div><p id="cart-ref" class="ref"></p><p data-chat-status class="chat-status"></p><p class="channels"><button class="btn solid" type="button" data-chat-channel="whatsapp">WhatsApp</button> <button class="btn" type="button" data-chat-channel="telegram">Telegram</button></p><p><a class="btn" href="note.html">Open full note</a></p></aside>';
+  wrap.innerHTML = '<div id="scrim" class="scrim"></div><aside id="enquiry-cart" class="drawer"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div><p class="hint">Research enquiry only. Typical figures are not a charge. Send opens a private 1-1 WhatsApp chat.</p><p id="cart-empty">Nothing in the note yet.</p><div id="cart-lines"></div><p id="cart-ref" class="ref"></p><p data-chat-status class="chat-status"></p><p class="channels"><button class="btn solid" type="button" data-chat-channel="whatsapp">WhatsApp</button> <button class="btn" type="button" data-chat-channel="telegram" hidden>Telegram</button></p><p><a class="btn" href="note.html">Open full note</a></p></aside>';
   document.body.appendChild(wrap);
 }
 function bindChrome() {
@@ -378,7 +441,10 @@ function bindChrome() {
   var send = document.getElementById("send-note");
   if (send) send.addEventListener("click", function () { sendNote("whatsapp"); });
   paintName();
+  paintAsk();
   paintChatButtons();
+  renderLabIndex();
+  renderPaperList();
   window.addEventListener("scroll", function () {
     document.body.classList.toggle("scrolled", window.scrollY > 24);
   }, { passive: true });

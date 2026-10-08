@@ -1,5 +1,5 @@
 window.AUVELL = {
-  whatsapp: "",
+  whatsapp: "447836447315",
   logo: "logo.svg",
   products: [
     { id: "p1", name: "Compound 01", sizeLabel: "5 mg", sizes: ["5 mg", "10 mg"] },

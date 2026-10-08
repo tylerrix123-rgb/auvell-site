@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Enquire · Auvell</title>
-  <link rel="stylesheet" href="site.css?v=30" />
+  <link rel="stylesheet" href="site.css?v=32" />
 </head>
 <body class="entered">
   <header class="top">
@@ -30,18 +30,20 @@
     <a href="quality.html">Quality</a>
     <a href="note.html">Your note</a>
     <a href="contact.html">Enquire</a>
+    <a href="about.html">About</a>
+    <a href="legal.html">Read first</a>
   </aside>
   <main class="page wrap">
     <p class="kicker">Enquire</p>
     <h1>Talk to a person.</h1>
-    <p>No checkout on this site. Capture what you need, then open a private encrypted 1-1 chat on WhatsApp or Telegram with the enquiry already written.</p>
+    <p>No checkout on this site. Capture what you need, then open a private encrypted 1-1 WhatsApp chat with the enquiry already written.</p>
     <div class="note enquire">
       <label for="c-name">Your name (optional)</label>
       <input id="c-name" type="text" autocomplete="name" />
       <label for="c-topic">What this is about</label>
       <select id="c-topic">
         <option>Availability</option>
-        <option>Paperwork / lot file</option>
+        <option>Lab reports / paperwork</option>
         <option>A compound not on the list</option>
         <option>Something else</option>
       </select>
@@ -51,11 +53,11 @@
       <p data-chat-status class="chat-status"></p>
       <p class="channels">
         <button class="btn solid" type="button" data-chat-channel="whatsapp">Send on WhatsApp</button>
-        <button class="btn" type="button" data-chat-channel="telegram">Send on Telegram</button>
+        <button class="btn" type="button" data-chat-channel="telegram" hidden>Send on Telegram</button>
       </p>
     </div>
   </main>
   <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="note.html">Your note</a></div></div></footer>
-  <script src="app.js?v=30"></script>
+  <script src="app.js?v=32"></script>
 </body>
 </html>
