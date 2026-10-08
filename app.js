@@ -158,8 +158,23 @@ function buildMessage() {
 function sendNote() {
   var n = (window.AUVELL.whatsapp || "").replace(/\D/g, "");
   var text = buildMessage();
-  if (!n) { prompt("WhatsApp is not connected yet. Copy this research enquiry:", text); return; }
-  window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(text), "_blank", "noopener");
+  var box = document.getElementById("enquiry-copy");
+  if (!box) {
+    box = document.createElement("textarea");
+    box.id = "enquiry-copy";
+    box.className = "copy-box";
+    box.readOnly = true;
+    var send = document.getElementById("send-note");
+    if (send && send.parentNode) send.parentNode.appendChild(box);
+    else document.body.appendChild(box);
+  }
+  box.value = text;
+  box.style.display = "block";
+  if (!n) {
+    try { box.focus(); box.select(); } catch (e) {}
+    return;
+  }
+  window.location.href = "https://wa.me/" + n + "?text=" + encodeURIComponent(text);
 }
 function observeReveal() {
   var cards = document.querySelectorAll(".reveal");
@@ -235,8 +250,14 @@ function cartHtml() {
 }
 function bindChrome() {
   document.querySelectorAll("[data-logo]").forEach(function (img) { img.src = window.AUVELL.logo; });
-  var menu = document.querySelector(".menu");
-  if (menu) menu.addEventListener("click", function () { document.body.classList.toggle("menu-open"); });
+  document.addEventListener("click", function (e) {
+    var menuBtn = e.target.closest && e.target.closest(".menu");
+    if (menuBtn) {
+      e.preventDefault();
+      document.body.classList.toggle("menu-open");
+    }
+    if (e.target.closest && e.target.closest(".panel a")) document.body.classList.remove("menu-open");
+  });
   var bag = document.getElementById("open-cart");
   if (bag) bag.addEventListener("click", openCart);
   var close = document.getElementById("close-cart");
