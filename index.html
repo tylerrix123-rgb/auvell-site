@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=42" />
+  <link rel="stylesheet" href="site.css?v=43" />
   <link rel="stylesheet" href="glitch.css?v=19" />
   <script>
     window.AUVELL_CODES = ["JOSH", "TY", "BRAD", "WARDEN", "MAX", "SAUN", "MIKE"];
@@ -177,23 +177,23 @@
     requestAnimationFrame(tick);
     wheel.addEventListener("pointerdown", function (e) {
       dragging = true; moved = 0; sx = e.clientX; so = x;
-      try { wheel.setPointerCapture(e.pointerId); } catch (err) {}
     });
     wheel.addEventListener("pointermove", function (e) {
       if (!dragging) return;
       var dx = e.clientX - sx;
-      if (Math.abs(dx) > 6) moved = Math.abs(dx);
+      moved = Math.abs(dx);
+      if (moved < 18) return;
       x = so + dx; wrap(); draw();
     });
     wheel.addEventListener("pointerup", function (e) {
+      var was = moved;
       dragging = false;
-      if (moved > 10) { e.preventDefault(); e.stopPropagation(); }
-    });
-    wheel.addEventListener("click", function (e) {
-      if (moved > 10) { e.preventDefault(); e.stopPropagation(); moved = 0; return; }
+      if (was > 18) { moved = 0; return; }
       var item = e.target.closest && e.target.closest("[data-id]");
       if (item && window.openDetail) window.openDetail(item.getAttribute("data-id"));
+      moved = 0;
     });
+    wheel.addEventListener("pointercancel", function () { dragging = false; moved = 0; });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
