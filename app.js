@@ -1,6 +1,10 @@
 window.AUVELL = {
   logo: "logo.png?v=3",
+  // Wire live 1-1 chat here. Leave empty until real values exist — do not invent them.
+  // whatsapp: E.164 digits only, no "+" or spaces. Example: "447700900123"
+  // telegram: username without "@". Example: "auvell"
   whatsapp: "",
+  telegram: "",
   products: [
     {
       id: "mt2",
@@ -51,8 +55,7 @@ window.AUVELL = {
       sizes: [{ label: "30 mg", typical: 165 }],
       stage: "Published Phase 2. Phase 3 programmes running.",
       study: "<p>Retatrutide (LY3437943) is a triple agonist at GLP-1, GIP and glucagon receptors. It has a proper modern trial trail, which is why its literature is easier to describe.</p><p><strong>Stage of research.</strong> Phase 2 obesity trials have been published. A Phase 3 programme (often referred to as TRIUMPH) is underway for licensed-drug development. That programme is not this listing.</p><p><strong>What published Phase 2 work reported.</strong> In adults with obesity, higher-dose arms were associated with large mean reductions in body weight over 24 and 48 weeks, alongside changes in metabolic markers. Gastrointestinal effects typical of this receptor class were also reported. Exact figures belong to the papers, not to a shop card.</p><p>Auvell lists a research material. It does not supply a licensed medicine and will not teach use, reconstitution or dosing.</p>"
-    }
-
+    },
     {
       id: "hgh",
       name: "HGH",
@@ -124,6 +127,31 @@ function currentRef() {
   try { return (sessionStorage.getItem("auvell-ref") || "").trim(); }
   catch (e) { return ""; }
 }
+function fieldValue() {
+  for (var i = 0; i < arguments.length; i++) {
+    var el = document.getElementById(arguments[i]);
+    if (el && String(el.value || "").trim()) return String(el.value).trim();
+  }
+  return "";
+}
+function currentName() {
+  var live = fieldValue("note-name", "c-name");
+  if (live) {
+    try { sessionStorage.setItem("auvell-name", live); } catch (e) {}
+    return live;
+  }
+  try { return (sessionStorage.getItem("auvell-name") || "").trim(); }
+  catch (e) { return ""; }
+}
+function paintName() {
+  var inp = document.getElementById("note-name") || document.getElementById("c-name");
+  if (!inp || inp.dataset.bound) return;
+  try { if (!inp.value) inp.value = sessionStorage.getItem("auvell-name") || ""; } catch (e) {}
+  inp.addEventListener("input", function () {
+    try { sessionStorage.setItem("auvell-name", inp.value.trim()); } catch (e) {}
+  });
+  inp.dataset.bound = "1";
+}
 function refLine() {
   var ref = currentRef();
   return ref ? ("Referral code " + ref + " used.") : "No referral code used.";
@@ -142,25 +170,122 @@ function paintRef() {
     inp.dataset.bound = "1";
   }
 }
+function whatsappNumber() {
+  return String(window.AUVELL.whatsapp || "").replace(/\D/g, "");
+}
+function telegramHandle() {
+  return String(window.AUVELL.telegram || "").replace(/^@/, "").replace(/[^a-zA-Z0-9_]/g, "");
+}
 function buildMessage() {
   var list = items();
-  var q = ((document.getElementById("ask") || {}).value || "").trim();
-  var lines = ["Hello Auvell,", "", "This is a research enquiry only. These materials are for laboratory research purposes. This is not an order for human or veterinary use.", "", "I am interested in the following. Typical listed ranges are context only — not a quote."];
+  var q = fieldValue("ask", "c-body");
+  var name = currentName();
+  var topic = fieldValue("c-topic");
+  var lines = [
+    "Hello Auvell,",
+    "",
+    "This is a research enquiry only. These materials are for laboratory research purposes. This is not an order for human or veterinary use."
+  ];
+  if (name) lines.push("", "Name: " + name);
+  if (topic) lines.push("Topic: " + topic);
+  lines.push("", "I am interested in the following. Typical listed ranges are context only — not a quote.");
   if (list.length) {
-    list.forEach(function (i) { lines.push("- " + i.qty + " × " + i.name + " (" + i.size + "), typical listed about " + money(i.typical)); });
+    list.forEach(function (i) {
+      lines.push("- " + i.qty + " × " + i.name + " (" + i.size + "), typical listed about " + money(i.typical));
+    });
     if (refTotal()) lines.push("Combined typical listed figure: " + money(refTotal()) + " (reference only).");
-  } else lines.push("- I have not added a research chemical yet.");
+  } else {
+    lines.push("- I have not added a research chemical yet.");
+  }
   lines.push("", refLine());
-  lines.push("", "I have questions about availability and paperwork for research use. How can you help with that?");
+  lines.push("", "I have questions about availability and paperwork for research use.");
   if (q) lines.push("", q);
   return lines.join("\n");
 }
-function sendNote() {
-  var n = (window.AUVELL.whatsapp || "").replace(/\D/g, "");
-  var text = buildMessage();
-  if (!n) { prompt("WhatsApp is not connected yet. Copy this research enquiry:", text); return; }
-  window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(text), "_blank", "noopener");
+function fallbackCopy(text) {
+  try {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    if (ok) return true;
+  } catch (e) {}
+  prompt("Copy this research enquiry:", text);
+  return false;
 }
+function copyEnquiry(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).then(function () { return true; }).catch(function () {
+      return fallbackCopy(text);
+    });
+  }
+  return Promise.resolve(fallbackCopy(text));
+}
+function setChatStatus(msg, kind) {
+  var els = document.querySelectorAll("[data-chat-status]");
+  for (var i = 0; i < els.length; i++) {
+    els[i].textContent = msg;
+    els[i].hidden = !msg;
+    els[i].setAttribute("data-kind", kind || "info");
+  }
+}
+function paintChatButtons() {
+  var wa = whatsappNumber();
+  var tg = telegramHandle();
+  document.querySelectorAll("[data-chat-channel]").forEach(function (btn) {
+    var wired = btn.getAttribute("data-chat-channel") === "telegram" ? !!tg : !!wa;
+    btn.setAttribute("data-wired", wired ? "1" : "0");
+  });
+  var note = [];
+  if (!wa && !tg) {
+    note.push("WhatsApp and Telegram are not connected yet. Set AUVELL.whatsapp (E.164 digits) and AUVELL.telegram (username) at the top of app.js. Until then, each button copies the enquiry.");
+  } else {
+    if (!wa) note.push("WhatsApp number is not set yet (AUVELL.whatsapp in app.js). That button copies the enquiry.");
+    if (!tg) note.push("Telegram username is not set yet (AUVELL.telegram in app.js). That button copies the enquiry.");
+    if (wa && tg) note.push("Private 1-1 chat. WhatsApp arrives with the enquiry written. Telegram opens the chat — paste if the text is not already there.");
+    else if (wa) note.push("WhatsApp opens a private 1-1 chat with the enquiry written.");
+    else note.push("Telegram opens a private 1-1 chat. The enquiry is copied so you can paste it.");
+  }
+  setChatStatus(note.join(" "), "info");
+}
+function chatUrl(channel, text) {
+  if (channel === "telegram") {
+    var handle = telegramHandle();
+    if (!handle) return "";
+    return "https://t.me/" + encodeURIComponent(handle);
+  }
+  var n = whatsappNumber();
+  if (!n) return "";
+  return "https://wa.me/" + n + "?text=" + encodeURIComponent(text);
+}
+function sendNote(channel) {
+  channel = channel === "telegram" ? "telegram" : "whatsapp";
+  var text = buildMessage();
+  var url = chatUrl(channel, text);
+  copyEnquiry(text).then(function () {
+    if (!url) {
+      var where = channel === "telegram"
+        ? "Telegram username is not set (AUVELL.telegram in app.js)."
+        : "WhatsApp number is not set (AUVELL.whatsapp in app.js).";
+      setChatStatus(where + " Enquiry copied — paste it once the chat is wired.", "warn");
+      return;
+    }
+    window.open(url, "_blank", "noopener");
+    if (channel === "telegram") {
+      setChatStatus("Telegram opened. Enquiry copied — paste it into the private chat if it is not already there.", "ok");
+    } else {
+      setChatStatus("WhatsApp opened with the enquiry written. If the text is missing, paste from the clipboard.", "ok");
+    }
+  });
+}
+window.sendNote = sendNote;
+window.buildMessage = buildMessage;
+window.chatUrl = chatUrl;
 function observeReveal() {
   var cards = document.querySelectorAll(".reveal");
   if (!cards.length) return;
@@ -230,7 +355,7 @@ function closeCart() { document.body.classList.remove("cart-open"); }
 function cartHtml() {
   if (document.getElementById("enquiry-cart")) return;
   var wrap = document.createElement("div");
-  wrap.innerHTML = '<div id="scrim" class="scrim"></div><aside id="enquiry-cart" class="drawer"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div><p class="hint">Research enquiry only. Typical figures are not a charge.</p><p id="cart-empty">Nothing in the note yet.</p><div id="cart-lines"></div><p id="cart-ref" class="ref"></p><p><a class="btn" href="note.html">Open full note</a></p></aside>';
+  wrap.innerHTML = '<div id="scrim" class="scrim"></div><aside id="enquiry-cart" class="drawer"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Your note</h2><button type="button" id="close-cart">Close</button></div><p class="hint">Research enquiry only. Typical figures are not a charge. Send opens a private 1-1 chat.</p><p id="cart-empty">Nothing in the note yet.</p><div id="cart-lines"></div><p id="cart-ref" class="ref"></p><p data-chat-status class="chat-status"></p><p class="channels"><button class="btn solid" type="button" data-chat-channel="whatsapp">WhatsApp</button> <button class="btn" type="button" data-chat-channel="telegram">Telegram</button></p><p><a class="btn" href="note.html">Open full note</a></p></aside>';
   document.body.appendChild(wrap);
 }
 function bindChrome() {
@@ -245,8 +370,15 @@ function bindChrome() {
   if (scrim) scrim.addEventListener("click", function () {
     document.body.classList.remove("cart-open"); document.body.classList.remove("menu-open"); closeDetail();
   });
+  document.querySelectorAll("[data-chat-channel]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      sendNote(btn.getAttribute("data-chat-channel"));
+    });
+  });
   var send = document.getElementById("send-note");
-  if (send) send.addEventListener("click", sendNote);
+  if (send) send.addEventListener("click", function () { sendNote("whatsapp"); });
+  paintName();
+  paintChatButtons();
   window.addEventListener("scroll", function () {
     document.body.classList.toggle("scrolled", window.scrollY > 24);
   }, { passive: true });

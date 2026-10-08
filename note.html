@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your note · Auvell</title>
-  <link rel="stylesheet" href="site.css?v=14" />
+  <link rel="stylesheet" href="site.css?v=30" />
 </head>
 <body class="entered">
   <header class="top">
@@ -28,22 +28,29 @@
     <a href="index.html#keep">Keep</a>
     <a href="quality.html">Quality</a>
     <a href="note.html">Your note</a>
+    <a href="contact.html">Enquire</a>
   </aside>
   <main class="page wrap">
     <p class="kicker">Enquiry</p>
     <h1>Your note</h1>
-    <p>Not a checkout. A research enquiry only. Typical listed figures are context, not a bill.</p>
+    <p>Not a checkout. A research enquiry only. Typical listed figures are context, not a bill. Send opens a private encrypted 1-1 chat on WhatsApp or Telegram.</p>
     <div class="note">
       <div id="cart-lines"></div>
-      <p id="cart-empty">Nothing in the note yet.</p>
+      <p id="cart-empty">Nothing in the note yet. You can still send a question.</p>
       <p id="cart-ref" class="ref"></p>
       <p id="ref-line" class="ref">No referral code used.</p>
+      <label>Your name (optional)<input id="note-name" type="text" autocomplete="name" placeholder="So we know who is asking" /></label>
       <label>Referral code<input id="note-ref" type="text" placeholder="If you have one" /></label>
       <label>Research question<textarea id="ask" placeholder="Ask about the pack, the lot file, or timing. Research use only."></textarea></label>
       <p class="hint">The sent message always includes whether a referral code was used, and states these are laboratory research materials, not for human or veterinary use.</p>
-      <p><button class="btn solid" type="button" id="send-note">Send this research enquiry</button></p>
+      <p data-chat-status class="chat-status"></p>
+      <p class="channels">
+        <button class="btn solid" type="button" data-chat-channel="whatsapp">Send on WhatsApp</button>
+        <button class="btn" type="button" data-chat-channel="telegram">Send on Telegram</button>
+      </p>
     </div>
   </main>
-  <script src="app.js"></script>
+  <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="contact.html">Enquire without a note</a></div></div></footer>
+  <script src="app.js?v=30"></script>
 </body>
 </html>

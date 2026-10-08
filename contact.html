@@ -3,43 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Auvell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="extra.css" />
+  <title>Enquire · Auvell</title>
+  <link rel="stylesheet" href="site.css?v=30" />
 </head>
-<body>
-  <header class="top-nav"><div class="bar">
+<body class="entered">
+  <header class="top">
     <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
-    <nav class="links">
+    <nav class="nav">
       <a href="index.html">Home</a>
-      <a href="compounds.html">Shop</a>
+      <a href="index.html#list">The list</a>
+      <a href="index.html#path">Enquiry</a>
+      <a href="index.html#keep">Keep</a>
       <a href="quality.html">Quality</a>
-      <a class="on" href="contact.html">Contact</a>
+      <a href="note.html">Note</a>
     </nav>
-    <button class="menu-btn" type="button">☰</button>
-  </div></header>
-  <main class="page">
-    <p class="eyebrow">Contact</p>
+    <div class="top-actions">
+      <a class="bag" href="note.html">Note <span id="basket-count">0</span></a>
+      <button class="menu" type="button">Menu</button>
+    </div>
+  </header>
+  <aside class="panel">
+    <a href="index.html">Home</a>
+    <a href="index.html#list">The list</a>
+    <a href="index.html#path">Enquiry</a>
+    <a href="index.html#keep">Keep</a>
+    <a href="quality.html">Quality</a>
+    <a href="note.html">Your note</a>
+    <a href="contact.html">Enquire</a>
+  </aside>
+  <main class="page wrap">
+    <p class="kicker">Enquire</p>
     <h1>Talk to a person.</h1>
-    <p>Notes go to WhatsApp. There is no checkout on this site. Add the number in brand.js and this form will open the chat with your words already written.</p>
-    <label for="c-name">Your name</label>
-    <input id="c-name" type="text" />
-    <label for="c-topic">What this is about</label>
-    <select id="c-topic">
-      <option>Availability</option>
-      <option>Paperwork / lot file</option>
-      <option>A compound not on the list</option>
-      <option>Something else</option>
-    </select>
-    <label for="c-body">Message</label>
-    <textarea id="c-body" placeholder="Write freely."></textarea>
-    <button class="btn" type="button" id="send-contact">Send on WhatsApp</button>
-    <p>If you would rather email, put the address in brand.js and we can add it here.</p>
+    <p>No checkout on this site. Capture what you need, then open a private encrypted 1-1 chat on WhatsApp or Telegram with the enquiry already written.</p>
+    <div class="note enquire">
+      <label for="c-name">Your name (optional)</label>
+      <input id="c-name" type="text" autocomplete="name" />
+      <label for="c-topic">What this is about</label>
+      <select id="c-topic">
+        <option>Availability</option>
+        <option>Paperwork / lot file</option>
+        <option>A compound not on the list</option>
+        <option>Something else</option>
+      </select>
+      <label for="c-body">Research question</label>
+      <textarea id="c-body" placeholder="Write freely. Research use only."></textarea>
+      <p class="hint">If you already added listings, they are included from your note. The message states these are laboratory research materials, not for human or veterinary use.</p>
+      <p data-chat-status class="chat-status"></p>
+      <p class="channels">
+        <button class="btn solid" type="button" data-chat-channel="whatsapp">Send on WhatsApp</button>
+        <button class="btn" type="button" data-chat-channel="telegram">Send on Telegram</button>
+      </p>
+    </div>
   </main>
-  <footer class="foot"><a href="legal.html">Notes</a> · Research use only</footer>
-  <script src="vial.js"></script>
-  <script src="brand.js"></script>
-  <script src="coa.js"></script>
+  <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="note.html">Your note</a></div></div></footer>
+  <script src="app.js?v=30"></script>
 </body>
 </html>
