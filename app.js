@@ -52,6 +52,47 @@ window.AUVELL = {
       stage: "Published Phase 2. Phase 3 programmes running.",
       study: "<p>Retatrutide (LY3437943) is a triple agonist at GLP-1, GIP and glucagon receptors. It has a proper modern trial trail, which is why its literature is easier to describe.</p><p><strong>Stage of research.</strong> Phase 2 obesity trials have been published. A Phase 3 programme (often referred to as TRIUMPH) is underway for licensed-drug development. That programme is not this listing.</p><p><strong>What published Phase 2 work reported.</strong> In adults with obesity, higher-dose arms were associated with large mean reductions in body weight over 24 and 48 weeks, alongside changes in metabolic markers. Gastrointestinal effects typical of this receptor class were also reported. Exact figures belong to the papers, not to a shop card.</p><p>Auvell lists a research material. It does not supply a licensed medicine and will not teach use, reconstitution or dosing.</p>"
     }
+
+    {
+      id: "hgh",
+      name: "HGH",
+      image: "vials/hgh.png",
+      sizeLabel: "10 IU",
+      lot: "AUV-HGH",
+      sizes: [{ label: "10 IU", typical: 0 }],
+      stage: "Licensed-drug literature. This listing is a research material.",
+      study: "<p>HGH in published research is recombinant human growth hormone, also called somatropin. Clinical programmes have studied it in growth-hormone deficiency and in body-composition research under medical supervision.</p><p>That is licensed-drug literature. This listing is a research material only. Auvell does not supply a medicine and will not teach use or dosing.</p>"
+    },
+    {
+      id: "motsc",
+      name: "MOTS-c",
+      image: "vials/motsc.png",
+      sizeLabel: "10 mg",
+      lot: "AUV-MOTS",
+      sizes: [{ label: "10 mg", typical: 0 }],
+      stage: "Mostly preclinical, with early human metabolic studies.",
+      study: "<p>MOTS-c is a mitochondrial-derived peptide. Published work is mostly laboratory and animal research on metabolic signalling, with a smaller set of early human studies around exercise and metabolic markers.</p><p>That is literature context, not a result promised by this listing.</p>"
+    },
+    {
+      id: "selank",
+      name: "Selank & Semax",
+      image: "vials/selank.png",
+      sizeLabel: "10 mg / 10 mg",
+      lot: "AUV-SS",
+      sizes: [{ label: "10 mg / 10 mg", typical: 0 }],
+      stage: "Early and regional clinical literature. Not a licensed medicine here.",
+      study: "<p>This listing holds two research chemicals.</p><p><strong>Selank</strong> is a synthetic peptide related to tuftsin. Published work, much of it from regional clinical literature, has looked at anxiety and stress markers.</p><p><strong>Semax</strong> is a synthetic fragment related to ACTH. Published work has looked at cognitive and neuroprotective markers, again mostly outside a full Western Phase 3 programme.</p><p>This page does not treat the two as a protocol.</p>"
+    },
+    {
+      id: "nad",
+      name: "NAD+",
+      image: "vials/nad.png",
+      sizeLabel: "500 mg",
+      lot: "AUV-NAD",
+      sizes: [{ label: "500 mg", typical: 0 }],
+      stage: "Metabolic research. Not a peptide.",
+      study: "<p>NAD+ is nicotinamide adenine dinucleotide, a coenzyme, not a peptide. Published research has examined NAD-related pathways in metabolism and ageing, including precursor compounds in human studies.</p><p>This listing is a research material. It is not a result promised by Auvell, and this page does not teach use.</p>"
+    },
   ]
 };
 try { window.AUVELL.basket = JSON.parse(localStorage.getItem("auvell-basket") || "{}"); }
