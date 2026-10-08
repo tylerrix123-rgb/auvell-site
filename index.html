@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=44" />
+  <link rel="stylesheet" href="site.css?v=45" />
   <link rel="stylesheet" href="glitch.css?v=19" />
   <script>
     window.AUVELL_CODES = ["JOSH", "TY", "BRAD", "WARDEN", "MAX", "SAUN", "MIKE"];
@@ -166,41 +166,41 @@
     var wheel = document.querySelector(".wheel");
     var track = wheel && wheel.querySelector(".wheel-track");
     if (!wheel || !track) return;
-    var x = 0, holding = false, swiping = false, sx = 0, so = 0, moved = 0, last = 0, holdTimer = 0;
+    var x = 0, holding = false, swiping = false, hover = false, sx = 0, so = 0, moved = 0, last = 0, pressed = null;
     function half() { return track.scrollWidth / 2 || 1; }
     function wrap() { var h = half(); while (x > 0) x -= h; while (x <= -h) x += h; }
     function draw() { track.style.transform = "translate3d(" + x + "px,0,0)"; }
     function tick(t) {
-      if (!holding) { x -= Math.min(32, t - (last || t)) * 0.05; wrap(); draw(); }
+      if (!holding && !hover) { x -= Math.min(32, t - (last || t)) * 0.05; wrap(); draw(); }
       last = t; requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
+    wheel.addEventListener("mouseenter", function () { hover = true; });
+    wheel.addEventListener("mouseleave", function () { hover = false; });
     wheel.addEventListener("pointerdown", function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
       holding = true; swiping = false; moved = 0; sx = e.clientX; so = x;
-      var item = e.target.closest && e.target.closest(".wheel-item");
+      pressed = e.target.closest && e.target.closest("[data-id]");
       wheel.querySelectorAll(".wheel-item.lit").forEach(function (n) { n.classList.remove("lit"); });
-      if (item) item.classList.add("lit");
-      clearTimeout(holdTimer);
-      holdTimer = setTimeout(function () { swiping = true; wheel.classList.add("swiping"); }, 220);
+      if (pressed) pressed.classList.add("lit");
     });
     wheel.addEventListener("pointermove", function (e) {
       if (!holding) return;
       moved = Math.abs(e.clientX - sx);
-      if (!swiping && moved > 16) { swiping = true; wheel.classList.add("swiping"); clearTimeout(holdTimer); }
+      if (!swiping && moved > 28) { swiping = true; wheel.classList.add("swiping"); }
       if (!swiping) return;
       x = so + (e.clientX - sx); wrap(); draw();
     });
-    function end(e) {
+    function end() {
       if (!holding) return;
+      var open = !swiping && moved < 28 && pressed;
       holding = false;
-      clearTimeout(holdTimer);
       wheel.classList.remove("swiping");
-      var item = e.target.closest && e.target.closest("[data-id]");
-      if (!swiping && moved < 12 && item && window.openDetail) window.openDetail(item.getAttribute("data-id"));
-      swiping = false; moved = 0;
+      if (open && window.openDetail) window.openDetail(pressed.getAttribute("data-id"));
+      swiping = false; moved = 0; pressed = null;
     }
     wheel.addEventListener("pointerup", end);
-    wheel.addEventListener("pointercancel", function () { holding = false; swiping = false; wheel.classList.remove("swiping"); clearTimeout(holdTimer); });
+    wheel.addEventListener("pointercancel", function () { holding = false; swiping = false; pressed = null; wheel.classList.remove("swiping"); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
