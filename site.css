@@ -46,7 +46,7 @@ body.scrolled .brand img { height:48px; }
 .btn.slim { padding:9px 12px; font-size:.7rem; }
 .note { background:var(--card); border:1px solid var(--line); padding:22px; margin-top:18px; }
 .foot { border-top:1px solid var(--line); padding:28px 0 40px; color:var(--mute); }
-.gate { position:fixed; inset:0; z-index:40; display:grid; place-items:center; overflow:hidden; background: linear-gradient(180deg, rgba(16,28,52,.35), rgba(16,28,52,.45)), url('gate-marble.png') center / cover no-repeat, #1a2744; transition: background 1.3s ease, opacity 1.15s ease .1s; }
+.gate { position:fixed; inset:0; z-index:40; display:grid; place-items:center; overflow:hidden; background: linear-gradient(180deg, rgba(16,28,52,.12), rgba(16,28,52,.22)), url('gate-marble.png?v=2') center / cover no-repeat, #1a2744; transition: background 1.3s ease, opacity 1.15s ease .1s; }
 .gate.hide { display:none !important; }
 .gate.wash { background: #f3eee4; opacity: 0; pointer-events: none; }
 .gate-logo { height:148px; width:auto; margin:0 auto 8px; object-fit:contain; }
