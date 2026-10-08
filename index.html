@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=35" />
-  <link rel="stylesheet" href="glitch.css?v=18" />
+  <link rel="stylesheet" href="site.css?v=36" />
+  <link rel="stylesheet" href="glitch.css?v=19" />
   <script>
     window.AUVELL_CODES = ["JOSH"];
     function enterSite() {
@@ -36,7 +36,7 @@
       } catch (e) {}
       if (gate) {
         gate.classList.remove("denied");
-        gate.classList.add("glitching");
+        gate.classList.add("glitching", "granted");
         setTimeout(function () {
           document.body.classList.add("entered");
           gate.classList.add("ceremony", "wash");
@@ -69,7 +69,7 @@
     </div>
   </div>
   <header class="top">
-    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+    <a class="brand" href="index.html"><img src="logo.png?v=4" data-logo alt="Auvell" /></a>
     <nav class="nav">
       <a class="on" href="index.html">Home</a>
       <a href="#list">The list</a>
