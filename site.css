@@ -7,13 +7,13 @@ img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
 h1,h2,h3 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:600; }
 .wrap { width:min(1140px, calc(100% - 40px)); margin:0 auto; }
-.top { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 28px; background:rgba(243,238,228,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); transition: all .45s cubic-bezier(.22,.8,.28,1); }
+.top { position:sticky; top:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 28px; background:rgba(243,238,228,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); transition: all .45s cubic-bezier(.22,.8,.28,1); }
 body.scrolled .top { top:10px; margin:0 14px; padding:10px 22px; border:1px solid rgba(176,141,74,.45); border-radius:999px; background:rgba(255,252,247,.92); box-shadow:0 10px 40px rgba(26,39,68,.12); }
 .brand img { height:78px; width:auto; object-fit:contain; transition:height .35s ease; background:transparent; }
 body.scrolled .brand img { height:48px; }
 .nav { display:flex; gap:22px; font-size:.95rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); font-weight:500; }
 .nav a.on,.nav a:hover { color:var(--gold); }
-.menu { display:none; background:none; border:1px solid var(--line); color:var(--navy); padding:8px 12px; letter-spacing:.14em; text-transform:uppercase; font-size:.75rem; }
+.menu { display:none; background:#fffcf7; border:1px solid var(--line); color:var(--navy); padding:10px 14px; letter-spacing:.14em; text-transform:uppercase; font-size:.8rem; min-height:44px; position:relative; z-index:41; }
 .hero { padding:72px 0 36px; text-align:center; }
 .hero .mark { height:168px; width:auto; margin:0 auto 18px; object-fit:contain; }
 .kicker { color:var(--gold); letter-spacing:.18em; text-transform:uppercase; font-size:1.15rem; font-weight:600; margin:0 0 16px; }
@@ -56,12 +56,13 @@ body.scrolled .brand img { height:48px; }
 .gate-card h2 { margin:0 0 10px; }
 .gate-card p { margin:0 auto 16px; }
 .check { display:block; margin:10px 0; color:var(--mute); text-align:left; }
-.panel { position:fixed; inset:0 0 0 auto; width:min(320px,86vw); background:#fffcf7; border-left:1px solid var(--line); padding:24px; transform:translateX(100%); transition:transform .35s ease; z-index:30; }
-body.menu-open .panel { transform:none; }
+.panel { position:fixed; top:0; right:0; bottom:0; width:min(320px,86vw); background:#fffcf7; border-left:1px solid var(--line); padding:88px 24px 24px; transform:translateX(100%); transition:transform .35s ease; z-index:25; pointer-events:none; }
+body.menu-open .panel { transform:none; pointer-events:auto; }
 .panel a { display:block; padding:12px 0; letter-spacing:.14em; text-transform:uppercase; font-size:.85rem; border-bottom:1px solid var(--line); }
-.scrim { position:fixed; inset:0; background:rgba(26,39,68,.35); opacity:0; pointer-events:none; z-index:35; }
+.scrim { position:fixed; inset:0; background:rgba(26,39,68,.35); opacity:0; pointer-events:none; z-index:24; }
 .drawer { position:fixed; top:0; right:0; bottom:0; width:min(400px,92vw); background:#fffcf7; border-left:1px solid var(--line); z-index:36; padding:22px; transform:translateX(100%); transition:transform .35s ease; overflow:auto; }
 body.cart-open .drawer { transform:none; }
+body.menu-open .scrim, body.cart-open .scrim { opacity:1; pointer-events:auto; }
 .line { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding:16px 0; border-bottom:1px solid var(--line); }
 .line strong { display:block; font-size:1.05rem; }
 .line .sub { display:block; margin-top:4px; color:var(--mute); font-size:.92rem; }
@@ -112,3 +113,6 @@ body.entered .storefront { opacity:1; animation: storefront 1.35s ease both; }
 .wheel-item figcaption { margin-top:10px; color:var(--navy); font-size:.95rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
 @keyframes wheel { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 @media (prefers-reduced-motion:reduce) { .wheel-track { animation:wheel 80s linear infinite; } }
+
+.btn, .menu, .bag { touch-action:manipulation; }
+.copy-box { width:100%; min-height:140px; margin-top:12px; }
