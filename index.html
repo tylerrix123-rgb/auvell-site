@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=28" />
+  <link rel="stylesheet" href="site.css?v=29" />
   <link rel="stylesheet" href="glitch.css?v=16" />
   <script>
     function enterSite() {
@@ -77,14 +77,8 @@
       <img class="mark" data-logo alt="" />
       <p class="kicker">Research materials</p>
       <h1>Auvell <em>holds the list.</em></h1>
-      <p class="lead">The current list of research chemicals. Read what they are, how the powder is kept, then put a question on a note. This is not a shop till. More can be added.</p>
-      <div class="counter" aria-hidden="true">
-        <span class="vial-ph" data-name="MT2"></span>
-        <span class="vial-ph" data-name="GHK"></span>
-        <span class="vial-ph water" data-name="WATER"></span>
-        <span class="vial-ph labeled"><span class="vial-label">KPV<br>TB 500<br>BPC 157</span></span>
-        <span class="vial-ph" data-name="RT30"></span>
-      </div>
+      <p class="lead">The current list of research chemicals. Read what they are, how the powder is kept, then put a question on a note. This is not a shop till.</p>
+      <div class="wheel" aria-hidden="true"><div class="wheel-track"><figure class="wheel-item"><img src="vials/mt2.png?v=2" alt="" /><figcaption>MT2</figcaption></figure><figure class="wheel-item"><img src="vials/ghkcu.png?v=2" alt="" /><figcaption>GHK-Cu</figcaption></figure><figure class="wheel-item"><img src="vials/water.png?v=2" alt="" /><figcaption>Water</figcaption></figure><figure class="wheel-item"><img src="vials/blend.png?v=2" alt="" /><figcaption>KPV / BPC / TB</figcaption></figure><figure class="wheel-item"><img src="vials/reta.png?v=2" alt="" /><figcaption>RT30</figcaption></figure><figure class="wheel-item"><img src="vials/hgh.png" alt="" /><figcaption>HGH</figcaption></figure><figure class="wheel-item"><img src="vials/motsc.png" alt="" /><figcaption>MOTS-c</figcaption></figure><figure class="wheel-item"><img src="vials/selank.png" alt="" /><figcaption>Selank & Semax</figcaption></figure><figure class="wheel-item"><img src="vials/nad.png" alt="" /><figcaption>NAD+</figcaption></figure><figure class="wheel-item"><img src="vials/mt2.png?v=2" alt="" /><figcaption>MT2</figcaption></figure><figure class="wheel-item"><img src="vials/ghkcu.png?v=2" alt="" /><figcaption>GHK-Cu</figcaption></figure><figure class="wheel-item"><img src="vials/water.png?v=2" alt="" /><figcaption>Water</figcaption></figure><figure class="wheel-item"><img src="vials/blend.png?v=2" alt="" /><figcaption>KPV / BPC / TB</figcaption></figure><figure class="wheel-item"><img src="vials/reta.png?v=2" alt="" /><figcaption>RT30</figcaption></figure><figure class="wheel-item"><img src="vials/hgh.png" alt="" /><figcaption>HGH</figcaption></figure><figure class="wheel-item"><img src="vials/motsc.png" alt="" /><figcaption>MOTS-c</figcaption></figure><figure class="wheel-item"><img src="vials/selank.png" alt="" /><figcaption>Selank & Semax</figcaption></figure><figure class="wheel-item"><img src="vials/nad.png" alt="" /><figcaption>NAD+</figcaption></figure></div></div>
     </section>
     <aside class="flag" id="keep">
       <div><b>Keep</b>Lyophilised powder, capped: cold, dark, dry. Typically 2–5 °C. Keep away from heat. Do not freeze the cake unless the lot file says so.</div>
@@ -93,7 +87,7 @@
     <section class="block wrap" id="who">
       <p class="kicker">Auvell</p>
       <h2>A short list. Not a clinic.</h2>
-      <p>Auvell answers questions about the research chemicals on this list. The list is not fixed at five. We do not write protocols. We do not describe human use. You can ask about the name, the milligrams, the lot mark, and whether it is available to talk about.</p>
+      <p>Auvell answers questions about the research chemicals on this list. We do not write protocols. We do not describe human use. You can ask about the name, the milligrams, the lot mark, and whether it is available to talk about.</p>
     </section>
     <section class="block wrap" id="path">
       <p class="kicker">How an enquiry works</p>
@@ -124,6 +118,11 @@
         <article class="shelf-card" data-id="water"><div class="vial-ph water"></div><div class="meta"><strong>Bacteriostatic water</strong><em>10 mL · listed separately</em><p class="ref">Typical listed £12 · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('water')">Open</button><button class="btn slim solid" type="button" onclick="addOne('water','10 mL')">Add to note</button></div></div></article>
         <article class="shelf-card" data-id="blend"><div class="vial-ph"></div><div class="meta"><strong>KPV / BPC-157 / TB-500</strong><em>30 mg total · 10 mg of each</em><p class="ref">Typical listed £65 · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('blend')">Open</button><button class="btn slim solid" type="button" onclick="addOne('blend','30 mg mixed vial')">Add to note</button></div></div></article>
         <article class="shelf-card" data-id="reta"><div class="vial-ph"></div><div class="meta"><strong>Retatrutide</strong><em>30 mg</em><p class="ref">Typical listed £165 · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('reta')">Open</button><button class="btn slim solid" type="button" onclick="addOne('reta','30 mg')">Add to note</button></div></div></article>
+        <article class="shelf-card" data-id="hgh"><div class="vial-ph"></div><div class="meta"><strong>HGH</strong><em>10 IU</em><p class="ref">Typical listed — ask · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('hgh')">Open</button><button class="btn slim solid" type="button" onclick="addOne('hgh','10 IU')">Add to note</button></div></div></article>
+        <article class="shelf-card" data-id="motsc"><div class="vial-ph"></div><div class="meta"><strong>MOTS-c</strong><em>10 mg</em><p class="ref">Typical listed — ask · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('motsc')">Open</button><button class="btn slim solid" type="button" onclick="addOne('motsc','10 mg')">Add to note</button></div></div></article>
+        <article class="shelf-card" data-id="selank"><div class="vial-ph"></div><div class="meta"><strong>Selank & Semax</strong><em>10 mg / 10 mg</em><p class="ref">Typical listed — ask · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('selank')">Open</button><button class="btn slim solid" type="button" onclick="addOne('selank','10 mg / 10 mg')">Add to note</button></div></div></article>
+        <article class="shelf-card" data-id="nad"><div class="vial-ph"></div><div class="meta"><strong>NAD+</strong><em>500 mg</em><p class="ref">Typical listed — ask · not an Auvell price</p><div class="card-actions"><button class="btn slim" type="button" onclick="openDetail('nad')">Open</button><button class="btn slim solid" type="button" onclick="addOne('nad','500 mg')">Add to note</button></div></div></article>
+
       </div>
     </section>
     <section class="block wrap" id="paper">
@@ -136,11 +135,15 @@
         <li><strong>Bacteriostatic water</strong> · AUV-BW</li>
         <li><strong>KPV / BPC-157 / TB-500</strong> · AUV-BLD</li>
         <li><strong>Retatrutide</strong> · AUV-R30</li>
+        <li><strong>HGH</strong> · AUV-HGH</li>
+        <li><strong>MOTS-c</strong> · AUV-MOTS</li>
+        <li><strong>Selank & Semax</strong> · AUV-SS</li>
+        <li><strong>NAD+</strong> · AUV-NAD</li>
       </ul>
       <p><a class="btn" href="quality.html">Open Quality</a></p>
     </section>
   </main>
   <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="note.html">Your note</a></div></div></footer>
-  <script src="app.js?v=28"></script>
+  <script src="app.js?v=29"></script>
 </body>
 </html>
