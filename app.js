@@ -57,9 +57,9 @@ window.AUVELL = {
       id: "hgh",
       name: "HGH",
       image: "vials/hgh.png",
-      sizeLabel: "10 IU",
+      sizeLabel: "36 IU",
       lot: "AUV-HGH",
-      sizes: [{ label: "10 IU", typical: 0 }],
+      sizes: [{ label: "36 IU", typical: 46.67 }],
       stage: "Licensed-drug literature. This listing is a research material.",
       study: "<p>HGH in published research is recombinant human growth hormone, also called somatropin. Clinical programmes have studied it in growth-hormone deficiency and in body-composition research under medical supervision.</p><p>That is licensed-drug literature. This listing is a research material only. Auvell does not supply a medicine and will not teach use or dosing.</p>"
     },
