@@ -127,3 +127,10 @@ body.entered .storefront { opacity:1; animation: storefront 1.35s ease both; }
 .chat-status[data-kind="ok"] { border-color:var(--navy); }
 .chat-status[hidden] { display:none; }
 .foot .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+
+body:not(.entered) .top,
+body:not(.entered) .panel,
+body:not(.entered) .storefront,
+body:not(.entered) .foot,
+body:not(.entered) .flag { visibility:hidden; }
+.gate { z-index:80; }
