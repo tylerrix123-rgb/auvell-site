@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your note · Auvell</title>
-  <link rel="stylesheet" href="site.css?v=33" />
+  <link rel="stylesheet" href="site.css?v=38" />
 </head>
 <body class="entered">
   <header class="top">
-    <a class="brand" href="index.html"><img data-logo alt="Auvell" /></a>
+    <a class="brand" href="index.html"><img src="logo.png?v=4" data-logo alt="Auvell" /></a>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="index.html#list">The list</a>
@@ -47,12 +47,13 @@
       <p class="hint">The sent message always includes whether a referral code was used, and states these are laboratory research materials, not for human or veterinary use.</p>
       <p data-chat-status class="chat-status"></p>
       <p class="channels">
-        <button class="btn solid" type="button" data-chat-channel="whatsapp">Send on WhatsApp</button>
+        <button class="btn solid" type="button" id="send-note">Send on WhatsApp</button>
         <button class="btn" type="button" data-chat-channel="telegram" hidden>Send on Telegram</button>
       </p>
+      <textarea id="enquiry-copy" class="copy-box" readonly placeholder="Your enquiry appears here so you can copy it."></textarea>
     </div>
   </main>
   <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="contact.html">Enquire without a note</a></div></div></footer>
-  <script src="app.js?v=33"></script>
+  <script src="app.js?v=38"></script>
 </body>
 </html>

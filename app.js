@@ -1,8 +1,6 @@
 window.AUVELL = {
-  logo: "logo.png?v=3",
-  // Live 1-1 chat. WhatsApp is the working default. Telegram stays empty until a real username exists — do not invent one.
-  // whatsapp: E.164 digits only, no "+" or spaces.
-  // telegram: username without "@". Leave blank to hide that button.
+  logo: "logo.png?v=4",
+  // WhatsApp is the working default. Telegram stays empty until a real username exists.
   whatsapp: "447836447315",
   telegram: "",
   products: [
@@ -65,10 +63,10 @@ window.AUVELL = {
       id: "hgh",
       name: "HGH",
       image: "vials/hgh.png",
-      sizeLabel: "10 IU",
+      sizeLabel: "36 IU",
       lot: "AUV-HGH",
       reports: 0,
-      sizes: [{ label: "10 IU", typical: 0 }],
+      sizes: [{ label: "36 IU", typical: 46.67 }],
       stage: "Licensed-drug literature. This listing is a research material.",
       study: "<p>HGH in published research is recombinant human growth hormone, also called somatropin. Clinical programmes have studied it in growth-hormone deficiency and in body-composition research under medical supervision.</p><p>That is licensed-drug literature. This listing is a research material only. Auvell does not supply a medicine and will not teach use or dosing.</p>"
     },
@@ -269,27 +267,38 @@ function chatUrl(channel, text) {
   var n = whatsappNumber();
   if (!n) return "";
   // api.whatsapp.com/send is the click-to-chat endpoint; wa.me/<n>?text= is the same number.
-  return "https://api.whatsapp.com/send?phone=" + n + "&text=" + encodeURIComponent(text);
+  return "https://wa.me/" + n + "?text=" + encodeURIComponent(text);
+}
+function showEnquiryCopy(text) {
+  var box = document.getElementById("enquiry-copy");
+  if (!box) {
+    box = document.createElement("textarea");
+    box.id = "enquiry-copy";
+    box.className = "copy-box";
+    box.readOnly = true;
+    var send = document.getElementById("send-note");
+    if (send && send.parentNode) send.parentNode.appendChild(box);
+    else {
+      var channels = document.querySelector(".channels");
+      if (channels && channels.parentNode) channels.parentNode.appendChild(box);
+      else document.body.appendChild(box);
+    }
+  }
+  box.value = text;
+  box.style.display = "block";
+  try { box.focus(); box.select(); } catch (e) {}
 }
 function sendNote(channel) {
   channel = channel === "telegram" ? "telegram" : "whatsapp";
   var text = buildMessage();
   var url = chatUrl(channel, text);
-  copyEnquiry(text).then(function () {
-    if (!url) {
-      var where = channel === "telegram"
-        ? "Telegram username is not set (AUVELL.telegram in app.js)."
-        : "WhatsApp number is not set (AUVELL.whatsapp in app.js).";
-      setChatStatus(where + " Enquiry copied — paste it once the chat is wired.", "warn");
-      return;
-    }
-    window.open(url, "_blank", "noopener");
-    if (channel === "telegram") {
-      setChatStatus("Telegram opened. Enquiry copied — paste it into the private chat if it is not already there.", "ok");
-    } else {
-      setChatStatus("WhatsApp opened with the enquiry written. If the text is missing, paste from the clipboard.", "ok");
-    }
-  });
+  showEnquiryCopy(text);
+  copyEnquiry(text);
+  if (!url) {
+    setChatStatus("Enquiry is on this page so you can copy it.", "warn");
+    return;
+  }
+  window.location.href = url;
 }
 window.sendNote = sendNote;
 window.buildMessage = buildMessage;
@@ -368,8 +377,14 @@ function cartHtml() {
 }
 function bindChrome() {
   document.querySelectorAll("[data-logo]").forEach(function (img) { img.src = window.AUVELL.logo; });
-  var menu = document.querySelector(".menu");
-  if (menu) menu.addEventListener("click", function () { document.body.classList.toggle("menu-open"); });
+  document.addEventListener("click", function (e) {
+    var menuBtn = e.target.closest && e.target.closest(".menu");
+    if (menuBtn) {
+      e.preventDefault();
+      document.body.classList.toggle("menu-open");
+    }
+    if (e.target.closest && e.target.closest(".panel a")) document.body.classList.remove("menu-open");
+  });
   var bag = document.getElementById("open-cart");
   if (bag) bag.addEventListener("click", openCart);
   var close = document.getElementById("close-cart");
@@ -394,10 +409,14 @@ function bindChrome() {
   var gate = document.getElementById("gate");
   if (gate) {
     try {
-      if (sessionStorage.getItem("auvell-in") === "1") {
+      var saved = sessionStorage.getItem("auvell-ref") || "";
+      var codes = (window.AUVELL_CODES || []).map(function (c) { return String(c).trim().toUpperCase(); });
+      if (sessionStorage.getItem("auvell-in") === "1" && codes.indexOf(saved.toUpperCase()) !== -1) {
         gate.className = "gate hide";
         gate.style.display = "none";
         document.body.classList.add("entered");
+      } else {
+        sessionStorage.removeItem("auvell-in");
       }
     } catch (e) {}
   } else {
