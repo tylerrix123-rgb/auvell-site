@@ -37,7 +37,7 @@ body.scrolled .brand img { height:48px; }
 .flag { position:relative; margin:18px auto; width:min(1140px, calc(100% - 40px)); background:#1a2744; color:#f3eee4; border-radius:18px; padding:16px 22px; display:flex; gap:18px; align-items:flex-start; box-shadow:0 12px 30px rgba(26,39,68,.18); }
 .flag b { color:#d7c39a; letter-spacing:.18em; text-transform:uppercase; font-size:.82rem; display:block; margin-bottom:4px; }
 .flag p, .flag div { margin:0; color:#d5d0c6; font-size:.98rem; }
-#keep, #list, #path, #who, #paper, .lab-card { scroll-margin-top: 120px; }
+#keep, #list, #path, #who, #paper { scroll-margin-top: 120px; }
 .meta { display:flex; flex-direction:column; gap:6px; }
 .meta strong { font-size:1.2rem; }
 .meta em { color:var(--gold); font-style:normal; }
@@ -101,10 +101,8 @@ body.entered .storefront { animation: storefront 1.35s ease both; }
 .lots { list-style:none; padding:0; margin:22px 0; max-width:40rem; }
 .lots li { padding:14px 0; border-bottom:1px solid var(--line); }
 .lots .sub { display:block; color:var(--mute); margin-top:4px; }
-.lab-list { margin:28px 0 36px; max-width:46rem; }
-.lab-card { display:flex; justify-content:space-between; gap:18px; align-items:center; padding:22px 0; border-bottom:1px solid var(--line); flex-wrap:wrap; }
-.lab-card h2 { margin:0 0 8px; font-size:2rem; }
-.lab-count { margin:0; color:var(--navy); font-size:1.08rem; }
+.lab-count { color:var(--navy); font-size:1.2rem; font-weight:600; max-width:42rem; }
+.text-link { color:var(--gold); letter-spacing:.06em; }
 @keyframes unlock { from { transform:scale(.92); opacity:0; } to { transform:none; opacity:1; } }
 @keyframes storefront { from { opacity:0; } to { opacity:1; } }
 @media (max-width:860px) { .nav{display:none;} .menu{display:block;} .grid-3{grid-template-columns:1fr;} .flag{flex-direction:column; gap:8px;} }

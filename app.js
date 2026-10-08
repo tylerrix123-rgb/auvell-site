@@ -111,60 +111,6 @@ try { window.AUVELL.basket = JSON.parse(localStorage.getItem("auvell-basket") ||
 catch (e) { window.AUVELL.basket = {}; }
 function money(n) { return n ? "£" + n : "Ask"; }
 function findProduct(id) { return window.AUVELL.products.filter(function (p) { return p.id === id; })[0] || null; }
-function findProductByLot(lot) {
-  return window.AUVELL.products.filter(function (p) { return p.lot === lot; })[0] || null;
-}
-function reportsOnFile(p) {
-  var n = p && typeof p.reports === "number" ? p.reports : 0;
-  if (n === 1) return "1 lab report on file";
-  if (n > 1) return n + " lab reports on file";
-  return "No lab report on file yet";
-}
-function askLabReports(id) {
-  var p = findProduct(id);
-  var q = p
-    ? ("Please send the lab reports on file for " + p.name + " (lot mark " + p.lot + "). " + reportsOnFile(p) + ".")
-    : "Please send the lab reports on file.";
-  try { sessionStorage.setItem("auvell-ask", q); } catch (e) {}
-  window.location.href = "note.html";
-}
-function paintAsk() {
-  var inp = document.getElementById("ask");
-  if (!inp) return;
-  try {
-    var q = sessionStorage.getItem("auvell-ask") || "";
-    if (q && !inp.value) inp.value = q;
-  } catch (e) {}
-}
-function renderLabIndex() {
-  var box = document.getElementById("lab-list");
-  if (!box) return;
-  box.innerHTML = window.AUVELL.products.map(function (p) {
-    return "<article class='lab-card' id='" + p.id + "'>" +
-      "<div><p class='kicker'>Lot mark " + p.lot + "</p><h2>" + p.name + "</h2>" +
-      "<p class='lab-count'>" + reportsOnFile(p) + "</p>" +
-      "<p class='hint'>The reports themselves are not published on this site.</p></div>" +
-      "<p><button class='btn solid' type='button' onclick=\"askLabReports('" + p.id + "')\">Ask on your note</button></p>" +
-      "</article>";
-  }).join("");
-  try {
-    var lot = new URLSearchParams(window.location.search).get("lot");
-    var match = lot && findProductByLot(lot);
-    if (match) {
-      var el = document.getElementById(match.id);
-      if (el) el.scrollIntoView({ block: "start" });
-    }
-  } catch (e) {}
-}
-function renderPaperList() {
-  var box = document.getElementById("paper-list");
-  if (!box) return;
-  box.innerHTML = window.AUVELL.products.map(function (p) {
-    return "<li><strong>" + p.name + "</strong> · " + p.lot + "<span class='sub'>" + reportsOnFile(p) + "</span></li>";
-  }).join("");
-}
-window.askLabReports = askLabReports;
-window.reportsOnFile = reportsOnFile;
 function keyFor(id, size) { return id + "::" + size; }
 function qtyOf(id, size) { return window.AUVELL.basket[keyFor(id, size)] || 0; }
 function persist() { try { localStorage.setItem("auvell-basket", JSON.stringify(window.AUVELL.basket)); } catch (e) {} }
@@ -386,8 +332,7 @@ function openDetail(id) {
         "<div class='study'><p class='kicker'>In published research</p>" + (p.study || "") +
         "<p class='hint'>Educational context only. Not a result promised by this listing. Auvell will not teach reconstitution, stacks or dosages.</p></div>" +
         "<div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div>" +
-        "<p class='ref'>" + reportsOnFile(p) + ". Reports are not published on this page.</p>" +
-        "<p><button class='btn' type='button' onclick=\"askLabReports('" + p.id + "')\">Ask for the reports</button></p>" +
+        "<p><a class='text-link' href='quality.html'>Lab reports are not published here — leave a note</a></p>" +
         "<p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>" +
       "</div>" +
     "</div>";
@@ -441,10 +386,7 @@ function bindChrome() {
   var send = document.getElementById("send-note");
   if (send) send.addEventListener("click", function () { sendNote("whatsapp"); });
   paintName();
-  paintAsk();
   paintChatButtons();
-  renderLabIndex();
-  renderPaperList();
   window.addEventListener("scroll", function () {
     document.body.classList.toggle("scrolled", window.scrollY > 24);
   }, { passive: true });
