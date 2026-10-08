@@ -94,7 +94,7 @@ body.detail-open .modal { display:flex !important; }
 .qty { display:flex; align-items:center; gap:10px; margin:16px 0; }
 .qty button { width:36px; height:36px; border:1px solid var(--line); background:#fffcf7; color:var(--navy); }
 .storefront { opacity:0; }
-body.entered .storefront { animation: storefront 1.35s ease both; }
+body.entered .storefront { opacity:1; animation: storefront 1.35s ease both; }
 .counter { display:flex; justify-content:center; gap:22px; margin:36px auto 0; align-items:flex-end; }
 .lots { list-style:none; padding:0; margin:22px 0; max-width:40rem; }
 .lots li { padding:14px 0; border-bottom:1px solid var(--line); }
