@@ -4,25 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=32" />
-  <link rel="stylesheet" href="glitch.css?v=16" />
+  <link rel="stylesheet" href="site.css?v=33" />
+  <link rel="stylesheet" href="glitch.css?v=17" />
   <script>
+    window.AUVELL_CODES = ["AUVELL-ACCESS"];
     function enterSite() {
       var age = document.getElementById("age");
       var ruo = document.getElementById("ruo");
       var gate = document.getElementById("gate");
       var err = document.getElementById("gate-err");
       var ref = document.getElementById("refcode");
+      var code = ref && ref.value ? ref.value.trim().toUpperCase() : "";
       if (!age || !ruo || !age.checked || !ruo.checked) {
-        if (err) err.style.display = "block";
+        if (err) { err.style.display = "block"; err.textContent = "Tick both boxes, then enter your access code."; }
+        return false;
+      }
+      var ok = window.AUVELL_CODES.map(function (c) { return String(c).trim().toUpperCase(); }).indexOf(code) !== -1;
+      if (!ok) {
+        if (err) { err.style.display = "block"; err.textContent = "That access code is not recognised. Try again."; }
+        if (gate) {
+          gate.classList.remove("glitching", "denied");
+          void gate.offsetWidth;
+          gate.classList.add("glitching", "denied");
+          setTimeout(function () { gate.classList.remove("glitching", "denied"); }, 900);
+        }
         return false;
       }
       try {
         sessionStorage.setItem("auvell-in", "1");
-        if (ref && ref.value) sessionStorage.setItem("auvell-ref", ref.value.trim());
-        else sessionStorage.setItem("auvell-ref", "");
+        sessionStorage.setItem("auvell-ref", code);
       } catch (e) {}
       if (gate) {
+        gate.classList.remove("denied");
         gate.classList.add("glitching");
         setTimeout(function () {
           document.body.classList.add("entered");
@@ -43,14 +56,14 @@
   <div id="gate" class="gate">
     <div class="glitch" aria-hidden="true"><span class="glitch-word">AUVELL</span></div>
     <div class="gate-card">
-      <img class="gate-logo" data-logo alt="Auvell" />
+      <img class="gate-logo" src="logo.png?v=4" alt="Auvell" />
       <p class="kicker">Auvell</p>
       <h2>Before you enter</h2>
-      <p>Two ticks. Then the list. You must be 21 or over, and this is a research enquiry only.</p>
+      <p>Two ticks, then your access code. The list stays closed without it. You must be 21 or over, and this is a research enquiry only.</p>
       <label class="check"><input id="age" type="checkbox" /> I am 21 or over.</label>
       <label class="check"><input id="ruo" type="checkbox" /> Research use only. Not for human or veterinary use.</label>
-      <label class="check" style="display:block;text-align:left">Referral code (optional)<input id="refcode" type="text" placeholder="If you have one" style="margin-top:8px;width:100%" /></label>
-      <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes, then press Enter site.</p>
+      <label class="check" style="display:block;text-align:left">Access referral code<input id="refcode" type="text" placeholder="Required to enter" autocomplete="off" style="margin-top:8px;width:100%" /></label>
+      <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes and enter a valid access code.</p>
       <p><button class="btn solid" type="button" onclick="enterSite()">Enter site</button></p>
     </div>
   </div>
@@ -144,6 +157,6 @@
     </section>
   </main>
   <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="note.html">Your note</a></div></div></footer>
-  <script src="app.js?v=31"></script>
+  <script src="app.js?v=33"></script>
 </body>
 </html>
