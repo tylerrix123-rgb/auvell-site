@@ -18,3 +18,11 @@
 .gate.denied .glitch-word:after { color:#ffb4b4; }
 .gate.denied .gate-card { animation:deny .7s steps(2) both; }
 @keyframes deny { 0%{transform:none} 20%{transform:translate(-10px,2px)} 40%{transform:translate(8px,-3px)} 70%{transform:translate(-6px,1px)} 100%{transform:none} }
+
+.gate.granted .glitch { display:grid; place-items:center; animation:grantfade .7s ease both; }
+.gate.granted .glitch-word { color:#e8fff4; text-shadow:5px 0 #3dff8a,-5px 0 #4d8cff; animation:glitchtext .7s steps(2) both; }
+.gate.granted .glitch-word:before { color:#3dff8a; animation:glitchshift .7s steps(2) both; }
+.gate.granted .glitch-word:after { color:#4d8cff; animation:glitchshift2 .7s steps(2) both; }
+.gate.granted .gate-card { animation:grantcard .55s steps(2) both; }
+@keyframes grantfade { 0%{opacity:0} 12%{opacity:1} 70%{opacity:1} 100%{opacity:0} }
+@keyframes grantcard { 0%{filter:none} 30%{filter:hue-rotate(80deg)} 60%{filter:hue-rotate(200deg)} 100%{filter:none; opacity:0} }
