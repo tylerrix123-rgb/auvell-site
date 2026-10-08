@@ -423,6 +423,66 @@ function bindChrome() {
     document.body.classList.add("entered");
   }
 }
+
+function bindWheel() {
+  var wheel = document.querySelector(".wheel");
+  if (!wheel || wheel.dataset.bound) return;
+  var track = wheel.querySelector(".wheel-track");
+  if (!track) return;
+  wheel.dataset.bound = "1";
+  var x = 0, dragging = false, startX = 0, startOff = 0, moved = 0, last = 0;
+  function half() { return track.scrollWidth / 2; }
+  function wrap() {
+    var h = half();
+    if (!h) return;
+    while (x > 0) x -= h;
+    while (x <= -h) x += h;
+  }
+  function draw() { track.style.transform = "translateX(" + x + "px)"; }
+  function tick(t) {
+    if (!dragging) {
+      var dt = last ? Math.min(32, t - last) : 16;
+      x -= dt * 0.045;
+      wrap();
+      draw();
+    }
+    last = t;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  wheel.addEventListener("pointerdown", function (e) {
+    if (e.button !== undefined && e.button !== 0) return;
+    dragging = true;
+    moved = 0;
+    startX = e.clientX;
+    startOff = x;
+    wheel.classList.add("dragging");
+    try { wheel.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  wheel.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    moved = Math.max(moved, Math.abs(dx));
+    x = startOff + dx;
+    wrap();
+    draw();
+  });
+  function openAt(e) {
+    var item = e.target.closest && e.target.closest("[data-id]");
+    if (item && window.openDetail) window.openDetail(item.getAttribute("data-id"));
+  }
+  wheel.addEventListener("pointerup", function (e) {
+    if (!dragging) return;
+    dragging = false;
+    wheel.classList.remove("dragging");
+    if (moved < 10) openAt(e);
+  });
+  wheel.addEventListener("pointercancel", function () { dragging = false; wheel.classList.remove("dragging"); });
+  wheel.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openAt(e); }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  cartHtml(); bindChrome(); renderBasket(); observeReveal();
+  cartHtml(); bindChrome(); renderBasket(); observeReveal(); bindWheel();
 });
