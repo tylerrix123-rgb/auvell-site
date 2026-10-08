@@ -11,3 +11,10 @@
 @keyframes glitchshift{0%{transform:translate(0)}30%{transform:translate(-10px,3px)}60%{transform:translate(8px,-4px)}100%{transform:translate(0)}}
 @keyframes glitchshift2{0%{transform:translate(0)}30%{transform:translate(9px,-2px)}60%{transform:translate(-7px,5px)}100%{transform:translate(0)}}
 @media (prefers-reduced-motion:reduce){.gate.glitching .glitch,.gate.glitching .gate-card,.glitch-word,.glitch-word:before,.glitch-word:after{animation:none}.gate.glitching .glitch{display:none}}
+
+.gate.denied { background:#3a1218; }
+.gate.denied .glitch-word { color:#ffd0d0; text-shadow:4px 0 #ff4d4d,-4px 0 #7a1020; }
+.gate.denied .glitch-word:before { color:#ff4d4d; }
+.gate.denied .glitch-word:after { color:#ffb4b4; }
+.gate.denied .gate-card { animation:deny .7s steps(2) both; }
+@keyframes deny { 0%{transform:none} 20%{transform:translate(-10px,2px)} 40%{transform:translate(8px,-3px)} 70%{transform:translate(-6px,1px)} 100%{transform:none} }
