@@ -9,7 +9,6 @@ h1,h2,h3 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:600; }
 .wrap { width:min(1140px, calc(100% - 40px)); margin:0 auto; }
 .top { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 28px; background:rgba(243,238,228,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); transition: all .45s cubic-bezier(.22,.8,.28,1); }
 body.scrolled .top { top:10px; margin:0 14px; padding:10px 22px; border:1px solid rgba(176,141,74,.45); border-radius:999px; background:rgba(255,252,247,.92); box-shadow:0 10px 40px rgba(26,39,68,.12); }
-.brand img, .hero .mark, .gate-logo { background:transparent; mix-blend-mode:multiply; }
 .brand img { height:78px; width:auto; object-fit:contain; transition:height .35s ease; background:transparent; }
 body.scrolled .brand img { height:48px; }
 .nav { display:flex; gap:22px; font-size:.95rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); font-weight:500; }
