@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=43" />
+  <link rel="stylesheet" href="site.css?v=44" />
   <link rel="stylesheet" href="glitch.css?v=19" />
   <script>
     window.AUVELL_CODES = ["JOSH", "TY", "BRAD", "WARDEN", "MAX", "SAUN", "MIKE"];
@@ -166,34 +166,41 @@
     var wheel = document.querySelector(".wheel");
     var track = wheel && wheel.querySelector(".wheel-track");
     if (!wheel || !track) return;
-    var x = 0, dragging = false, sx = 0, so = 0, moved = 0, last = 0;
+    var x = 0, holding = false, swiping = false, sx = 0, so = 0, moved = 0, last = 0, holdTimer = 0;
     function half() { return track.scrollWidth / 2 || 1; }
     function wrap() { var h = half(); while (x > 0) x -= h; while (x <= -h) x += h; }
     function draw() { track.style.transform = "translate3d(" + x + "px,0,0)"; }
     function tick(t) {
-      if (!dragging) { x -= Math.min(32, t - (last || t)) * 0.05; wrap(); draw(); }
+      if (!holding) { x -= Math.min(32, t - (last || t)) * 0.05; wrap(); draw(); }
       last = t; requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
     wheel.addEventListener("pointerdown", function (e) {
-      dragging = true; moved = 0; sx = e.clientX; so = x;
+      holding = true; swiping = false; moved = 0; sx = e.clientX; so = x;
+      var item = e.target.closest && e.target.closest(".wheel-item");
+      wheel.querySelectorAll(".wheel-item.lit").forEach(function (n) { n.classList.remove("lit"); });
+      if (item) item.classList.add("lit");
+      clearTimeout(holdTimer);
+      holdTimer = setTimeout(function () { swiping = true; wheel.classList.add("swiping"); }, 220);
     });
     wheel.addEventListener("pointermove", function (e) {
-      if (!dragging) return;
-      var dx = e.clientX - sx;
-      moved = Math.abs(dx);
-      if (moved < 18) return;
-      x = so + dx; wrap(); draw();
+      if (!holding) return;
+      moved = Math.abs(e.clientX - sx);
+      if (!swiping && moved > 16) { swiping = true; wheel.classList.add("swiping"); clearTimeout(holdTimer); }
+      if (!swiping) return;
+      x = so + (e.clientX - sx); wrap(); draw();
     });
-    wheel.addEventListener("pointerup", function (e) {
-      var was = moved;
-      dragging = false;
-      if (was > 18) { moved = 0; return; }
+    function end(e) {
+      if (!holding) return;
+      holding = false;
+      clearTimeout(holdTimer);
+      wheel.classList.remove("swiping");
       var item = e.target.closest && e.target.closest("[data-id]");
-      if (item && window.openDetail) window.openDetail(item.getAttribute("data-id"));
-      moved = 0;
-    });
-    wheel.addEventListener("pointercancel", function () { dragging = false; moved = 0; });
+      if (!swiping && moved < 12 && item && window.openDetail) window.openDetail(item.getAttribute("data-id"));
+      swiping = false; moved = 0;
+    }
+    wheel.addEventListener("pointerup", end);
+    wheel.addEventListener("pointercancel", function () { holding = false; swiping = false; wheel.classList.remove("swiping"); clearTimeout(holdTimer); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
