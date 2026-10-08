@@ -1,5 +1,5 @@
 window.AUVELL = {
-  logo: "logo.png?v=3",
+  logo: "logo.png?v=4",
   whatsapp: "",
   products: [
     {
@@ -254,10 +254,14 @@ function bindChrome() {
   var gate = document.getElementById("gate");
   if (gate) {
     try {
-      if (sessionStorage.getItem("auvell-in") === "1") {
+      var saved = sessionStorage.getItem("auvell-ref") || "";
+      var codes = (window.AUVELL_CODES || []).map(function (c) { return String(c).trim().toUpperCase(); });
+      if (sessionStorage.getItem("auvell-in") === "1" && codes.indexOf(saved.toUpperCase()) !== -1) {
         gate.className = "gate hide";
         gate.style.display = "none";
         document.body.classList.add("entered");
+      } else {
+        sessionStorage.removeItem("auvell-in");
       }
     } catch (e) {}
   } else {
