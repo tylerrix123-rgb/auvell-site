@@ -136,3 +136,10 @@ body:not(.entered) .storefront,
 body:not(.entered) .foot,
 body:not(.entered) .flag { visibility:hidden; }
 .gate { z-index:80; }
+
+.wheel-item { transition: transform .25s ease, filter .25s ease; }
+.wheel-item img { transition: transform .25s ease, filter .25s ease; }
+.wheel-item:hover, .wheel-item.lit { transform: translateY(-8px); }
+.wheel-item:hover img, .wheel-item.lit img { transform: scale(1.06); filter: drop-shadow(0 12px 16px rgba(26,39,68,.18)) drop-shadow(0 0 0 #b08d4a); outline: 2px solid #b08d4a; outline-offset: 6px; border-radius: 18px; }
+.wheel.swiping { cursor: grabbing; }
+.wheel.swiping .wheel-item { cursor: grabbing; }
