@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auvell</title>
-  <link rel="stylesheet" href="site.css?v=34" />
+  <link rel="stylesheet" href="site.css?v=35" />
   <link rel="stylesheet" href="glitch.css?v=18" />
   <script>
     window.AUVELL_CODES = ["JOSH"];
@@ -14,7 +14,7 @@
       var gate = document.getElementById("gate");
       var err = document.getElementById("gate-err");
       var ref = document.getElementById("refcode");
-      var code = ref && ref.value ? ref.value.trim().toUpperCase() : "";
+      var code = ref && ref.value ? ref.value.replace(/\s+/g, "").toUpperCase() : "";
       if (!age || !ruo || !age.checked || !ruo.checked) {
         if (err) { err.style.display = "block"; err.textContent = "Tick both boxes, then enter your access code."; }
         return false;
@@ -65,6 +65,7 @@
       <label class="check" style="display:block;text-align:left">Access referral code<input id="refcode" type="text" placeholder="Required to enter" autocomplete="off" style="margin-top:8px;width:100%" /></label>
       <p id="gate-err" style="display:none;color:#b08d4a">Tick both boxes and enter a valid access code.</p>
       <p><button class="btn solid" type="button" onclick="enterSite()">Enter site</button></p>
+      <script>document.getElementById("refcode").addEventListener("keydown", function (e) { if (e.key === "Enter") enterSite(); });</script>
     </div>
   </div>
   <header class="top">
@@ -157,6 +158,6 @@
     </section>
   </main>
   <footer class="foot"><div class="wrap"><div>Auvell · research enquiries only</div><div><a href="note.html">Your note</a></div></div></footer>
-  <script src="app.js?v=34"></script>
+  <script src="app.js?v=35"></script>
 </body>
 </html>
