@@ -6,6 +6,8 @@ window.AUVELL = {
   products: [
     {
       id: "mt2",
+      added: "28 Sep 2026",
+      updated: "22 Oct 2026",
       name: "Melanotan 2",
       image: "vials/mt2.png?v=2",
       sizeLabel: "10 mg",
@@ -17,6 +19,8 @@ window.AUVELL = {
     },
     {
       id: "ghkcu",
+      added: "28 Sep 2026",
+      updated: "22 Oct 2026",
       name: "GHK-Cu",
       image: "vials/ghkcu.png?v=2",
       sizeLabel: "100 mg",
@@ -28,6 +32,8 @@ window.AUVELL = {
     },
     {
       id: "water",
+      added: "28 Sep 2026",
+      updated: "22 Oct 2026",
       name: "Bacteriostatic water",
       image: "vials/water.png?v=2",
       sizeLabel: "10 mL",
@@ -39,6 +45,8 @@ window.AUVELL = {
     },
     {
       id: "blend",
+      added: "28 Sep 2026",
+      updated: "22 Oct 2026",
       name: "KPV / BPC-157 / TB-500",
       image: "vials/blend.png?v=2",
       sizeLabel: "30 mg total · 10 mg of each",
@@ -50,6 +58,8 @@ window.AUVELL = {
     },
     {
       id: "reta",
+      added: "28 Sep 2026",
+      updated: "22 Oct 2026",
       name: "Retatrutide",
       image: "vials/reta.png?v=2",
       sizeLabel: "30 mg",
@@ -61,6 +71,8 @@ window.AUVELL = {
     },
     {
       id: "hgh",
+      added: "8 Oct 2026",
+      updated: "22 Oct 2026",
       name: "HGH",
       image: "vials/hgh.png",
       sizeLabel: "36 IU · 108 IU also listed",
@@ -72,6 +84,8 @@ window.AUVELL = {
     },
     {
       id: "motsc",
+      added: "8 Oct 2026",
+      updated: "22 Oct 2026",
       name: "MOTS-c",
       image: "vials/motsc.png",
       sizeLabel: "10 mg",
@@ -83,6 +97,8 @@ window.AUVELL = {
     },
     {
       id: "selank",
+      added: "8 Oct 2026",
+      updated: "22 Oct 2026",
       name: "Selank & Semax",
       image: "vials/selank.png",
       sizeLabel: "10 mg / 10 mg",
@@ -94,6 +110,8 @@ window.AUVELL = {
     },
     {
       id: "nad",
+      added: "8 Oct 2026",
+      updated: "22 Oct 2026",
       name: "NAD+",
       image: "vials/nad.png",
       sizeLabel: "500 mg",
@@ -342,12 +360,16 @@ function openDetail(id) {
         "<p class='hint'>Educational context only. Not a result promised by this listing. Auvell will not teach reconstitution, stacks or dosages.</p></div>" +
         "<div class='qty'><button type='button' onclick=\"setQty('" + p.id + "','" + first.label + "'," + (q-1) + ")\">−</button><b>" + q + "</b><button type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">+</button></div>" +
         "<p><a class='text-link' href='quality.html'>Lab reports are not published here — leave a note</a></p>" +
-        "<p><button class='btn solid' type='button' onclick=\"addOne('" + p.id + "','" + first.label + "')\">Add to note</button> <button class='btn' type='button' onclick='closeDetail()'>Close</button></p>" +
+        "<p class='hint'>Research notes added " + (p.added || "") + " · last updated " + (p.updated || "") + "</p>" +
+        "<p><button class='btn solid' type='button' onclick=\"addToNotes('" + p.id + "','" + first.label + "')\">Add to notes</button></p>" +
+        "<p><a class='btn' href='note.html'>Go to notes overview</a></p>" +
       "</div>" +
     "</div>";
   document.body.classList.add("detail-open");
 }
 function closeDetail() { document.body.classList.remove("detail-open"); }
+function addToNotes(id, size) { setQty(id, size, qtyOf(id, size) + 1); closeDetail(); }
+window.addToNotes = addToNotes;
 window.openDetail = openDetail;
 window.closeDetail = closeDetail;
 window.addOne = addOne;
