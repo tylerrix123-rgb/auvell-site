@@ -113,8 +113,8 @@ body.entered .storefront { opacity:1; animation: storefront 1.35s ease both; }
 .wheel-item { cursor:pointer; }
 .wheel-set { display:flex; gap:36px; padding-right:36px; }
 .wheel-item { margin:0; width:196px; flex:0 0 196px; text-align:center; }
-.wheel-item img { width:150px; height:186px; object-fit:contain; margin:0 auto; }
-.wheel-item figcaption { margin-top:10px; color:var(--navy); font-size:.95rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+.wheel-item img { width:176px; height:214px; object-fit:contain; margin:0 auto; }
+.wheel-item figcaption { margin-top:12px; color:var(--navy); font-size:1.28rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
 @keyframes wheel { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 @media (prefers-reduced-motion:reduce) { .wheel-track { animation:wheel 80s linear infinite; } }
 
@@ -145,3 +145,6 @@ body:not(.entered) .flag { visibility:hidden; }
 .wheel.swiping .wheel-item { cursor: grabbing; }
 
 .top { background:rgba(243,238,228,.94); }
+
+.vial-label { position:absolute; left:50%; top:52px; transform:translateX(-50%); width:50px; text-align:center; color:#fff; font-size:.68rem; font-weight:700; letter-spacing:.02em; line-height:1.15; pointer-events:none; }
+.vial-ph.water .vial-label { color:#1a2744; }
